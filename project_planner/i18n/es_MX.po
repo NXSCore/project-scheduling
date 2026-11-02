@@ -4,10 +4,10 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 18.0+e-20261015\n"
+"Project-Id-Version: Odoo Server 18.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-02 04:57+0000\n"
-"PO-Revision-Date: 2026-11-02 04:57+0000\n"
+"POT-Creation-Date: 2026-11-02 23:07+0000\n"
+"PO-Revision-Date: 2026-11-02 23:07+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -706,9 +706,16 @@ msgstr "Ruta trazada (Esc para quitar)"
 #: code:addons/project_planner/static/src/planner/planner_view.js:0
 #: model:ir.model.fields.selection,name:project_planner.selection__ir_actions_act_window_view__view_mode__planner
 #: model:ir.model.fields.selection,name:project_planner.selection__ir_ui_view__type__planner
+#: model_terms:ir.ui.view,arch_db:project_planner.project_project_view_form_planner
 #: model_terms:ir.ui.view,arch_db:project_planner.project_task_view_planner
 msgid "Planner"
 msgstr "Planificador"
+
+#. module: project_planner
+#. odoo-python
+#: code:addons/project_planner/models/project_project.py:0
+msgid "Planner: %s"
+msgstr "Planificador: %s"
 
 #. module: project_planner
 #. odoo-javascript
@@ -721,6 +728,11 @@ msgstr "Predecesoras"
 #: code:addons/project_planner/static/src/planner/planner.js:0
 msgid "Progress"
 msgstr "Avance"
+
+#. module: project_planner
+#: model:ir.model,name:project_planner.model_project_project
+msgid "Project"
+msgstr "Proyectos"
 
 #. module: project_planner
 #. odoo-javascript

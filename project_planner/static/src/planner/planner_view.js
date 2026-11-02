@@ -28,9 +28,14 @@ export class PlannerAction extends Component {
         // Genérica. `params.domain` (las tareas a mostrar) o
         // `params.project_id` (un `project.project`); un módulo de
         // extensión solo arma el dominio.
+        // Al recargar la página, Odoo rehace la acción cliente desde la URL y
+        // solo conserva `active_id`: de ahí se recupera el proyecto (lo pone
+        // `project.project.action_open_planner`). Sin esto, el planificador
+        // mostraría todas las tareas.
         const orm = useService("orm");
         const params = this.props.action?.params || {};
-        const domain = params.domain || (params.project_id ? [["project_id", "=", params.project_id]] : []);
+        const projectId = params.project_id || this.props.action?.context?.active_id;
+        const domain = params.domain || (projectId ? [["project_id", "=", projectId]] : []);
         this.domain = domain;
         this.fetch = () => orm.call("project.task", "planner_data", [domain]);
     }

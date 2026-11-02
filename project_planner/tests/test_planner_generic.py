@@ -147,6 +147,23 @@ class TestPlannerGeneric(TransactionCase):
         accion = self.env.ref("project.act_project_project_2_project_task_all")
         self.assertIn("planner", accion.view_ids.mapped("view_mode"))
 
+    def test_the_project_form_opens_the_planner(self):
+        """Botón «Planificador» en la ficha del proyecto (también en Community):
+        acción cliente con el proyecto en `params` y en `active_id`, que es lo
+        único que sobrevive a recargar la página."""
+        accion = self.proyecto.with_user(self.capturista).action_open_planner()
+        self.assertEqual((accion["type"], accion["tag"]), ("ir.actions.client", "schedule_planner"))
+        self.assertEqual(accion["params"]["project_id"], self.proyecto.id)
+        self.assertEqual(accion["context"]["active_id"], self.proyecto.id)
+        vista = self.env.ref("project_planner.project_project_view_form_planner")
+        self.assertIn('name="action_open_planner"', vista.arch_db)
+
+    def test_a_private_project_is_not_opened_for_a_non_follower(self):
+        """El botón no abre un proyecto que el usuario no puede ver."""
+        privado = self.env["project.project"].create({"name": "Privado", "privacy_visibility": "followers"})
+        with self.assertRaises(AccessError):
+            privado.with_user(self.capturista).action_open_planner()
+
     def test_a_user_without_project_rights_gets_nothing(self):
         ajeno = self.env["res.users"].create({"name": "sched sin proyecto", "login": "sched_none",
                                               "groups_id": [(6, 0, [self.env.ref("base.group_user").id])]})
