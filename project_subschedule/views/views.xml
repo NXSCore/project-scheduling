@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="project_task_view_form_stage_subschedule" model="ir.ui.view">
+        <field name="name">project.task.form.stage.subschedule</field>
+        <field name="model">project.task</field>
+        <field name="inherit_id" ref="project.view_task_form2"/>
+        <field name="arch" type="xml">
+            <xpath expr="//header" position="inside">
+                <button name="action_open_stage_subschedule" type="object" string="Stage Schedule"
+                        invisible="not effective_phase_id"/>
+            </xpath>
+            <xpath expr="//div[@id='date_deadline_and_recurring_task']" position="after">
+                <field name="phase_id"/>
+                <field name="effective_phase_id" invisible="not effective_phase_id or phase_id"/>
+            </xpath>
+        </field>
+    </record>
+    <record id="project_task_view_search_stage_subschedule" model="ir.ui.view">
+        <field name="name">project.task.search.stage.subschedule</field>
+        <field name="model">project.task</field>
+        <field name="inherit_id" ref="project.view_task_search_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//search" position="inside">
+                <field name="effective_phase_id"/>
+                <filter name="group_effective_phase" string="Stage Subschedule"
+                        context="{'group_by': 'effective_phase_id'}"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

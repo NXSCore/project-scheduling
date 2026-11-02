@@ -1,0 +1,15 @@
+<grammar xmlns="http://relaxng.org/ns/structure/1.0" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes">
+    <start>
+        <element name="planner">
+            <optional><attribute name="string"/></optional>
+            <optional><attribute name="js_class"/></optional>
+            <optional><attribute name="sample"/></optional>
+            <zeroOrMore>
+                <element name="field">
+                    <attribute name="name"/>
+                    <zeroOrMore><attribute><anyName><except><name>name</name></except></anyName></attribute></zeroOrMore>
+                </element>
+            </zeroOrMore>
+        </element>
+    </start>
+</grammar>

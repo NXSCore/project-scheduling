@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="project_planner_report_wizard_view_form" model="ir.ui.view">
+        <field name="name">project.planner.report.wizard.view.form</field>
+        <field name="model">project.planner.report.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Planner PDF Report">
+                <field name="domain" invisible="1"/>
+                <field name="view_date_from" invisible="1"/>
+                <field name="view_date_to" invisible="1"/>
+                <field name="collapsed_ids" invisible="1"/>
+                <div class="d-flex gap-4 mb-3">
+                    <div><div class="text-muted small">Tasks</div><field name="task_count" class="fs-4 fw-bold"/></div>
+                    <div><div class="text-muted small">Leaf Tasks</div><field name="leaf_count" class="fs-4 fw-bold"/></div>
+                    <div><div class="text-muted small">Critical</div><field name="critical_count" class="fs-4 fw-bold text-danger"/></div>
+                    <div><div class="text-muted small">Links</div><field name="link_count" class="fs-4 fw-bold"/></div>
+                </div>
+                <group>
+                    <group string="Document">
+                        <field name="title"/>
+                        <field name="company_name"/>
+                        <field name="author"/>
+                        <field name="paper"/>
+                        <field name="orientation" widget="radio" options="{'horizontal': true}"/>
+                        <field name="font_scale"/>
+                    </group>
+                    <group string="Timeline">
+                        <field name="bar_colors"/>
+                        <field name="status_line"/>
+                        <field name="follow_view"/>
+                        <field name="fit_to_paper"/>
+                        <field name="timeline_pages" invisible="not fit_to_paper"/>
+                        <field name="scale" invisible="fit_to_paper"/>
+                        <field name="workdays_only"/>
+                    </group>
+                    <group string="Show">
+                        <field name="repeat_header"/>
+                        <field name="names_on_bars"/>
+                        <field name="show_progress"/>
+                        <field name="show_baseline"/>
+                    </group>
+                    <group string="&#160;">
+                        <field name="show_float"/>
+                        <field name="show_links"/>
+                        <field name="shade_weekends" invisible="workdays_only"/>
+                        <field name="show_legend"/>
+                    </group>
+                </group>
+                <footer>
+                    <button name="action_export" type="object" string="Export PDF" class="btn-primary" icon="fa-file-pdf-o"/>
+                    <button string="Close" special="cancel" class="btn-secondary"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="project_planner_report_wizard_action" model="ir.actions.act_window">
+        <field name="name">Report</field>
+        <field name="res_model">project.planner.report.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+</odoo>

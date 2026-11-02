@@ -1,0 +1,560 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* project_planner_report
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 19.0+e-20260926\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-02 04:22+0000\n"
+"PO-Revision-Date: 2026-11-02 04:22+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: project_planner_report
+#: model:ir.model.fields.selection,name:project_planner_report.selection__project_planner_report_wizard__paper__a3
+msgid "A3"
+msgstr ""
+
+#. module: project_planner_report
+#: model:ir.model.fields.selection,name:project_planner_report.selection__project_planner_report_wizard__paper__a4
+msgid "A4"
+msgstr ""
+
+#. module: project_planner_report
+#. odoo-python
+#: code:addons/project_planner_report/models/report_wizard.py:0
+msgid "Actual Finish"
+msgstr "Fin real"
+
+#. module: project_planner_report
+#. odoo-python
+#: code:addons/project_planner_report/models/report_wizard.py:0
+msgid "Actual Start"
+msgstr "Inicio real"
+
+#. module: project_planner_report
+#. odoo-python
+#: code:addons/project_planner_report/models/report_wizard.py:0
+msgid "Assignees"
+msgstr "Responsables"
+
+#. module: project_planner_report
+#. odoo-python
+#: code:addons/project_planner_report/models/report_wizard.py:0
+#: model:ir.model.fields,field_description:project_planner_report.field_project_planner_report_wizard__author
+msgid "Author"
+msgstr "Autor"
+
+#. module: project_planner_report
+#: model:ir.model.fields,field_description:project_planner_report.field_project_planner_report_wizard__bar_colors
+msgid "Bar Colors"
+msgstr "Colores de barras"
+
+#. module: project_planner_report
+#. odoo-python
+#: code:addons/project_planner_report/models/report_wizard.py:0
+msgid "Baseline"
+msgstr "Línea base"
+
+#. module: project_planner_report
+#. odoo-python
+#: code:addons/project_planner_report/models/report_wizard.py:0
+msgid "Baseline Finish"
+msgstr "Fin de línea base"
+
+#. module: project_planner_report
+#. odoo-python
+#: code:addons/project_planner_report/models/report_wizard.py:0
+msgid "Baseline Start"
+msgstr "Inicio de línea base"
+
+#. module: project_planner_report
+#: model:ir.model.fields,help:project_planner_report.field_project_planner_report_wizard__font_scale
+msgid "Between 50 and 200."
+msgstr "Entre 50 y 200."
+
+#. module: project_planner_report
+#: model_terms:ir.ui.view,arch_db:project_planner_report.project_planner_report_wizard_view_form
+msgid "Close"
+msgstr "Cerrar"
+
+#. module: project_planner_report
+#: model:ir.model.fields,field_description:project_planner_report.field_project_planner_report_wizard__collapsed_ids
+msgid "Collapsed"
+msgstr "Plegadas"
+
+#. module: project_planner_report
+#: model:ir.model.fields,field_description:project_planner_report.field_project_planner_report_wizard__company_name
+msgid "Company"
+msgstr "Empresa"
+
+#. module: project_planner_report
+#: model:ir.model.fields,field_description:project_planner_report.field_project_planner_report_wizard__compare_ids
+msgid "Compare"
+msgstr "Comparar"
+
+#. module: project_planner_report
+#. odoo-python
+#: code:addons/project_planner_report/models/report_wizard.py:0
+msgid "Constraint"
+msgstr "Restricción"
+
+#. module: project_planner_report
+#: model:ir.model.fields,field_description:project_planner_report.field_project_planner_report_wizard__create_uid
+msgid "Created by"
+msgstr "Creado por"
+
+#. module: project_planner_report
+#: model:ir.model.fields,field_description:project_planner_report.field_project_planner_report_wizard__create_date
+msgid "Created on"
+msgstr "Creado el"
+
+#. module: project_planner_report
+#. odoo-python
+#: code:addons/project_planner_report/models/report_wizard.py:0
+msgid "Crit."
+msgstr "Crít."
+
+#. module: project_planner_report
+#: model:ir.model.fields,field_description:project_planner_report.field_project_planner_report_wizard__critical_count
+#: model_terms:ir.ui.view,arch_db:project_planner_report.project_planner_report_wizard_view_form
+msgid "Critical"
+msgstr "Críticas"
+
+#. module: project_planner_report
+#: model:ir.model.fields.selection,name:project_planner_report.selection__project_planner_report_wizard__bar_colors__critical
+msgid "Critical path"
+msgstr "Ruta crítica"
+
+#. module: project_planner_report
+#. odoo-python
+#: code:addons/project_planner_report/models/report_wizard.py:0
+msgid "Critical task"
+msgstr "Tarea crítica"
+
+#. module: project_planner_report
+#: model:ir.model.fields.selection,name:project_planner_report.selection__project_planner_report_wizard__scale__day
+msgid "Days"
+msgstr "Días"
+
+#. module: project_planner_report
+#. odoo-python
+#: code:addons/project_planner_report/models/report_wizard.py:0
+msgid "Deadline"
+msgstr "Fecha límite"
+
+#. module: project_planner_report
+#: model:ir.model.fields,field_description:project_planner_report.field_project_planner_report_wizard__show_links
+msgid "Dependencies"
+msgstr "Dependencias"
+
+#. module: project_planner_report
+#: model:ir.model.fields,field_description:project_planner_report.field_project_planner_report_wizard__display_name
+msgid "Display Name"
+msgstr "Nombre mostrado"
+
+#. module: project_planner_report
+#: model_terms:ir.ui.view,arch_db:project_planner_report.project_planner_report_wizard_view_form
+msgid "Document"
+msgstr "Documento"
+
+#. module: project_planner_report
+#: model:ir.model.fields,field_description:project_planner_report.field_project_planner_report_wizard__domain
+msgid "Domain"
+msgstr "Dominio"
+
+#. module: project_planner_report
+#. odoo-python
+#: code:addons/project_planner_report/models/report_wizard.py:0
+msgid "Duration"
+msgstr "Duración"
+
+#. module: project_planner_report
+#: model_terms:ir.ui.view,arch_db:project_planner_report.project_planner_report_wizard_view_form
+msgid "Export PDF"
+msgstr "Exportar PDF"
+
+#. module: project_planner_report
+#. odoo-javascript
+#: code:addons/project_planner_report/static/src/planner_report.xml:0
+msgid "Export the schedule to PDF"
+msgstr "Exportar el cronograma a PDF"
+
+#. module: project_planner_report
+#: model:ir.model.fields,field_description:project_planner_report.field_project_planner_report_wizard__filter_ids
+msgid "Filter"
+msgstr "Filtro"
+
+#. module: project_planner_report
+#. odoo-python
+#: code:addons/project_planner_report/models/report_wizard.py:0
+msgid "Finish"
+msgstr "Fin"
+
+#. module: project_planner_report
+#: model:ir.model.fields,field_description:project_planner_report.field_project_planner_report_wizard__fit_to_paper
+msgid "Fit to Paper"
+msgstr "Ajuste automático al papel"
+
+#. module: project_planner_report
+#. odoo-python
+#: code:addons/project_planner_report/models/report_wizard.py:0
+msgid "Float"
+msgstr "Holgura"
+
+#. module: project_planner_report
+#: model:ir.model.fields,field_description:project_planner_report.field_project_planner_report_wizard__follow_view
+msgid "Follow the View"
+msgstr "Seguir la vista"
+
+#. module: project_planner_report
+#: model:ir.model.fields,field_description:project_planner_report.field_project_planner_report_wizard__font_scale
+msgid "Font Size (%)"
+msgstr "Tamaño de letra (%)"
+
+#. module: project_planner_report
+#. odoo-python
+#: code:addons/project_planner_report/models/report_wizard.py:0
+msgid "Free Float"
+msgstr "Holgura libre"
+
+#. module: project_planner_report
+#: model:ir.model.fields,field_description:project_planner_report.field_project_planner_report_wizard__id
+msgid "ID"
+msgstr ""
+
+#. module: project_planner_report
+#: model:ir.model.fields.selection,name:project_planner_report.selection__project_planner_report_wizard__orientation__landscape
+msgid "Landscape"
+msgstr "Horizontal"
+
+#. module: project_planner_report
+#: model:ir.model.fields,field_description:project_planner_report.field_project_planner_report_wizard__write_uid
+msgid "Last Updated by"
+msgstr "Última actualización por"
+
+#. module: project_planner_report
+#: model:ir.model.fields,field_description:project_planner_report.field_project_planner_report_wizard__write_date
+msgid "Last Updated on"
+msgstr "Última actualización el"
+
+#. module: project_planner_report
+#: model:ir.model.fields,field_description:project_planner_report.field_project_planner_report_wizard__leaf_count
+#: model_terms:ir.ui.view,arch_db:project_planner_report.project_planner_report_wizard_view_form
+msgid "Leaf Tasks"
+msgstr "Tareas hoja"
+
+#. module: project_planner_report
+#: model:ir.model.fields,field_description:project_planner_report.field_project_planner_report_wizard__show_legend
+msgid "Legend"
+msgstr "Leyenda"
+
+#. module: project_planner_report
+#: model:ir.model.fields.selection,name:project_planner_report.selection__project_planner_report_wizard__paper__letter
+msgid "Letter"
+msgstr "Carta"
+
+#. module: project_planner_report
+#: model:ir.model.fields,field_description:project_planner_report.field_project_planner_report_wizard__link_count
+#: model_terms:ir.ui.view,arch_db:project_planner_report.project_planner_report_wizard_view_form
+msgid "Links"
+msgstr "Relaciones"
+
+#. module: project_planner_report
+#. odoo-python
+#: code:addons/project_planner_report/models/report_wizard.py:0
+msgid "Milestone"
+msgstr "Hito"
+
+#. module: project_planner_report
+#: model:ir.model.fields.selection,name:project_planner_report.selection__project_planner_report_wizard__scale__month
+msgid "Months"
+msgstr "Meses"
+
+#. module: project_planner_report
+#: model:ir.model.fields,help:project_planner_report.field_project_planner_report_wizard__workdays_only
+msgid "Non-working days take no room on the timeline."
+msgstr "Los días no laborables no ocupan lugar en la línea de tiempo."
+
+#. module: project_planner_report
+#: model:ir.model.fields.selection,name:project_planner_report.selection__project_planner_report_wizard__status_line__none
+msgid "None"
+msgstr "Ninguna"
+
+#. module: project_planner_report
+#: model:ir.model.fields,field_description:project_planner_report.field_project_planner_report_wizard__orientation
+msgid "Orientation"
+msgstr "Orientación"
+
+#. module: project_planner_report
+#: model:ir.model.fields,help:project_planner_report.field_project_planner_report_wizard__timeline_pages
+msgid "Pages across for the timeline when it is fitted to the paper."
+msgstr "Páginas a lo ancho del cronograma cuando se ajusta al papel."
+
+#. module: project_planner_report
+#: model:ir.model.fields,field_description:project_planner_report.field_project_planner_report_wizard__paper
+msgid "Paper"
+msgstr "Papel"
+
+#. module: project_planner_report
+#: model:ir.model,name:project_planner_report.model_project_planner_report_wizard
+#: model_terms:ir.ui.view,arch_db:project_planner_report.project_planner_report_wizard_view_form
+msgid "Planner PDF Report"
+msgstr "Informe PDF del planificador"
+
+#. module: project_planner_report
+#: model:ir.model.fields.selection,name:project_planner_report.selection__project_planner_report_wizard__orientation__portrait
+msgid "Portrait"
+msgstr "Vertical"
+
+#. module: project_planner_report
+#. odoo-python
+#: code:addons/project_planner_report/models/report_wizard.py:0
+msgid "Predecessors"
+msgstr "Predecesoras"
+
+#. module: project_planner_report
+#: model:ir.model.fields,help:project_planner_report.field_project_planner_report_wizard__follow_view
+msgid ""
+"Print the date window shown in the planner and hide the collapsed branches."
+msgstr ""
+"Imprime la ventana de fechas que se ve en el planificador y oculta las ramas"
+" plegadas."
+
+#. module: project_planner_report
+#. odoo-python
+#: code:addons/project_planner_report/models/report_wizard.py:0
+msgid "Printed"
+msgstr "Impreso"
+
+#. module: project_planner_report
+#. odoo-python
+#: code:addons/project_planner_report/models/report_wizard.py:0
+msgid "Prog."
+msgstr "Av."
+
+#. module: project_planner_report
+#. odoo-python
+#: code:addons/project_planner_report/models/report_wizard.py:0
+msgid "Progress"
+msgstr "Avance"
+
+#. module: project_planner_report
+#: model:ir.model.fields.selection,name:project_planner_report.selection__project_planner_report_wizard__scale__quarter
+msgid "Quarters"
+msgstr "Trimestres"
+
+#. module: project_planner_report
+#: model:ir.model.fields,field_description:project_planner_report.field_project_planner_report_wizard__repeat_header
+msgid "Repeat Header on Every Page"
+msgstr "Repetir encabezado en cada página"
+
+#. module: project_planner_report
+#. odoo-javascript
+#: code:addons/project_planner_report/static/src/planner_report.xml:0
+#: model:ir.actions.act_window,name:project_planner_report.project_planner_report_wizard_action
+msgid "Report"
+msgstr "Informe"
+
+#. module: project_planner_report
+#: model:ir.model.fields,help:project_planner_report.field_project_planner_report_wizard__fit_to_paper
+msgid ""
+"Scale the timeline so the whole period fits in the chosen number of pages "
+"across."
+msgstr ""
+"Escala el cronograma para que todo el periodo quepa en el número de páginas "
+"a lo ancho elegido."
+
+#. module: project_planner_report
+#. odoo-python
+#: code:addons/project_planner_report/models/report_wizard.py:0
+msgid "Schedule"
+msgstr "Cronograma"
+
+#. module: project_planner_report
+#: model:ir.model.fields,field_description:project_planner_report.field_project_planner_report_wizard__shade_weekends
+msgid "Shade Non-working Days"
+msgstr "Sombrear días no laborables"
+
+#. module: project_planner_report
+#: model_terms:ir.ui.view,arch_db:project_planner_report.project_planner_report_wizard_view_form
+msgid "Show"
+msgstr "Mostrar"
+
+#. module: project_planner_report
+#: model:ir.model.fields,field_description:project_planner_report.field_project_planner_report_wizard__show_baseline
+msgid "Show Baseline Overlay"
+msgstr "Mostrar superposición de línea base"
+
+#. module: project_planner_report
+#: model:ir.model.fields,field_description:project_planner_report.field_project_planner_report_wizard__show_float
+msgid "Show Float"
+msgstr "Mostrar holgura"
+
+#. module: project_planner_report
+#: model:ir.model.fields,field_description:project_planner_report.field_project_planner_report_wizard__show_progress
+msgid "Show Progress"
+msgstr "Mostrar avance"
+
+#. module: project_planner_report
+#. odoo-python
+#: code:addons/project_planner_report/models/report_wizard.py:0
+msgid "Start"
+msgstr "Inicio"
+
+#. module: project_planner_report
+#: model:ir.model.fields,field_description:project_planner_report.field_project_planner_report_wizard__status_line
+msgid "Status Line"
+msgstr "Línea de estado"
+
+#. module: project_planner_report
+#. odoo-python
+#: code:addons/project_planner_report/models/report_wizard.py:0
+msgid "Successors"
+msgstr "Sucesoras"
+
+#. module: project_planner_report
+#. odoo-python
+#: code:addons/project_planner_report/models/report_wizard.py:0
+msgid "Summary"
+msgstr "Resumen"
+
+#. module: project_planner_report
+#: model:ir.model.fields.selection,name:project_planner_report.selection__project_planner_report_wizard__paper__tabloid
+msgid "Tabloid"
+msgstr "Tabloide"
+
+#. module: project_planner_report
+#. odoo-python
+#: code:addons/project_planner_report/models/report_wizard.py:0
+msgid "Task"
+msgstr "Tarea"
+
+#. module: project_planner_report
+#. odoo-python
+#: code:addons/project_planner_report/models/report_wizard.py:0
+msgid "Task Name"
+msgstr "Nombre de tarea"
+
+#. module: project_planner_report
+#: model:ir.model.fields,field_description:project_planner_report.field_project_planner_report_wizard__names_on_bars
+msgid "Task Names on Bars"
+msgstr "Nombres de tarea en las barras"
+
+#. module: project_planner_report
+#: model:ir.model.fields,field_description:project_planner_report.field_project_planner_report_wizard__task_count
+#: model_terms:ir.ui.view,arch_db:project_planner_report.project_planner_report_wizard_view_form
+msgid "Tasks"
+msgstr "Tareas"
+
+#. module: project_planner_report
+#. odoo-python
+#: code:addons/project_planner_report/models/report_wizard.py:0
+msgid "The font size must be between 50 and 200 percent."
+msgstr "El tamaño de letra debe estar entre 50 y 200 por ciento."
+
+#. module: project_planner_report
+#. odoo-python
+#: code:addons/project_planner_report/models/report_wizard.py:0
+msgid ""
+"The paper is too narrow for the task table and the timeline: choose a larger"
+" paper, landscape orientation or a smaller font size."
+msgstr ""
+"El papel es demasiado angosto para la tabla y el cronograma: elige un papel "
+"más grande, orientación horizontal o un tamaño de letra menor."
+
+#. module: project_planner_report
+#. odoo-python
+#: code:addons/project_planner_report/models/report_wizard.py:0
+msgid "The report domain is not valid."
+msgstr "El dominio del informe no es válido."
+
+#. module: project_planner_report
+#: model:ir.model.fields,help:project_planner_report.field_project_planner_report_wizard__domain
+msgid "The tasks of the report, as JSON: the same domain the planner shows."
+msgstr ""
+"Las tareas del informe, en JSON: el mismo dominio que muestra el "
+"planificador."
+
+#. module: project_planner_report
+#. odoo-python
+#: code:addons/project_planner_report/models/report_wizard.py:0
+msgid "The timeline pages must be between 1 and 20."
+msgstr "Las páginas del cronograma deben estar entre 1 y 20."
+
+#. module: project_planner_report
+#: model_terms:ir.ui.view,arch_db:project_planner_report.project_planner_report_wizard_view_form
+msgid "Timeline"
+msgstr "Cronograma"
+
+#. module: project_planner_report
+#: model:ir.model.fields,field_description:project_planner_report.field_project_planner_report_wizard__timeline_pages
+msgid "Timeline Pages"
+msgstr "Páginas del cronograma"
+
+#. module: project_planner_report
+#: model:ir.model.fields,field_description:project_planner_report.field_project_planner_report_wizard__scale
+msgid "Timescale"
+msgstr "Escala de tiempo"
+
+#. module: project_planner_report
+#: model:ir.model.fields,field_description:project_planner_report.field_project_planner_report_wizard__title
+msgid "Title"
+msgstr "Título"
+
+#. module: project_planner_report
+#. odoo-python
+#: code:addons/project_planner_report/models/report_wizard.py:0
+#: model:ir.model.fields.selection,name:project_planner_report.selection__project_planner_report_wizard__status_line__today
+msgid "Today"
+msgstr "Hoy"
+
+#. module: project_planner_report
+#: model:ir.model.fields.selection,name:project_planner_report.selection__project_planner_report_wizard__bar_colors__uniform
+msgid "Uniform"
+msgstr "Uniforme"
+
+#. module: project_planner_report
+#: model:ir.model.fields,help:project_planner_report.field_project_planner_report_wizard__scale
+msgid ""
+"Used when the timeline is not fitted to the paper: the pages across follow "
+"from it."
+msgstr ""
+"Se usa cuando el cronograma no se ajusta al papel: las páginas a lo ancho "
+"salen de ella."
+
+#. module: project_planner_report
+#: model:ir.model.fields,field_description:project_planner_report.field_project_planner_report_wizard__view_columns
+msgid "View Columns"
+msgstr "Columnas de la vista"
+
+#. module: project_planner_report
+#: model:ir.model.fields,field_description:project_planner_report.field_project_planner_report_wizard__view_date_from
+msgid "View Date From"
+msgstr "Vista desde"
+
+#. module: project_planner_report
+#: model:ir.model.fields,field_description:project_planner_report.field_project_planner_report_wizard__view_date_to
+msgid "View Date To"
+msgstr "Vista hasta"
+
+#. module: project_planner_report
+#. odoo-python
+#: code:addons/project_planner_report/models/report_wizard.py:0
+msgid "WBS"
+msgstr "EDT"
+
+#. module: project_planner_report
+#: model:ir.model.fields.selection,name:project_planner_report.selection__project_planner_report_wizard__scale__week
+msgid "Weeks"
+msgstr "Semanas"
+
+#. module: project_planner_report
+#: model:ir.model.fields,field_description:project_planner_report.field_project_planner_report_wizard__workdays_only
+msgid "Working Days Only"
+msgstr "Mostrar solo días laborables"

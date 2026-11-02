@@ -1,0 +1,1095 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* project_planner
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 19.0+e-20260926\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-02 04:22+0000\n"
+"PO-Revision-Date: 2026-11-02 04:22+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: project_planner
+#. odoo-javascript
+#: code:addons/project_planner/static/src/planner/planner.js:0
+msgid "%s change(s) were left as they are: someone changed them afterwards."
+msgstr "%s cambio(s) se dejaron como estaban: alguien los modificó después."
+
+#. module: project_planner
+#. odoo-javascript
+#: code:addons/project_planner/static/src/planner/planner.js:0
+msgid "%s d"
+msgstr ""
+
+#. module: project_planner
+#. odoo-javascript
+#: code:addons/project_planner/static/src/planner/planner.js:0
+msgid "%s task(s) no longer exist and could not be restored."
+msgstr "%s tarea(s) ya no existen y no se pudieron restaurar."
+
+#. module: project_planner
+#. odoo-javascript
+#: code:addons/project_planner/static/src/planner/planner.js:0
+msgid "0 d"
+msgstr ""
+
+#. module: project_planner
+#. odoo-javascript
+#: code:addons/project_planner/static/src/planner/planner.xml:0
+msgid "A milestone lasts zero days: its start and finish are the same point."
+msgstr "Un hito dura cero días: su inicio y su fin son el mismo punto."
+
+#. module: project_planner
+#. odoo-python
+#: code:addons/project_planner/models/project_task.py:0
+msgid "A task cannot depend on itself (%s)."
+msgstr "Una tarea no puede depender de sí misma (%s)."
+
+#. module: project_planner
+#: model:ir.model,name:project_planner.model_ir_actions_act_window_view
+msgid "Action Window View"
+msgstr "Vista de ventana de acción"
+
+#. module: project_planner
+#. odoo-javascript
+#: code:addons/project_planner/static/src/planner/planner.js:0
+msgid "Actual Finish"
+msgstr "Fin real"
+
+#. module: project_planner
+#. odoo-javascript
+#: code:addons/project_planner/static/src/planner/planner.js:0
+msgid "Actual Start"
+msgstr "Inicio real"
+
+#. module: project_planner
+#. odoo-javascript
+#: code:addons/project_planner/static/src/planner/planner.xml:0
+msgid "Add link"
+msgstr "Añadir relación"
+
+#. module: project_planner
+#. odoo-javascript
+#: code:addons/project_planner/static/src/planner/planner.xml:0
+msgid "Add milestone"
+msgstr "Añadir hito"
+
+#. module: project_planner
+#. odoo-javascript
+#: code:addons/project_planner/static/src/planner/planner.xml:0
+msgid "Add subtask"
+msgstr "Añadir subtarea"
+
+#. module: project_planner
+#. odoo-javascript
+#: code:addons/project_planner/static/src/planner/planner.xml:0
+msgid "All"
+msgstr "Todos"
+
+#. module: project_planner
+#. odoo-javascript
+#: code:addons/project_planner/static/src/planner/planner.xml:0
+msgid "All levels"
+msgstr "Todos los niveles"
+
+#. module: project_planner
+#. odoo-javascript
+#: code:addons/project_planner/static/src/planner/planner.xml:0
+msgid "Apply"
+msgstr "Aplicar"
+
+#. module: project_planner
+#. odoo-javascript
+#: code:addons/project_planner/static/src/planner/planner.js:0
+msgid "As Late As Possible"
+msgstr "Lo más tarde posible (ALAP)"
+
+#. module: project_planner
+#. odoo-javascript
+#: code:addons/project_planner/static/src/planner/planner.js:0
+msgid "As Soon As Possible"
+msgstr "Lo antes posible (ASAP)"
+
+#. module: project_planner
+#. odoo-javascript
+#: code:addons/project_planner/static/src/planner/planner.xml:0
+msgid "Assignee"
+msgstr "Responsable"
+
+#. module: project_planner
+#. odoo-javascript
+#: code:addons/project_planner/static/src/planner/planner.js:0
+msgid "Assignees"
+msgstr "Responsables"
+
+#. module: project_planner
+#. odoo-javascript
+#: code:addons/project_planner/static/src/planner/planner.js:0
+msgid "Baseline Finish"
+msgstr "Fin de línea base"
+
+#. module: project_planner
+#. odoo-javascript
+#: code:addons/project_planner/static/src/planner/planner.js:0
+msgid "Baseline Start"
+msgstr "Inicio de línea base"
+
+#. module: project_planner
+#. odoo-javascript
+#: code:addons/project_planner/static/src/planner/planner.xml:0
+msgid "Baselines"
+msgstr "Líneas base"
+
+#. module: project_planner
+#. odoo-javascript
+#: code:addons/project_planner/static/src/planner/planner.xml:0
+msgid "Calculate"
+msgstr "Calcular"
+
+#. module: project_planner
+#. odoo-javascript
+#: code:addons/project_planner/static/src/planner/planner.xml:0
+msgid ""
+"Calculate the schedule: working calendar, links and date constraints. Shows "
+"the changes before applying them."
+msgstr ""
+"Calcular el cronograma: calendario laboral, vínculos y restricciones de "
+"fecha. Muestra los cambios antes de aplicarlos."
+
+#. module: project_planner
+#. odoo-javascript
+#: code:addons/project_planner/static/src/planner/planner.xml:0
+msgid "Calculated schedule"
+msgstr "Cronograma calculado"
+
+#. module: project_planner
+#. odoo-javascript
+#: code:addons/project_planner/static/src/planner/planner.xml:0
+msgid "Cancel"
+msgstr "Cancelar"
+
+#. module: project_planner
+#. odoo-javascript
+#: code:addons/project_planner/static/src/planner/planner.xml:0
+msgid "Check the schedule with the DCMA 14-point assessment"
+msgstr "Revisar el cronograma con la evaluación DCMA de 14 puntos"
+
+#. module: project_planner
+#. odoo-javascript
+#: code:addons/project_planner/static/src/planner/planner.xml:0
+msgid "Choose and order the table columns"
+msgstr "Elegir y ordenar las columnas de la tabla"
+
+#. module: project_planner
+#. odoo-javascript
+#: code:addons/project_planner/static/src/planner/planner.xml:0
+msgid "Clear filters"
+msgstr "Quitar filtros"
+
+#. module: project_planner
+#. odoo-javascript
+#: code:addons/project_planner/static/src/planner/planner.xml:0
+msgid "Click the task that follows (Esc to cancel)"
+msgstr "Haga clic en la tarea que sigue (Esc para cancelar)"
+
+#. module: project_planner
+#. odoo-javascript
+#: code:addons/project_planner/static/src/planner/planner.xml:0
+msgid "Columns"
+msgstr "Columnas"
+
+#. module: project_planner
+#. odoo-javascript
+#: code:addons/project_planner/static/src/planner/planner.xml:0
+msgid "Compare the current baseline with up to two earlier versions"
+msgstr "Comparar la línea base vigente con hasta dos versiones anteriores"
+
+#. module: project_planner
+#. odoo-javascript
+#: code:addons/project_planner/static/src/planner/planner.xml:0
+msgid "Compare with (up to two):"
+msgstr "Comparar con (hasta dos):"
+
+#. module: project_planner
+#. odoo-javascript
+#: code:addons/project_planner/static/src/planner/planner.js:0
+msgid "Constraint"
+msgstr "Restricción"
+
+#. module: project_planner
+#. odoo-javascript
+#: code:addons/project_planner/static/src/planner/planner.xml:0
+msgid "Constraints that cannot be met:"
+msgstr "Restricciones que no se pueden cumplir:"
+
+#. module: project_planner
+#. odoo-javascript
+#: code:addons/project_planner/static/src/planner/planner.xml:0
+msgid "Convert to milestone"
+msgstr "Convertir en hito"
+
+#. module: project_planner
+#. odoo-javascript
+#: code:addons/project_planner/static/src/planner/planner.xml:0
+msgid "Convert to task"
+msgstr "Convertir en tarea"
+
+#. module: project_planner
+#. odoo-javascript
+#: code:addons/project_planner/static/src/planner/planner.js:0
+msgid "Critical"
+msgstr "Crítica"
+
+#. module: project_planner
+#. odoo-javascript
+#: code:addons/project_planner/static/src/planner/planner.xml:0
+msgid "Critical path only"
+msgstr "Solo ruta crítica"
+
+#. module: project_planner
+#. odoo-javascript
+#: code:addons/project_planner/static/src/planner/planner.xml:0
+msgid "Critical path:"
+msgstr "Ruta crítica:"
+
+#. module: project_planner
+#. odoo-javascript
+#: code:addons/project_planner/static/src/planner/planner.xml:0
+msgid "Ctrl + wheel: zoom"
+msgstr "Ctrl + rueda: zoom"
+
+#. module: project_planner
+#. odoo-javascript
+#: code:addons/project_planner/static/src/planner/planner.xml:0
+msgid "Current:"
+msgstr "Vigente:"
+
+#. module: project_planner
+#. odoo-javascript
+#: code:addons/project_planner/static/src/planner/planner.xml:0
+msgid "Date"
+msgstr "Fecha"
+
+#. module: project_planner
+#. odoo-javascript
+#: code:addons/project_planner/static/src/planner/planner.xml:0
+msgid "Date constraint ·"
+msgstr "Restricción de fecha ·"
+
+#. module: project_planner
+#. odoo-javascript
+#: code:addons/project_planner/static/src/planner/planner.xml:0
+msgid "Date constraint…"
+msgstr "Restricción de fecha…"
+
+#. module: project_planner
+#. odoo-javascript
+#: code:addons/project_planner/static/src/planner/planner.xml:0
+msgid "Day"
+msgstr "Día"
+
+#. module: project_planner
+#. odoo-javascript
+#: code:addons/project_planner/static/src/planner/planner.js:0
+msgid "Deadline"
+msgstr "Fecha límite"
+
+#. module: project_planner
+#. odoo-javascript
+#: code:addons/project_planner/static/src/planner/planner.xml:0
+msgid "Deadline ·"
+msgstr "Fecha límite ·"
+
+#. module: project_planner
+#. odoo-javascript
+#: code:addons/project_planner/static/src/planner/planner.js:0
+msgid "Deadline: %s"
+msgstr "Fecha límite: %s"
+
+#. module: project_planner
+#. odoo-javascript
+#: code:addons/project_planner/static/src/planner/planner.xml:0
+msgid "Deadline…"
+msgstr "Fecha límite…"
+
+#. module: project_planner
+#. odoo-javascript
+#: code:addons/project_planner/static/src/planner/planner.js:0
+#: code:addons/project_planner/static/src/planner/planner.xml:0
+msgid "Delete"
+msgstr "Eliminar"
+
+#. module: project_planner
+#. odoo-javascript
+#: code:addons/project_planner/static/src/planner/planner.xml:0
+msgid "Delete (Del)"
+msgstr "Eliminar (Supr)"
+
+#. module: project_planner
+#. odoo-javascript
+#: code:addons/project_planner/static/src/planner/planner.js:0
+msgid "Delete task"
+msgstr "Eliminar tarea"
+
+#. module: project_planner
+#. odoo-javascript
+#: code:addons/project_planner/static/src/planner/planner.js:0
+msgid "Delete “%(name)s” and its %(count)s subtask(s)?"
+msgstr "¿Eliminar «%(name)s» y sus %(count)s subtarea(s)?"
+
+#. module: project_planner
+#. odoo-javascript
+#: code:addons/project_planner/static/src/planner/planner.js:0
+msgid "Delete “%(name)s”?"
+msgstr "¿Eliminar «%(name)s»?"
+
+#. module: project_planner
+#: model:ir.model.fields,field_description:project_planner.field_ir_actions_act_window_view__display_name
+#: model:ir.model.fields,field_description:project_planner.field_ir_ui_view__display_name
+#: model:ir.model.fields,field_description:project_planner.field_project_task__display_name
+msgid "Display Name"
+msgstr "Nombre en pantalla"
+
+#. module: project_planner
+#. odoo-javascript
+#: code:addons/project_planner/static/src/planner/planner.xml:0
+msgid "Drag to resize"
+msgstr "Arrastre para cambiar el ancho"
+
+#. module: project_planner
+#. odoo-javascript
+#: code:addons/project_planner/static/src/planner/planner.xml:0
+msgid "Drag to resize · double-click to reset"
+msgstr "Arrastra para cambiar el ancho · doble clic para restablecer"
+
+#. module: project_planner
+#. odoo-javascript
+#: code:addons/project_planner/static/src/planner/planner.js:0
+msgid "Drop on the start or the finish of the task that follows"
+msgstr "Suelte sobre el inicio o el fin de la tarea que sigue"
+
+#. module: project_planner
+#. odoo-javascript
+#: code:addons/project_planner/static/src/planner/planner.js:0
+msgid "Duration"
+msgstr "Duración"
+
+#. module: project_planner
+#. odoo-javascript
+#: code:addons/project_planner/static/src/planner/planner.xml:0
+msgid "Edit…"
+msgstr "Editar…"
+
+#. module: project_planner
+#. odoo-javascript
+#: code:addons/project_planner/static/src/planner/planner.js:0
+msgid "Enter a date, or remove the deadline."
+msgstr "Escribe una fecha o quita la fecha límite."
+
+#. module: project_planner
+#. odoo-javascript
+#: code:addons/project_planner/static/src/planner/planner.xml:0
+msgid "Filter the tasks"
+msgstr "Filtrar las tareas"
+
+#. module: project_planner
+#. odoo-javascript
+#: code:addons/project_planner/static/src/planner/planner.xml:0
+msgid "Filters"
+msgstr "Filtros"
+
+#. module: project_planner
+#. odoo-javascript
+#: code:addons/project_planner/static/src/planner/planner.js:0
+#: code:addons/project_planner/static/src/planner/planner.xml:0
+msgid "Finish"
+msgstr "Fin"
+
+#. module: project_planner
+#. odoo-javascript
+#: code:addons/project_planner/static/src/planner/planner.js:0
+msgid "Finish No Earlier Than"
+msgstr "No finalizar antes del (FNET)"
+
+#. module: project_planner
+#. odoo-javascript
+#: code:addons/project_planner/static/src/planner/planner.js:0
+msgid "Finish No Later Than"
+msgstr "No finalizar después del (FNLT)"
+
+#. module: project_planner
+#. odoo-javascript
+#: code:addons/project_planner/static/src/planner/planner.js:0
+msgid "Finish to Finish (FF)"
+msgstr "Fin a fin (FF)"
+
+#. module: project_planner
+#. odoo-javascript
+#: code:addons/project_planner/static/src/planner/planner.js:0
+msgid "Finish to Start (FS)"
+msgstr "Fin a inicio (FS)"
+
+#. module: project_planner
+#. odoo-javascript
+#: code:addons/project_planner/static/src/planner/planner.xml:0
+msgid "Finish:"
+msgstr "Fin:"
+
+#. module: project_planner
+#. odoo-javascript
+#: code:addons/project_planner/static/src/planner/planner.xml:0
+msgid "Fit"
+msgstr "Ajustar"
+
+#. module: project_planner
+#. odoo-javascript
+#: code:addons/project_planner/static/src/planner/planner.xml:0
+msgid "Fit the whole project in the window"
+msgstr "Ajustar todo el proyecto a la ventana"
+
+#. module: project_planner
+#. odoo-javascript
+#: code:addons/project_planner/static/src/planner/planner.xml:0
+msgid "Float"
+msgstr "Holgura"
+
+#. module: project_planner
+#. odoo-javascript
+#: code:addons/project_planner/static/src/planner/planner.js:0
+msgid "Free Float"
+msgstr "Holgura libre"
+
+#. module: project_planner
+#. odoo-javascript
+#: code:addons/project_planner/static/src/planner/planner.js:0
+msgid "H%s"
+msgstr "%s.º sem."
+
+#. module: project_planner
+#. odoo-javascript
+#: code:addons/project_planner/static/src/planner/planner.xml:0
+msgid "Health"
+msgstr "Salud"
+
+#. module: project_planner
+#: model:ir.model.fields,field_description:project_planner.field_ir_actions_act_window_view__id
+#: model:ir.model.fields,field_description:project_planner.field_ir_ui_view__id
+#: model:ir.model.fields,field_description:project_planner.field_project_task__id
+msgid "ID"
+msgstr ""
+
+#. module: project_planner
+#. odoo-javascript
+#: code:addons/project_planner/static/src/planner/planner.xml:0
+msgid "Indent"
+msgstr "Sangrar"
+
+#. module: project_planner
+#. odoo-javascript
+#: code:addons/project_planner/static/src/planner/planner.xml:0
+msgid "Indent (Alt+Shift+→)"
+msgstr "Sangrar (Alt+Mayús+→)"
+
+#. module: project_planner
+#. odoo-javascript
+#: code:addons/project_planner/static/src/planner/planner.xml:0
+msgid "Insert a task above (Insert)"
+msgstr "Insertar una tarea arriba (Insert)"
+
+#. module: project_planner
+#. odoo-javascript
+#: code:addons/project_planner/static/src/planner/planner.xml:0
+msgid "Insert above"
+msgstr "Insertar arriba"
+
+#. module: project_planner
+#. odoo-javascript
+#: code:addons/project_planner/static/src/planner/planner.xml:0
+msgid "Insert below"
+msgstr "Insertar debajo"
+
+#. module: project_planner
+#. odoo-javascript
+#: code:addons/project_planner/static/src/planner/planner.xml:0
+msgid ""
+"It does not move the task. If the task cannot finish by then, it turns "
+"critical."
+msgstr ""
+"No mueve la tarea. Si no puede terminar para entonces, se vuelve crítica."
+
+#. module: project_planner
+#. odoo-javascript
+#: code:addons/project_planner/static/src/planner/planner.xml:0
+msgid "Lag"
+msgstr "Desfase"
+
+#. module: project_planner
+#. odoo-javascript
+#: code:addons/project_planner/static/src/planner/planner.xml:0
+msgid "Late tasks only"
+msgstr "Solo tareas atrasadas"
+
+#. module: project_planner
+#. odoo-javascript
+#: code:addons/project_planner/static/src/planner/planner.xml:0
+msgid "Level"
+msgstr "Nivel"
+
+#. module: project_planner
+#. odoo-javascript
+#: code:addons/project_planner/static/src/planner/planner.xml:0
+msgid "Link"
+msgstr "Vínculo"
+
+#. module: project_planner
+#. odoo-javascript
+#: code:addons/project_planner/static/src/planner/planner.js:0
+msgid "Link %(from)s → %(to)s: %(type)s"
+msgstr "Vínculo %(from)s → %(to)s: %(type)s"
+
+#. module: project_planner
+#. odoo-javascript
+#: code:addons/project_planner/static/src/planner/planner.xml:0
+msgid "Links:"
+msgstr "Vínculos:"
+
+#. module: project_planner
+#. odoo-javascript
+#: code:addons/project_planner/static/src/planner/planner.xml:0
+msgid "Loading…"
+msgstr "Cargando…"
+
+#. module: project_planner
+#. odoo-javascript
+#: code:addons/project_planner/static/src/planner/planner.xml:0
+msgid "Look-ahead"
+msgstr "Pronóstico a corto plazo"
+
+#. module: project_planner
+#. odoo-javascript
+#: code:addons/project_planner/static/src/planner/planner.xml:0
+msgid "Manually scheduled: Calculate does not move it"
+msgstr "Programada manualmente: «Calcular» no la mueve"
+
+#. module: project_planner
+#. odoo-javascript
+#: code:addons/project_planner/static/src/planner/planner.xml:0
+msgid "Milestones only"
+msgstr "Solo hitos"
+
+#. module: project_planner
+#. odoo-javascript
+#: code:addons/project_planner/static/src/planner/planner.xml:0
+msgid "Milestones:"
+msgstr "Hitos:"
+
+#. module: project_planner
+#. odoo-python
+#: code:addons/project_planner/models/project_task.py:0
+msgid "Monday to Friday"
+msgstr "Lunes a viernes"
+
+#. module: project_planner
+#. odoo-javascript
+#: code:addons/project_planner/static/src/planner/planner.xml:0
+msgid "Month"
+msgstr "Mes"
+
+#. module: project_planner
+#. odoo-javascript
+#: code:addons/project_planner/static/src/planner/planner.xml:0
+msgid "More scales"
+msgstr "Más escalas"
+
+#. module: project_planner
+#. odoo-javascript
+#: code:addons/project_planner/static/src/planner/planner.xml:0
+msgid "Move down"
+msgstr "Bajar"
+
+#. module: project_planner
+#. odoo-javascript
+#: code:addons/project_planner/static/src/planner/planner.xml:0
+msgid "Move down (Alt+Shift+↓)"
+msgstr "Bajar (Alt+Mayús+↓)"
+
+#. module: project_planner
+#. odoo-javascript
+#: code:addons/project_planner/static/src/planner/planner.xml:0
+msgid "Move left"
+msgstr "Mover a la izquierda"
+
+#. module: project_planner
+#. odoo-javascript
+#: code:addons/project_planner/static/src/planner/planner.xml:0
+msgid "Move right"
+msgstr "Mover a la derecha"
+
+#. module: project_planner
+#. odoo-javascript
+#: code:addons/project_planner/static/src/planner/planner.xml:0
+msgid "Move up"
+msgstr "Subir"
+
+#. module: project_planner
+#. odoo-javascript
+#: code:addons/project_planner/static/src/planner/planner.xml:0
+msgid "Move up (Alt+Shift+↑)"
+msgstr "Subir (Alt+Mayús+↑)"
+
+#. module: project_planner
+#. odoo-javascript
+#: code:addons/project_planner/static/src/planner/planner.js:0
+msgid "Must Finish On"
+msgstr "Debe finalizar el (MFO)"
+
+#. module: project_planner
+#. odoo-javascript
+#: code:addons/project_planner/static/src/planner/planner.js:0
+msgid "Must Start On"
+msgstr "Debe comenzar el (MSO)"
+
+#. module: project_planner
+#. odoo-python
+#: code:addons/project_planner/models/project_task.py:0
+msgid "New Milestone"
+msgstr "Nuevo hito"
+
+#. module: project_planner
+#. odoo-python
+#: code:addons/project_planner/models/project_task.py:0
+msgid "New Task"
+msgstr "Nueva tarea"
+
+#. module: project_planner
+#. odoo-javascript
+#: code:addons/project_planner/static/src/planner/planner.js:0
+msgid "Not a valid date: %s"
+msgstr "No es una fecha válida: %s"
+
+#. module: project_planner
+#. odoo-javascript
+#: code:addons/project_planner/static/src/planner/planner.js:0
+msgid "Not redone"
+msgstr "No se rehízo"
+
+#. module: project_planner
+#. odoo-javascript
+#: code:addons/project_planner/static/src/planner/planner.js:0
+msgid "Not saved"
+msgstr "No se guardó"
+
+#. module: project_planner
+#. odoo-javascript
+#: code:addons/project_planner/static/src/planner/planner.js:0
+msgid "Not undone"
+msgstr "No se deshizo"
+
+#. module: project_planner
+#. odoo-javascript
+#: code:addons/project_planner/static/src/planner/planner.xml:0
+msgid "Open the task"
+msgstr "Abrir la tarea"
+
+#. module: project_planner
+#. odoo-javascript
+#: code:addons/project_planner/static/src/planner/planner.xml:0
+msgid "Outdent"
+msgstr "Reducir sangría"
+
+#. module: project_planner
+#. odoo-javascript
+#: code:addons/project_planner/static/src/planner/planner.xml:0
+msgid "Outdent (Alt+Shift+←)"
+msgstr "Reducir sangría (Alt+Mayús+←)"
+
+#. module: project_planner
+#. odoo-javascript
+#: code:addons/project_planner/static/src/planner/planner.xml:0
+msgid "Path traced (Esc to clear)"
+msgstr "Ruta trazada (Esc para quitar)"
+
+#. module: project_planner
+#. odoo-javascript
+#: code:addons/project_planner/static/src/planner/planner_view.js:0
+#: model:ir.model.fields.selection,name:project_planner.selection__ir_actions_act_window_view__view_mode__planner
+#: model:ir.model.fields.selection,name:project_planner.selection__ir_ui_view__type__planner
+#: model_terms:ir.ui.view,arch_db:project_planner.project_task_view_planner
+msgid "Planner"
+msgstr "Planificador"
+
+#. module: project_planner
+#. odoo-javascript
+#: code:addons/project_planner/static/src/planner/planner.js:0
+msgid "Predecessors"
+msgstr "Predecesoras"
+
+#. module: project_planner
+#. odoo-javascript
+#: code:addons/project_planner/static/src/planner/planner.js:0
+msgid "Progress"
+msgstr "Avance"
+
+#. module: project_planner
+#. odoo-javascript
+#: code:addons/project_planner/static/src/planner/planner.js:0
+msgid "Q%s"
+msgstr "T%s"
+
+#. module: project_planner
+#. odoo-javascript
+#: code:addons/project_planner/static/src/planner/planner.xml:0
+msgid "Quarter"
+msgstr "Trimestre"
+
+#. module: project_planner
+#. odoo-javascript
+#: code:addons/project_planner/static/src/planner/planner.xml:0
+msgid "Read only"
+msgstr "Solo lectura"
+
+#. module: project_planner
+#. odoo-javascript
+#: code:addons/project_planner/static/src/planner/planner.xml:0
+msgid "Redo (Ctrl+Y)"
+msgstr "Rehacer (Ctrl+Y)"
+
+#. module: project_planner
+#. odoo-javascript
+#: code:addons/project_planner/static/src/planner/planner.xml:0
+msgid "Remove"
+msgstr "Quitar"
+
+#. module: project_planner
+#. odoo-javascript
+#: code:addons/project_planner/static/src/planner/planner.xml:0
+msgid "Reset columns"
+msgstr "Restablecer columnas"
+
+#. module: project_planner
+#. odoo-javascript
+#: code:addons/project_planner/static/src/planner/planner.xml:0
+msgid "Save"
+msgstr "Guardar"
+
+#. module: project_planner
+#. odoo-javascript
+#: code:addons/project_planner/static/src/planner/planner.xml:0
+msgid "Saving…"
+msgstr "Guardando…"
+
+#. module: project_planner
+#. odoo-javascript
+#: code:addons/project_planner/static/src/planner/planner.xml:0
+msgid "Schedule automatically"
+msgstr "Programar automáticamente"
+
+#. module: project_planner
+#. odoo-javascript
+#: code:addons/project_planner/static/src/planner/planner.xml:0
+msgid "Schedule manually"
+msgstr "Programar manualmente"
+
+#. module: project_planner
+#. odoo-javascript
+#: code:addons/project_planner/static/src/planner/planner.xml:0
+msgid "Search task or WBS…"
+msgstr "Buscar tarea o EDT…"
+
+#. module: project_planner
+#. odoo-javascript
+#: code:addons/project_planner/static/src/planner/planner.xml:0
+msgid "Semester"
+msgstr "Semestre"
+
+#. module: project_planner
+#. odoo-javascript
+#: code:addons/project_planner/static/src/planner/planner.xml:0
+msgid "Should have finished and has no actual finish"
+msgstr "Debía haber terminado y no tiene fin real"
+
+#. module: project_planner
+#. odoo-javascript
+#: code:addons/project_planner/static/src/planner/planner.xml:0
+msgid ""
+"Show or hide the float band: how far each task can slip without delaying the"
+" project"
+msgstr ""
+"Mostrar u ocultar la banda de holgura: cuánto puede retrasarse cada tarea "
+"sin retrasar el proyecto"
+
+#. module: project_planner
+#. odoo-javascript
+#: code:addons/project_planner/static/src/planner/planner.xml:0
+msgid "Show outline level"
+msgstr "Mostrar nivel de esquema"
+
+#. module: project_planner
+#. odoo-javascript
+#: code:addons/project_planner/static/src/planner/planner.xml:0
+msgid "Showing"
+msgstr "Mostrando"
+
+#. module: project_planner
+#. odoo-javascript
+#: code:addons/project_planner/static/src/planner/planner.js:0
+#: code:addons/project_planner/static/src/planner/planner.xml:0
+msgid "Start"
+msgstr "Inicio"
+
+#. module: project_planner
+#. odoo-javascript
+#: code:addons/project_planner/static/src/planner/planner.js:0
+msgid "Start No Earlier Than"
+msgstr "No comenzar antes del (SNET)"
+
+#. module: project_planner
+#. odoo-javascript
+#: code:addons/project_planner/static/src/planner/planner.js:0
+msgid "Start No Later Than"
+msgstr "No comenzar después del (SNLT)"
+
+#. module: project_planner
+#. odoo-javascript
+#: code:addons/project_planner/static/src/planner/planner.js:0
+msgid "Start to Finish (SF)"
+msgstr "Inicio a fin (SF)"
+
+#. module: project_planner
+#. odoo-javascript
+#: code:addons/project_planner/static/src/planner/planner.js:0
+msgid "Start to Start (SS)"
+msgstr "Inicio a inicio (SS)"
+
+#. module: project_planner
+#. odoo-javascript
+#: code:addons/project_planner/static/src/planner/planner.js:0
+msgid "Successors"
+msgstr "Sucesoras"
+
+#. module: project_planner
+#. odoo-javascript
+#: code:addons/project_planner/static/src/planner/planner.xml:0
+#: model:ir.model,name:project_planner.model_project_task
+msgid "Task"
+msgstr "Tarea"
+
+#. module: project_planner
+#. odoo-javascript
+#: code:addons/project_planner/static/src/planner/planner.js:0
+msgid "Task Name"
+msgstr "Nombre de tarea"
+
+#. module: project_planner
+#. odoo-javascript
+#: code:addons/project_planner/static/src/planner/planner.xml:0
+msgid "Tasks between"
+msgstr "Tareas entre"
+
+#. module: project_planner
+#. odoo-javascript
+#: code:addons/project_planner/static/src/planner/planner.xml:0
+msgid "Tasks:"
+msgstr "Tareas:"
+
+#. module: project_planner
+#. odoo-javascript
+#: code:addons/project_planner/static/src/planner/planner.js:0
+msgid "The schedule is already calculated: nothing moves."
+msgstr "El cronograma ya está calculado: no se mueve nada."
+
+#. module: project_planner
+#. odoo-python
+#: code:addons/project_planner/models/project_task.py:0
+msgid "The task is already at the first level."
+msgstr "La tarea ya está en el primer nivel."
+
+#. module: project_planner
+#. odoo-python
+#: code:addons/project_planner/models/project_task.py:0
+msgid "The task no longer exists."
+msgstr "La tarea ya no existe."
+
+#. module: project_planner
+#. odoo-python
+#: code:addons/project_planner/models/project_task.py:0
+msgid "There is no task above at the same level to indent under."
+msgstr "No hay una tarea arriba en el mismo nivel bajo la cual sangrar."
+
+#. module: project_planner
+#. odoo-python
+#: code:addons/project_planner/models/project_task.py:0
+msgid ""
+"These predecessors were not understood or do not exist in this schedule: %s"
+msgstr ""
+"Estas predecesoras no se entendieron o no existen en este cronograma: %s"
+
+#. module: project_planner
+#. odoo-javascript
+#: code:addons/project_planner/static/src/planner/planner.js:0
+msgid "This constraint needs a date."
+msgstr "Esta restricción necesita una fecha."
+
+#. module: project_planner
+#. odoo-javascript
+#: code:addons/project_planner/static/src/planner/planner.xml:0
+msgid "Today"
+msgstr "Hoy"
+
+#. module: project_planner
+#. odoo-javascript
+#: code:addons/project_planner/static/src/planner/planner.js:0
+msgid "Total Float"
+msgstr "Holgura total"
+
+#. module: project_planner
+#. odoo-javascript
+#: code:addons/project_planner/static/src/planner/planner.xml:0
+msgid "Trace path"
+msgstr "Trazar ruta"
+
+#. module: project_planner
+#. odoo-javascript
+#: code:addons/project_planner/static/src/planner/planner.xml:0
+msgid "Undo (Ctrl+Z)"
+msgstr "Deshacer (Ctrl+Z)"
+
+#. module: project_planner
+#. odoo-python
+#: code:addons/project_planner/models/project_task.py:0
+msgid "Unknown operation: %s"
+msgstr "Operación desconocida: %s"
+
+#. module: project_planner
+#: model:ir.model.fields,help:project_planner.field_project_task__display_name
+msgid ""
+"Use these keywords in the title to set new tasks:\n"
+"\n"
+"            #tags Set tags on the task\n"
+"            @user Assign the task to a user\n"
+"            ! Set the task a medium priority\n"
+"            !! Set the task a high priority\n"
+"            !!! Set the task a urgent priority\n"
+"\n"
+"            Make sure to use the right format and order e.g. Improve the configuration screen #feature #v16 @Mitchell !"
+msgstr ""
+"Usa estas palabras clave en el título para configurar nuevas tareas:\n"
+"\n"
+"        30h Asigna 30 horas a la tarea\n"
+"        #etiquetas Agrega etiquetas a la tarea\n"
+"        @usuario Asígnale la tarea a un usuario\n"
+"        ! Define que la prioridad de la tarea es media\n"
+"        !! Define que la prioridad de la tarea es alta\n"
+"        !!! Define que la prioridad de la tarea es urgente\n"
+"\n"
+"        Asegúrate de utilizar el formato y el orden correcto, por ejemplo: Realizar mejoras a la pantalla de configuración 5h #función #v16 @Mitchell !"
+
+#. module: project_planner
+#: model:ir.model,name:project_planner.model_ir_ui_view
+msgid "View"
+msgstr "Vista"
+
+#. module: project_planner
+#: model:ir.model.fields,field_description:project_planner.field_ir_actions_act_window_view__view_mode
+#: model:ir.model.fields,field_description:project_planner.field_ir_ui_view__type
+msgid "View Type"
+msgstr "Ver tipo"
+
+#. module: project_planner
+#. odoo-javascript
+#: code:addons/project_planner/static/src/planner/planner.js:0
+msgid "W%s"
+msgstr "S%s"
+
+#. module: project_planner
+#. odoo-javascript
+#: code:addons/project_planner/static/src/planner/planner.js:0
+#: code:addons/project_planner/static/src/planner/planner.xml:0
+msgid "WBS"
+msgstr "EDT"
+
+#. module: project_planner
+#. odoo-javascript
+#: code:addons/project_planner/static/src/planner/planner.xml:0
+msgid "Week"
+msgstr "Semana"
+
+#. module: project_planner
+#. odoo-javascript
+#: code:addons/project_planner/static/src/planner/planner.xml:0
+msgid ""
+"What runs or starts in the coming weeks, and the critical and near-critical "
+"tasks"
+msgstr ""
+"Lo que corre o empieza en las próximas semanas, y las tareas críticas y casi"
+" críticas"
+
+#. module: project_planner
+#. odoo-javascript
+#: code:addons/project_planner/static/src/planner/planner.xml:0
+msgid "Why it moves"
+msgstr "Por qué se mueve"
+
+#. module: project_planner
+#. odoo-javascript
+#: code:addons/project_planner/static/src/planner/planner.xml:0
+msgid ""
+"Working calendar used to calculate this schedule. Non-working days are "
+"shaded."
+msgstr ""
+"Calendario laboral con el que se calcula este cronograma. Los días no "
+"laborables van sombreados."
+
+#. module: project_planner
+#. odoo-javascript
+#: code:addons/project_planner/static/src/planner/planner.xml:0
+msgid "Year"
+msgstr "Año"
+
+#. module: project_planner
+#. odoo-javascript
+#: code:addons/project_planner/static/src/planner/planner.xml:0
+msgid "calendar days"
+msgstr "días naturales"
+
+#. module: project_planner
+#. odoo-javascript
+#: code:addons/project_planner/static/src/planner/planner.js:0
+msgid "finishes after it"
+msgstr "termina después"
+
+#. module: project_planner
+#. odoo-javascript
+#: code:addons/project_planner/static/src/planner/planner.xml:0
+msgid "link(s) touching summary tasks were not calculated."
+msgstr "vínculo(s) con tareas de resumen no se calcularon."
+
+#. module: project_planner
+#. odoo-javascript
+#: code:addons/project_planner/static/src/planner/planner.xml:0
+msgid "of"
+msgstr "de"
+
+#. module: project_planner
+#. odoo-javascript
+#: code:addons/project_planner/static/src/planner/planner.xml:0
+msgid "task(s) would move."
+msgstr "tarea(s) se moverían."
+
+#. module: project_planner
+#. odoo-javascript
+#: code:addons/project_planner/static/src/planner/planner.xml:0
+msgid "tasks"
+msgstr "tareas"
+
+#. module: project_planner
+#. odoo-javascript
+#: code:addons/project_planner/static/src/planner/planner.xml:0
+msgid "· thick: driving links · dotted: links with float"
+msgstr "· grueso: vínculos que mandan · punteado: vínculos con holgura"

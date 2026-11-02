@@ -1,0 +1,132 @@
+// Vista de planificación. Filas de altura fija (ROW_H en planner.js).
+$sched-row-h: 28px;
+
+.o_sched_planner {
+    background-color: $o-view-background-color;
+    color: $o-main-text-color;
+
+    .o_sched_planner_body { min-height: 0; overflow: hidden; }
+
+    &:focus { outline: none; }
+    .o_sched_planner_table {
+        flex: 0 0 auto;
+        // Barra horizontal propia cuando las columnas no caben.
+        overflow-x: auto;
+        overflow-y: hidden;
+        font-size: 0.92em;
+    }
+    .o_sched_planner_table_inner {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        width: 100%;
+    }
+    // Los botones no parten su texto; la barra pasa a una segunda fila.
+    .o_sched_planner_toolbar .btn { white-space: nowrap; }
+    // El encabezado de la tabla mide EXACTAMENTE lo que el canvas del
+    // encabezado (HEADER_H = 48); el flex lo encogía a 44.9 px y todas las
+    // filas quedaban 3 px más arriba que sus barras.
+    .o_sched_planner_thead {
+        flex: 0 0 48px;
+        height: 48px;
+        align-items: center;
+        font-weight: 600;
+        border-bottom: 1px solid $border-color;
+        text-transform: uppercase;
+        font-size: 0.85em;
+        color: $text-muted;
+    }
+    .o_sched_planner_tbody { flex: 1 1 auto; overflow: hidden; position: relative; }
+    .o_sched_planner_rows { will-change: transform; }
+    .o_sched_planner_row {
+        height: $sched-row-h;
+        align-items: center;
+        border-bottom: 1px solid rgba(128, 128, 128, 0.18);
+        cursor: default;
+        white-space: nowrap;
+        &.o_sched_summary { font-weight: 600; }
+        &.o_sched_critical .o_sched_c_name { color: #d93a3a; }
+        &.o_sched_selected { background-color: rgba(47, 111, 222, 0.12); }
+    }
+    .o_sched_c_code { flex: 0 0 64px; padding: 0 6px; color: $text-muted; }
+    .o_sched_c_name { flex: 1 1 auto; min-width: 220px; overflow: hidden; }
+    .o_sched_c_dur { flex: 0 0 56px; text-align: right; padding-right: 8px; }
+    .o_sched_c_date { flex: 0 0 88px; padding: 0 6px; }
+    .o_sched_c_pred { flex: 0 0 92px; padding: 0 6px; color: $text-muted; }
+    // Columnas configurables (el ancho va en línea, por columna).
+    .o_sched_c { padding: 0 6px; min-width: 0; }
+    // Borde arrastrable del encabezado.
+    .o_sched_th { position: relative; align-self: stretch; display: flex; align-items: center; }
+    .o_sched_col_resize {
+        position: absolute; top: 0; right: 0; bottom: 0; width: 6px; cursor: col-resize;
+        &:hover { background: rgba(47, 111, 222, 0.35); }
+    }
+    // Búsqueda y filtros.
+    .o_sched_search { width: 200px; }
+    .o_sched_filters_menu { z-index: 1060; min-width: 260px; }
+    .o_sched_columns_menu { z-index: 1060; min-width: 230px; max-height: 70vh; overflow: auto; }
+    .o_sched_caret { flex: 0 0 14px; cursor: pointer; }
+    // Edición
+    .o_sched_open { visibility: hidden; cursor: pointer; color: $text-muted; font-size: 0.85em; }
+    .o_sched_planner_row:hover .o_sched_open { visibility: visible; }
+    .o_sched_editable { cursor: text; }
+    .o_sched_cell_input { height: 22px; padding: 0 4px; font-size: inherit; min-width: 0; }
+    .o_sched_pin { color: #b45309; font-size: 0.85em; }
+    .o_sched_preview_backdrop { position: fixed; inset: 0; z-index: 1065; background: rgba(0, 0, 0, 0.3); display: flex; align-items: center; justify-content: center; }
+    // Sin min()/max() de CSS: libsass los evalúa como funciones de Sass y
+    // revienta la compilación de TODOS los estilos con «Incompatible units: vw y px».
+    .o_sched_preview { width: 900px; max-width: 92vw; max-height: 85vh; display: flex; flex-direction: column; }
+    .o_sched_preview .card-body { overflow: hidden; display: flex; flex-direction: column; }
+    .o_sched_preview_list { overflow: auto; max-height: 55vh; }
+    .o_sched_menu { position: fixed; z-index: 1060; min-width: 200px; }
+    .o_sched_menu_backdrop { position: fixed; inset: 0; z-index: 1055; }
+    .o_sched_planner_row.o_sched_dim { opacity: 0.35; }
+    .o_sched_link_editor { position: fixed; z-index: 1050; width: 260px; }
+    .o_sched_planner_tip {
+        position: fixed;
+        z-index: 1050;
+        padding: 3px 8px;
+        border-radius: 4px;
+        background: rgba(30, 30, 30, 0.88);
+        color: #fff;
+        font-size: 0.85em;
+        pointer-events: none;
+        white-space: nowrap;
+    }
+    .o_sched_ms { color: #7c3aed; font-size: 0.8em; }
+
+    .o_sched_planner_splitter {
+        flex: 0 0 5px;
+        cursor: col-resize;
+        background-color: $border-color;
+        &:hover { background-color: $o-action; }
+    }
+    .o_sched_planner_timeline { min-width: 0; }
+    .o_sched_planner_header { display: block; flex: 0 0 48px; }
+    .o_sched_planner_scroller { position: relative; overflow: auto; min-height: 0; }
+    .o_sched_planner_spacer { position: absolute; top: 0; left: 0; pointer-events: none; }
+    .o_sched_planner_canvas { position: sticky; top: 0; left: 0; display: block; }
+}
+
+// Dentro de la vista de Odoo el núcleo llena el área de contenido.
+.o_sched_planner_view {
+    height: 100%;
+    .o_content {
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+    }
+    .o_sched_planner {
+        flex: 1 1 auto;
+        min-height: 0;
+    }
+}
+
+// La muestra de color de cada línea base (menú y barra de estado).
+.o_sched_swatch {
+    display: inline-block;
+    width: 14px;
+    height: 4px;
+    border-radius: 1px;
+    flex: none;
+}

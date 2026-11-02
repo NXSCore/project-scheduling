@@ -1,0 +1,18 @@
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.6.0
+    hooks:
+      - id: trailing-whitespace
+      - id: end-of-file-fixer
+      - id: check-xml
+      - id: check-merge-conflict
+      - id: debug-statements
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.11.0
+    hooks:
+      - id: ruff
+  - repo: https://github.com/OCA/odoo-pre-commit-hooks
+    rev: v0.0.35
+    hooks:
+      - id: oca-checks-odoo-module
+        args: ["--disable=xml-oe-structure-missing-id,po-pretty-format,manifest-maintainers-list"]

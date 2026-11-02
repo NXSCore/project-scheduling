@@ -1,0 +1,317 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* project_msproject
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 19.0+e-20260817\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-10-07 17:43+0000\n"
+"PO-Revision-Date: 2026-10-07 17:43+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: project_msproject
+#. odoo-python
+#: code:addons/project_msproject/wizards/mspdi_import_wizard.py:0
+msgid "%(project)s (Microsoft Project)"
+msgstr "%(project)s (Microsoft Project)"
+
+#. module: project_msproject
+#: model_terms:ir.ui.view,arch_db:project_msproject.project_mspdi_import_wizard_view_form
+msgid "Close"
+msgstr "Cerrar"
+
+#. module: project_msproject
+#: model:ir.model.fields.selection,name:project_msproject.selection__project_mspdi_import_wizard__calendar_mode__file
+msgid "Create a calendar from the file"
+msgstr "Crear un calendario desde el archivo"
+
+#. module: project_msproject
+#: model:ir.model.fields,field_description:project_msproject.field_project_mspdi_import_wizard__create_uid
+msgid "Created by"
+msgstr "Creado por"
+
+#. module: project_msproject
+#: model:ir.model.fields,field_description:project_msproject.field_project_mspdi_import_wizard__create_date
+msgid "Created on"
+msgstr "Creado el"
+
+#. module: project_msproject
+#: model:ir.model.fields,field_description:project_msproject.field_project_project__display_name
+#: model:ir.model.fields,field_description:project_msproject.field_project_task__display_name
+#: model:ir.model.fields,field_description:project_msproject.field_project_mspdi_import_wizard__display_name
+msgid "Display Name"
+msgstr "Nombre en pantalla"
+
+#. module: project_msproject
+#: model:ir.model.fields.selection,name:project_msproject.selection__project_mspdi_import_wizard__state__done
+msgid "Done"
+msgstr "Hecho"
+
+#. module: project_msproject
+#: model:ir.model.fields.selection,name:project_msproject.selection__project_mspdi_import_wizard__state__draft
+msgid "Draft"
+msgstr "Borrador"
+
+#. module: project_msproject
+#: model_terms:ir.ui.view,arch_db:project_msproject.project_project_view_form_mspdi_import
+msgid "Export to MS Project"
+msgstr "Exportar a MS Project"
+
+#. module: project_msproject
+#: model:ir.model.fields,field_description:project_msproject.field_project_mspdi_import_wizard__filename
+msgid "File Name"
+msgstr "Nombre del archivo"
+
+#. module: project_msproject
+#: model:ir.model.fields,field_description:project_msproject.field_project_project__id
+#: model:ir.model.fields,field_description:project_msproject.field_project_task__id
+#: model:ir.model.fields,field_description:project_msproject.field_project_mspdi_import_wizard__id
+msgid "ID"
+msgstr "ID"
+
+#. module: project_msproject
+#: model_terms:ir.ui.view,arch_db:project_msproject.project_mspdi_import_wizard_view_form
+msgid "Import"
+msgstr "Importar"
+
+#. module: project_msproject
+#: model:ir.model,name:project_msproject.model_project_mspdi_import_wizard
+msgid "Import a Microsoft Project XML Schedule"
+msgstr "Importar un cronograma XML de Microsoft Project"
+
+#. module: project_msproject
+#: model_terms:ir.ui.view,arch_db:project_msproject.project_project_view_form_mspdi_import
+msgid "Import from MS Project"
+msgstr "Importar de MS Project"
+
+#. module: project_msproject
+#. odoo-python
+#: code:addons/project_msproject/wizards/mspdi_import_wizard.py:0
+#: model:ir.actions.act_window,name:project_msproject.project_mspdi_import_wizard_action
+#: model_terms:ir.ui.view,arch_db:project_msproject.project_mspdi_import_wizard_view_form
+msgid "Import from Microsoft Project"
+msgstr "Importar de Microsoft Project"
+
+#. module: project_msproject
+#: model_terms:ir.ui.view,arch_db:project_msproject.project_mspdi_import_wizard_view_form
+msgid ""
+"In Microsoft Project use <b>File &gt; Save As &gt; XML Format (*.xml)</b> "
+"and upload that file here."
+msgstr "En Microsoft Project use <b>Archivo &gt; Guardar como &gt; Formato XML (*.xml)</b> y suba ese archivo aquí."
+
+#. module: project_msproject
+#: model:ir.model.fields.selection,name:project_msproject.selection__project_mspdi_import_wizard__calendar_mode__keep
+msgid "Keep the project's current calendar"
+msgstr "Conservar el calendario actual del proyecto"
+
+#. module: project_msproject
+#: model:ir.model.fields,field_description:project_msproject.field_project_mspdi_import_wizard__write_uid
+msgid "Last Updated by"
+msgstr "Última actualización por"
+
+#. module: project_msproject
+#: model:ir.model.fields,field_description:project_msproject.field_project_mspdi_import_wizard__write_date
+msgid "Last Updated on"
+msgstr "Última actualización el"
+
+#. module: project_msproject
+#. odoo-python
+#: code:addons/project_msproject/wizards/mspdi_import_wizard.py:0
+msgid "Links imported: %s"
+msgstr "Vínculos importados: %s"
+
+#. module: project_msproject
+#. odoo-python
+#: code:addons/project_msproject/wizards/mspdi_import_wizard.py:0
+msgid "Links no longer in the file, removed: %s"
+msgstr "Vínculos que ya no vienen en el archivo, retirados: %s"
+
+#. module: project_msproject
+#. odoo-python
+#: code:addons/project_msproject/wizards/mspdi_import_wizard.py:0
+msgid "Links with a percentage lag imported without lag: %s"
+msgstr "Vínculos con desfase en porcentaje importados sin desfase: %s"
+
+#. module: project_msproject
+#: model:ir.model.fields,field_description:project_msproject.field_project_task__ms_uid
+msgid "MS Project UID"
+msgstr "UID de MS Project"
+
+#. module: project_msproject
+#. odoo-python
+#: code:addons/project_msproject/models/project_project.py:0
+#: code:addons/project_msproject/wizards/mspdi_import_wizard.py:0
+msgid "Non-working day"
+msgstr "Día no laborable"
+
+#. module: project_msproject
+#. odoo-python
+#: code:addons/project_msproject/wizards/mspdi_import_wizard.py:0
+msgid "Not imported: calendars and baselines."
+msgstr "No se importan: calendarios ni líneas base."
+
+#. module: project_msproject
+#: model:ir.model,name:project_msproject.model_project_project
+#: model:ir.model.fields,field_description:project_msproject.field_project_mspdi_import_wizard__project_id
+msgid "Project"
+msgstr "Proyecto"
+
+#. module: project_msproject
+#. odoo-python
+#: code:addons/project_msproject/wizards/mspdi_import_wizard.py:0
+msgid "Resources with no matching user (not assigned): %s"
+msgstr "Recursos sin usuario que coincida (no asignados): %s"
+
+#. module: project_msproject
+#: model:ir.model.fields,field_description:project_msproject.field_project_mspdi_import_wizard__summary
+msgid "Result"
+msgstr "Resultado"
+
+#. module: project_msproject
+#. odoo-python
+#: code:addons/project_msproject/wizards/mspdi_import_wizard.py:0
+msgid ""
+"Schedule imported from Microsoft Project (%(file)s).\n"
+"%(summary)s"
+msgstr "Cronograma importado de Microsoft Project (%(file)s).\n%(summary)s"
+
+#. module: project_msproject
+#. odoo-python
+#: code:addons/project_msproject/models/project_project.py:0
+msgid "Standard"
+msgstr "Estándar"
+
+#. module: project_msproject
+#: model:ir.model.fields,field_description:project_msproject.field_project_mspdi_import_wizard__state
+msgid "State"
+msgstr "Estado"
+
+#. module: project_msproject
+#: model:ir.model,name:project_msproject.model_project_task
+msgid "Task"
+msgstr "Tarea"
+
+#. module: project_msproject
+#. odoo-python
+#: code:addons/project_msproject/wizards/mspdi_import_wizard.py:0
+msgid "Task %s"
+msgstr "Tarea %s"
+
+#. module: project_msproject
+#. odoo-python
+#: code:addons/project_msproject/wizards/mspdi_import_wizard.py:0
+msgid "Tasks created: %s"
+msgstr "Tareas creadas: %s"
+
+#. module: project_msproject
+#. odoo-python
+#: code:addons/project_msproject/wizards/mspdi_import_wizard.py:0
+msgid "Tasks in the schedule that are not in the file (kept): %s"
+msgstr "Tareas del cronograma que no vienen en el archivo (se conservan): %s"
+
+#. module: project_msproject
+#. odoo-python
+#: code:addons/project_msproject/wizards/mspdi_import_wizard.py:0
+msgid "Tasks updated: %s"
+msgstr "Tareas actualizadas: %s"
+
+#. module: project_msproject
+#. odoo-python
+#: code:addons/project_msproject/wizards/mspdi_import_wizard.py:0
+msgid ""
+"Tasks with progress in the file: %s. Progress is not imported: it is "
+"reported with evidence in each task."
+msgstr "Tareas con avance en el archivo: %s. El avance no se importa: se reporta con evidencia en cada tarea."
+
+#. module: project_msproject
+#: model_terms:ir.ui.view,arch_db:project_msproject.project_mspdi_import_wizard_view_form
+msgid ""
+"Tasks, hierarchy, dates, milestones, assignees and links (type and lag) are imported.\n"
+"                        Importing the same file again updates the tasks instead of duplicating them; nothing is deleted."
+msgstr "Se importan tareas, jerarquía, fechas, hitos, responsables y vínculos (tipo y desfase).\n                        Importar de nuevo el mismo archivo actualiza las tareas en vez de duplicarlas; no se borra nada."
+
+#. module: project_msproject
+#: model:ir.model.fields,help:project_msproject.field_project_mspdi_import_wizard__calendar_mode
+msgid ""
+"The file brings its working week and holidays. Creating a calendar from it "
+"makes the schedule calculate here as it did in Microsoft Project."
+msgstr "El archivo trae su semana laboral y sus feriados. Crear un calendario con ellos hace que el cronograma se calcule aquí como en Microsoft Project."
+
+#. module: project_msproject
+#. odoo-python
+#: code:addons/project_msproject/wizards/mspdi_import_wizard.py:0
+msgid "The file has no tasks."
+msgstr "El archivo no tiene tareas."
+
+#. module: project_msproject
+#. odoo-python
+#: code:addons/project_msproject/wizards/mspdi_import_wizard.py:0
+msgid "The file is larger than %s MB."
+msgstr "El archivo pesa más de %s MB."
+
+#. module: project_msproject
+#. odoo-python
+#: code:addons/project_msproject/wizards/mspdi_import_wizard.py:0
+msgid "The file is not valid XML: %s"
+msgstr "El archivo no es un XML válido: %s"
+
+#. module: project_msproject
+#. odoo-python
+#: code:addons/project_msproject/wizards/mspdi_import_wizard.py:0
+msgid ""
+"This is not a Microsoft Project XML file. In Microsoft Project use File > "
+"Save As > XML Format (*.xml)."
+msgstr "Este no es un archivo XML de Microsoft Project. En Microsoft Project use Archivo > Guardar como > Formato XML (*.xml)."
+
+#. module: project_msproject
+#: model:ir.model.fields,help:project_msproject.field_project_task__ms_uid
+msgid ""
+"Unique ID of the task in the Microsoft Project file it was imported from."
+msgstr "ID único de la tarea en el archivo de Microsoft Project del que se importó."
+
+#. module: project_msproject
+#: model:ir.model.fields.selection,name:project_msproject.selection__project_mspdi_import_wizard__calendar_mode__company
+msgid "Use the company calendar"
+msgstr "Usar el calendario de la compañía"
+
+#. module: project_msproject
+#: model:ir.model.fields,help:project_msproject.field_project_task__display_name
+msgid ""
+"Use these keywords in the title to set new tasks:\n"
+"\n"
+"            #tags Set tags on the task\n"
+"            @user Assign the task to a user\n"
+"            ! Set the task a medium priority\n"
+"            !! Set the task a high priority\n"
+"            !!! Set the task a urgent priority\n"
+"\n"
+"            Make sure to use the right format and order e.g. Improve the configuration screen #feature #v16 @Mitchell !"
+msgstr "Usa estas palabras clave en el título para configurar nuevas tareas:\n\n        30h Asigna 30 horas a la tarea\n        #etiquetas Agrega etiquetas a la tarea\n        @usuario Asígnale la tarea a un usuario\n        ! Define que la prioridad de la tarea es media\n        !! Define que la prioridad de la tarea es alta\n        !!! Define que la prioridad de la tarea es urgente\n\n        Asegúrate de utilizar el formato y el orden correcto, por ejemplo: Realizar mejoras a la pantalla de configuración 5h #función #v16 @Mitchell !"
+
+#. module: project_msproject
+#: model:ir.model.fields,field_description:project_msproject.field_project_mspdi_import_wizard__calendar_mode
+msgid "Working Calendar"
+msgstr "Calendario laboral"
+
+#. module: project_msproject
+#. odoo-python
+#: code:addons/project_msproject/wizards/mspdi_import_wizard.py:0
+msgid "Working calendar: %s"
+msgstr "Calendario laboral: %s"
+
+#. module: project_msproject
+#. odoo-python
+#: code:addons/project_msproject/wizards/mspdi_import_wizard.py:0
+msgid "Working time"
+msgstr "Horario laboral"
+
+#. module: project_msproject
+#: model:ir.model.fields,field_description:project_msproject.field_project_mspdi_import_wizard__file
+msgid "XML File"
+msgstr "Archivo XML"

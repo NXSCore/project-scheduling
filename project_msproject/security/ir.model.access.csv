@@ -1,0 +1,2 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_project_mspdi_import_wizard_user,project.mspdi.import.wizard user,model_project_mspdi_import_wizard,project.group_project_user,1,1,1,1

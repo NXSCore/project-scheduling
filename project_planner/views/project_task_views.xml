@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- La vista de planificación de tareas, para cualquier
+         proyecto de Odoo. -->
+    <record id="project_task_view_planner" model="ir.ui.view">
+        <field name="name">project.task.planner</field>
+        <field name="model">project.task</field>
+        <field name="arch" type="xml">
+            <planner string="Planner"/>
+        </field>
+    </record>
+    <!-- También en la app Proyectos estándar (tareas de un proyecto),
+         después de Lista. -->
+    <record id="project_task_planner_action_view" model="ir.actions.act_window.view">
+        <field name="sequence" eval="25"/>
+        <field name="view_mode">planner</field>
+        <field name="view_id" ref="project_task_view_planner"/>
+        <field name="act_window_id" ref="project.act_project_project_2_project_task_all"/>
+    </record>
+</odoo>

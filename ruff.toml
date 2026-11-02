@@ -1,0 +1,37 @@
+# Ruff: style, likely bugs and security in a single pass (pre-commit and CI).
+target-version = "py312"
+line-length = 150
+
+[lint]
+select = [
+    "E", "W", "F",   # what flake8 checked
+    "B",             # likely bugs: mutable defaults, loop variable closures...
+    "S",             # bandit's security checks
+    "PLE", "PLW",    # pylint's errors and warnings, without its slow type inference
+]
+ignore = [
+    "E225", "E261", "W293",   # carried over from .flake8
+    # Low severity in bandit, which ran with -ll and so never reported them.
+    # The hardcoded password checks (S105-S107) are low too, and are kept.
+    "S101",            # assert
+    "S110", "S112",    # try/except/pass, try/except/continue
+    "S311",            # random, outside cryptography
+    # Estilo aceptado en el código: variables `l` y lambdas con nombre.
+    "E741", "E731",
+]
+
+[lint.per-file-ignores]
+"__init__.py" = ["F401"]
+# A manifest is a bare dict: no line limit, and not a useless expression.
+"__manifest__.py" = ["E501", "B018"]
+# S320 (lxml): las pruebas parsean XML que genera el propio módulo; validation.py, el
+# esquema RNG del módulo; el importador de MS Project usa un parser blindado
+# (resolve_entities=False, no_network=True: mspdi_import_wizard.py, _parse_mspdi).
+"**/tests/**/*.py" = ["S105", "S106", "S107", "S320"]
+"project_planner/validation.py" = ["S320", "PLW0603"]
+"project_msproject/wizards/mspdi_import_wizard.py" = ["S320"]
+# PLW0603: caché de fuentes que se carga la primera vez que se dibuja un PDF.
+# B905: zip(cortes, cortes[1:]) recorre pares consecutivos; el largo distinto es a propósito.
+"project_planner_report/models/gantt_pdf.py" = ["PLW0603", "B905"]
+# B905: zip(tareas.ids, tareas.mapped(...)) — mismo recordset, mismo largo por construcción.
+"project_gantt/models/project_task.py" = ["B905"]

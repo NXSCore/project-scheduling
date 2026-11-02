@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+
+    <!-- El botón de tipo, a la izquierda del de quitar. El SVG nativo mide
+         48x16 con viewBox 0 0 1536 512 y el botón de quitar ocupa el centro;
+         se ensancha para que quepan los dos sin encimarse. -->
+    <t t-name="project_dependency.ConnectorTypeButton"
+       t-inherit="web_gantt.GanttConnector" t-inherit-mode="extension">
+        <xpath expr="//svg[hasclass('o_connector_stroke_buttons')]" position="attributes">
+            <attribute name="width">72</attribute>
+            <attribute name="viewBox">0 0 2304 512</attribute>
+        </xpath>
+        <xpath expr="//g[hasclass('o_connector_stroke_remove_button')]" position="after">
+            <g class="o_connector_stroke_button o_connector_type_button"
+               t-if="props.onEditButtonClick"
+               t-on-click.stop="onEditButtonClick">
+                <rect fill="white" x="1064" y="20" width="472" height="472" rx="236" ry="236"/>
+                <!-- Un lápiz esquemático: a esta escala cualquier glifo más
+                     fino se convierte en una mancha. -->
+                <g pointer-events="none" transform="translate(1180,130)">
+                    <path fill="rgb(52,84,109)"
+                          d="M170 0 L240 70 L80 230 L0 250 L20 170 Z"/>
+                    <rect fill="rgb(52,84,109)" x="0" y="270" width="240" height="40"/>
+                </g>
+            </g>
+        </xpath>
+    </t>
+
+    <!-- El renderer tiene que pasar el manejador; sin esto el botón nunca
+         aparece, porque su `t-if` mira justo ese prop. -->
+    <t t-name="project_dependency.RendererConnectorProps"
+       t-inherit="web_gantt.GanttRenderer" t-inherit-mode="extension">
+        <xpath expr="//GanttConnector" position="attributes">
+            <attribute name="onEditButtonClick">() => this.onEditButtonClick(connector.id)</attribute>
+        </xpath>
+    </t>
+
+</templates>

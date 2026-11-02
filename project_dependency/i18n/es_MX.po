@@ -1,0 +1,1349 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* project_dependency
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 19.0+e-20260926\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-02 04:22+0000\n"
+"PO-Revision-Date: 2026-11-02 04:22+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: project_dependency
+#. odoo-python
+#: code:addons/project_dependency/wizards/schedule_health.py:0
+msgid "%.1f working days"
+msgstr "%.1f días laborables"
+
+#. module: project_dependency
+#. odoo-python
+#: code:addons/project_dependency/wizards/schedule_health.py:0
+msgid "%s working days"
+msgstr "%s días laborables"
+
+#. module: project_dependency
+#: model:ir.model.fields,help:project_dependency.field_project_task__is_milestone
+msgid ""
+"A milestone lasts zero days, as in Microsoft Project: its finish is its "
+"start."
+msgstr ""
+"Un hito dura cero días, como en Microsoft Project: su fin es su inicio."
+
+#. module: project_dependency
+#. odoo-python
+#: code:addons/project_dependency/models/project_dependency.py:0
+msgid "A task cannot depend on itself."
+msgstr "Una tarea no puede depender de sí misma."
+
+#. module: project_dependency
+#: model:ir.model.fields,help:project_dependency.field_project_schedule_report__near_critical_days
+msgid "A task with more than 0 and at most this float is near-critical."
+msgstr "Una tarea con holgura mayor que 0 y hasta este valor es casi crítica."
+
+#. module: project_dependency
+#: model:ir.model.fields,help:project_dependency.field_project_task__is_critical
+msgid "A task with no float: if it slips, the whole project slips."
+msgstr "Tarea sin holgura: si se retrasa, se retrasa todo el proyecto."
+
+#. module: project_dependency
+#: model:ir.model.fields,field_description:project_dependency.field_project_schedule_report__activity_count
+msgid "Activities"
+msgstr "Actividades"
+
+#. module: project_dependency
+#: model_terms:ir.ui.view,arch_db:project_dependency.project_schedule_report_document
+msgid "Activities:"
+msgstr "Actividades:"
+
+#. module: project_dependency
+#: model_terms:ir.ui.view,arch_db:project_dependency.project_task_view_form_dependencies
+msgid "Actual Dates"
+msgstr "Fechas reales"
+
+#. module: project_dependency
+#: model:ir.model.fields,field_description:project_dependency.field_project_task__actual_finish
+msgid "Actual Finish"
+msgstr "Fin real"
+
+#. module: project_dependency
+#: model:ir.model.fields,field_description:project_dependency.field_project_task__actual_start
+msgid "Actual Start"
+msgstr "Inicio real"
+
+#. module: project_dependency
+#. odoo-python
+#: code:addons/project_dependency/models/project_task.py:0
+msgid "Actual dates"
+msgstr "Fechas reales"
+
+#. module: project_dependency
+#: model:ir.model.fields.selection,name:project_dependency.selection__project_task__constraint_type__alap
+msgid "As Late As Possible"
+msgstr "Lo más tarde posible (ALAP)"
+
+#. module: project_dependency
+#: model:ir.model.fields.selection,name:project_dependency.selection__project_task__constraint_type__asap
+msgid "As Soon As Possible"
+msgstr "Lo antes posible (ASAP)"
+
+#. module: project_dependency
+#. odoo-python
+#: code:addons/project_dependency/models/project_task.py:0
+msgid "As late as possible"
+msgstr "Lo más tarde posible"
+
+#. module: project_dependency
+#: model:ir.model.fields,field_description:project_dependency.field_project_schedule_report_line__assignees
+#: model_terms:ir.ui.view,arch_db:project_dependency.project_schedule_report_document
+msgid "Assignees"
+msgstr "Asignados"
+
+#. module: project_dependency
+#. odoo-python
+#: code:addons/project_dependency/wizards/schedule_health.py:0
+msgid "Baseline Execution Index (BEI)"
+msgstr "Índice de ejecución de la línea base (BEI)"
+
+#. module: project_dependency
+#: model:ir.model.fields,field_description:project_dependency.field_project_dependency__lag_elapsed
+msgid "Calendar Days"
+msgstr "Días naturales"
+
+#. module: project_dependency
+#: model:ir.model.fields,help:project_dependency.field_project_schedule_simulation__delay_days
+msgid "Calendar days the delivery date moves; negative when it advances."
+msgstr ""
+"Días naturales que se mueve la fecha de entrega; negativo cuando se "
+"adelanta."
+
+#. module: project_dependency
+#: model:ir.model.fields,field_description:project_dependency.field_project_schedule_simulation__line_ids
+msgid "Changes to Simulate"
+msgstr "Cambios a simular"
+
+#. module: project_dependency
+#: model:ir.model.fields,field_description:project_dependency.field_project_schedule_health_line__name
+#: model_terms:ir.ui.view,arch_db:project_dependency.project_schedule_health_view_form
+msgid "Check"
+msgstr "Revisar"
+
+#. module: project_dependency
+#: model:ir.model.fields,field_description:project_dependency.field_project_schedule_health__line_ids
+msgid "Checks"
+msgstr "Chequeos"
+
+#. module: project_dependency
+#: model:ir.model.fields,field_description:project_dependency.field_project_schedule_health__failed_count
+msgid "Checks Failed"
+msgstr "Chequeos que no cumplen"
+
+#. module: project_dependency
+#: model:ir.model.fields,field_description:project_dependency.field_project_schedule_health__passed_count
+msgid "Checks Passed"
+msgstr "Chequeos que cumplen"
+
+#. module: project_dependency
+#: model_terms:ir.ui.view,arch_db:project_dependency.project_schedule_health_view_form
+#: model_terms:ir.ui.view,arch_db:project_dependency.project_schedule_report_view_form
+#: model_terms:ir.ui.view,arch_db:project_dependency.project_schedule_simulation_view_form
+msgid "Close"
+msgstr "Cerrar"
+
+#. module: project_dependency
+#: model:ir.model.fields,field_description:project_dependency.field_project_schedule_health_line__code
+msgid "Code"
+msgstr "Código"
+
+#. module: project_dependency
+#: model:ir.model.fields,field_description:project_dependency.field_project_dependency__company_id
+msgid "Company"
+msgstr "Compañía"
+
+#. module: project_dependency
+#: model:ir.model.fields,field_description:project_dependency.field_project_schedule_report__computed
+msgid "Computed"
+msgstr "Calculado"
+
+#. module: project_dependency
+#: model:ir.model.fields,field_description:project_dependency.field_project_task__constraint_type
+msgid "Constraint"
+msgstr "Restricción"
+
+#. module: project_dependency
+#: model:ir.model.fields,field_description:project_dependency.field_project_task__constraint_date
+msgid "Constraint Date"
+msgstr "Fecha de restricción"
+
+#. module: project_dependency
+#: model:ir.model.fields,field_description:project_dependency.field_project_dependency__create_uid
+#: model:ir.model.fields,field_description:project_dependency.field_project_schedule_health__create_uid
+#: model:ir.model.fields,field_description:project_dependency.field_project_schedule_health_line__create_uid
+#: model:ir.model.fields,field_description:project_dependency.field_project_schedule_report__create_uid
+#: model:ir.model.fields,field_description:project_dependency.field_project_schedule_report_line__create_uid
+#: model:ir.model.fields,field_description:project_dependency.field_project_schedule_simulation__create_uid
+#: model:ir.model.fields,field_description:project_dependency.field_project_schedule_simulation_line__create_uid
+msgid "Created by"
+msgstr "Creado por"
+
+#. module: project_dependency
+#: model:ir.model.fields,field_description:project_dependency.field_project_dependency__create_date
+#: model:ir.model.fields,field_description:project_dependency.field_project_schedule_health__create_date
+#: model:ir.model.fields,field_description:project_dependency.field_project_schedule_health_line__create_date
+#: model:ir.model.fields,field_description:project_dependency.field_project_schedule_report__create_date
+#: model:ir.model.fields,field_description:project_dependency.field_project_schedule_report_line__create_date
+#: model:ir.model.fields,field_description:project_dependency.field_project_schedule_simulation__create_date
+#: model:ir.model.fields,field_description:project_dependency.field_project_schedule_simulation_line__create_date
+msgid "Created on"
+msgstr "Creado el"
+
+#. module: project_dependency
+#: model_terms:ir.ui.view,arch_db:project_dependency.project_schedule_report_document
+msgid "Crit."
+msgstr "Crít."
+
+#. module: project_dependency
+#. odoo-python
+#: code:addons/project_dependency/wizards/schedule_simulation.py:0
+#: model:ir.model.fields,field_description:project_dependency.field_project_schedule_report__critical_count
+#: model:ir.model.fields,field_description:project_dependency.field_project_schedule_report_line__critical
+msgid "Critical"
+msgstr "Crítica"
+
+#. module: project_dependency
+#: model_terms:ir.ui.view,arch_db:project_dependency.project_task_view_form_dependencies
+msgid "Critical Path"
+msgstr "Ruta crítica"
+
+#. module: project_dependency
+#: model:ir.model.fields,field_description:project_dependency.field_project_task__critical_color
+msgid "Critical Path Color"
+msgstr "Color de ruta crítica"
+
+#. module: project_dependency
+#. odoo-python
+#: code:addons/project_dependency/wizards/schedule_health.py:0
+msgid "Critical Path Length Index (CPLI)"
+msgstr "Índice de longitud de la ruta crítica (CPLI)"
+
+#. module: project_dependency
+#: model:ir.model.fields.selection,name:project_dependency.selection__project_schedule_report__report_type__critical
+msgid "Critical and near-critical"
+msgstr "Críticas y casi críticas"
+
+#. module: project_dependency
+#. odoo-python
+#: code:addons/project_dependency/wizards/schedule_health.py:0
+msgid "Critical path test: delaying a critical task delays the finish as much"
+msgstr ""
+"Prueba de ruta crítica: retrasar una tarea crítica retrasa el fin lo mismo"
+
+#. module: project_dependency
+#: model:ir.model.fields,field_description:project_dependency.field_project_schedule_simulation_line__current_duration
+msgid "Current Duration (days)"
+msgstr "Duración actual (días)"
+
+#. module: project_dependency
+#. odoo-python
+#: code:addons/project_dependency/wizards/schedule_simulation.py:0
+#: model:ir.model.fields,field_description:project_dependency.field_project_schedule_simulation__finish_before
+msgid "Current Finish"
+msgstr "Fin actual"
+
+#. module: project_dependency
+#: model:ir.model.fields,field_description:project_dependency.field_project_schedule_simulation_line__current_start
+msgid "Current Start"
+msgstr "Inicio actual"
+
+#. module: project_dependency
+#: model:ir.model.fields.selection,name:project_dependency.selection__project_schedule_report__period__custom
+msgid "Custom"
+msgstr "Personalizado"
+
+#. module: project_dependency
+#: model_terms:ir.ui.view,arch_db:project_dependency.project_task_view_form_dependencies
+msgid "Date Constraint"
+msgstr "Restricción de fecha"
+
+#. module: project_dependency
+#: model:ir.model.fields,help:project_dependency.field_project_task__constraint_type
+msgid ""
+"Date constraint applied when the schedule is calculated, as in Microsoft "
+"Project."
+msgstr ""
+"Restricción de fecha que se aplica al calcular el cronograma, como en "
+"Microsoft Project."
+
+#. module: project_dependency
+#. odoo-python
+#: code:addons/project_dependency/models/project_task.py:0
+msgid "Date constraint: %s"
+msgstr "Restricción de fecha: %s"
+
+#. module: project_dependency
+#: model:ir.model.fields,help:project_dependency.field_project_task__constraint_date
+msgid ""
+"Date the constraint refers to. Not used by As Soon / As Late As Possible."
+msgstr ""
+"Fecha a la que se refiere la restricción. No se usa en «Lo antes posible» ni"
+" en «Lo más tarde posible»."
+
+#. module: project_dependency
+#: model:ir.model.fields,help:project_dependency.field_project_task__finish_deadline
+msgid ""
+"Date this task should finish by. It does not move the task; if the task "
+"cannot finish by then, its float turns negative and it joins the critical "
+"path."
+msgstr ""
+"Fecha en que esta tarea debería terminar. No mueve la tarea; si no puede "
+"terminar para entonces, su holgura se vuelve negativa y entra en la ruta "
+"crítica."
+
+#. module: project_dependency
+#: model:ir.model.fields,help:project_dependency.field_project_dependency__lag_days
+msgid "Days between the two ends. Negative means overlap (lead)."
+msgstr ""
+"Días entre los dos extremos. Un valor negativo es un traslape (adelanto)."
+
+#. module: project_dependency
+#: model_terms:ir.ui.view,arch_db:project_dependency.project_dependency_view_list
+msgid "Dependencies"
+msgstr "Dependencias"
+
+#. module: project_dependency
+#. odoo-python
+#: code:addons/project_dependency/models/project_task.py:0
+msgid "Dependencies of %(task)s"
+msgstr "Dependencias de %(task)s"
+
+#. module: project_dependency
+#: model_terms:ir.ui.view,arch_db:project_dependency.project_dependency_view_form
+msgid "Dependency"
+msgstr "Dependencia"
+
+#. module: project_dependency
+#. odoo-python
+#: code:addons/project_dependency/models/project_dependency.py:0
+msgid "Dependency type"
+msgstr "Tipo de dependencia"
+
+#. module: project_dependency
+#: model_terms:ir.ui.view,arch_db:project_dependency.project_dependency_view_form
+msgid "Discard"
+msgstr "Descartar"
+
+#. module: project_dependency
+#: model:ir.model.fields,field_description:project_dependency.field_project_dependency__display_name
+#: model:ir.model.fields,field_description:project_dependency.field_project_project__display_name
+#: model:ir.model.fields,field_description:project_dependency.field_project_schedule_health__display_name
+#: model:ir.model.fields,field_description:project_dependency.field_project_schedule_health_line__display_name
+#: model:ir.model.fields,field_description:project_dependency.field_project_schedule_report__display_name
+#: model:ir.model.fields,field_description:project_dependency.field_project_schedule_report_line__display_name
+#: model:ir.model.fields,field_description:project_dependency.field_project_schedule_simulation__display_name
+#: model:ir.model.fields,field_description:project_dependency.field_project_schedule_simulation_line__display_name
+#: model:ir.model.fields,field_description:project_dependency.field_project_task__display_name
+msgid "Display Name"
+msgstr "Nombre en pantalla"
+
+#. module: project_dependency
+#: model:ir.model.fields,field_description:project_dependency.field_project_task__duration_days
+msgid "Duration (working days)"
+msgstr "Duración (días laborables)"
+
+#. module: project_dependency
+#: model:ir.model.fields,field_description:project_dependency.field_project_task__early_finish
+msgid "Earliest Finish"
+msgstr "Fin más temprano"
+
+#. module: project_dependency
+#: model_terms:ir.ui.view,arch_db:project_dependency.project_schedule_report_document
+msgid "FF"
+msgstr "HL"
+
+#. module: project_dependency
+#: model:ir.model.fields.selection,name:project_dependency.selection__project_schedule_health_line__result__fail
+msgid "Fail"
+msgstr "No cumple"
+
+#. module: project_dependency
+#. odoo-python
+#: code:addons/project_dependency/wizards/schedule_report.py:0
+msgid "Fill in both dates."
+msgstr "Llena las dos fechas."
+
+#. module: project_dependency
+#: model:ir.model.fields,field_description:project_dependency.field_project_schedule_report_line__date_end
+#: model_terms:ir.ui.view,arch_db:project_dependency.project_schedule_report_document
+msgid "Finish"
+msgstr "Fin"
+
+#. module: project_dependency
+#: model:ir.model.fields,field_description:project_dependency.field_project_task__finish_deadline
+msgid "Finish Deadline"
+msgstr "Fecha límite de término"
+
+#. module: project_dependency
+#: model:ir.model.fields.selection,name:project_dependency.selection__project_task__constraint_type__fnet
+msgid "Finish No Earlier Than"
+msgstr "No finalizar antes del (FNET)"
+
+#. module: project_dependency
+#: model:ir.model.fields.selection,name:project_dependency.selection__project_task__constraint_type__fnlt
+msgid "Finish No Later Than"
+msgstr "No finalizar después del (FNLT)"
+
+#. module: project_dependency
+#: model:ir.model.fields,help:project_dependency.field_project_project__project_finish
+msgid ""
+"Finish date the schedule is calculated backwards from (Schedule From: "
+"finish)."
+msgstr ""
+"Fecha de fin desde la que se calcula el cronograma hacia atrás (Programar "
+"desde: fin)."
+
+#. module: project_dependency
+#: model:ir.model.fields.selection,name:project_dependency.selection__project_dependency__link_type__ff
+msgid "Finish to Finish (FF)"
+msgstr "Fin a fin (FF)"
+
+#. module: project_dependency
+#: model:ir.model.fields.selection,name:project_dependency.selection__project_dependency__link_type__fs
+msgid "Finish to Start (FS)"
+msgstr "Fin a inicio (FS)"
+
+#. module: project_dependency
+#: model:ir.model.fields,field_description:project_dependency.field_project_task__free_float_days
+msgid "Free Float (days)"
+msgstr "Holgura libre (días)"
+
+#. module: project_dependency
+#: model:ir.model.fields,field_description:project_dependency.field_project_schedule_report_line__free_float
+msgid "Free Float (working days)"
+msgstr "Holgura libre (días laborables)"
+
+#. module: project_dependency
+#: model:ir.model.fields,field_description:project_dependency.field_project_schedule_report__date_from
+msgid "From"
+msgstr "Desde"
+
+#. module: project_dependency
+#: model:ir.model.fields,help:project_dependency.field_project_project__schedule_from
+msgid ""
+"From the finish date, every automatic task goes to its latest dates, "
+"calculated backwards from its successors and the project finish, as in "
+"Microsoft Project."
+msgstr ""
+"Desde la fecha de fin, cada tarea automática va a sus fechas más tardías, "
+"calculadas hacia atrás desde sus sucesoras y el fin del proyecto, como en "
+"Microsoft Project."
+
+#. module: project_dependency
+#: model:ir.model.fields,help:project_dependency.field_project_task__critical_color
+msgid ""
+"Gantt colour index: one value for the critical path, another for tasks with "
+"float."
+msgstr ""
+"Índice de color del Gantt: un valor para la ruta crítica y otro para las "
+"tareas con holgura."
+
+#. module: project_dependency
+#. odoo-python
+#: code:addons/project_dependency/wizards/schedule_health.py:0
+msgid "Hard constraints: must start/finish on, start/finish no later than"
+msgstr ""
+"Restricciones duras: debe comenzar/terminar el, comenzar/terminar no después"
+" de"
+
+#. module: project_dependency
+#: model:ir.model.fields,field_description:project_dependency.field_project_schedule_health_line__health_id
+msgid "Health Check"
+msgstr "Revisión de salud"
+
+#. module: project_dependency
+#: model:ir.model.fields,field_description:project_dependency.field_project_schedule_health__high_float_days
+msgid "High Float Above (working days)"
+msgstr "Holgura alta a partir de (días laborables)"
+
+#. module: project_dependency
+#. odoo-python
+#: code:addons/project_dependency/wizards/schedule_health.py:0
+msgid "High duration: more than %s working days"
+msgstr "Duración alta: más de %s días laborables"
+
+#. module: project_dependency
+#. odoo-python
+#: code:addons/project_dependency/wizards/schedule_health.py:0
+msgid "High float: more than %s working days"
+msgstr "Holgura alta: más de %s días laborables"
+
+#. module: project_dependency
+#: model:ir.model.fields,field_description:project_dependency.field_project_dependency__id
+#: model:ir.model.fields,field_description:project_dependency.field_project_project__id
+#: model:ir.model.fields,field_description:project_dependency.field_project_schedule_health__id
+#: model:ir.model.fields,field_description:project_dependency.field_project_schedule_health_line__id
+#: model:ir.model.fields,field_description:project_dependency.field_project_schedule_report__id
+#: model:ir.model.fields,field_description:project_dependency.field_project_schedule_report_line__id
+#: model:ir.model.fields,field_description:project_dependency.field_project_schedule_simulation__id
+#: model:ir.model.fields,field_description:project_dependency.field_project_schedule_simulation_line__id
+#: model:ir.model.fields,field_description:project_dependency.field_project_task__id
+msgid "ID"
+msgstr ""
+
+#. module: project_dependency
+#: model:ir.model.fields,field_description:project_dependency.field_project_schedule_simulation__delay_days
+msgid "Impact on Finish (days)"
+msgstr "Impacto en la entrega (días)"
+
+#. module: project_dependency
+#: model:ir.model.fields,field_description:project_dependency.field_project_schedule_report__in_progress_count
+msgid "In Progress"
+msgstr "En curso"
+
+#. module: project_dependency
+#: model:ir.model.fields.selection,name:project_dependency.selection__project_schedule_report_line__status__in_progress
+msgid "In progress"
+msgstr "En curso"
+
+#. module: project_dependency
+#: model:ir.model.fields,help:project_dependency.field_project_schedule_health__task_count
+msgid "Incomplete leaf tasks, without milestones or summary tasks."
+msgstr "Tareas hoja no terminadas, sin hitos ni tareas resumen."
+
+#. module: project_dependency
+#. odoo-python
+#: code:addons/project_dependency/wizards/schedule_health.py:0
+msgid ""
+"Invalid dates: actual dates after the status date or forecast dates before "
+"it"
+msgstr ""
+"Fechas inválidas: fechas reales después de la fecha de corte o pronosticadas"
+" antes de ella"
+
+#. module: project_dependency
+#: model:ir.model.fields,field_description:project_dependency.field_project_task__is_milestone
+msgid "Is a Milestone"
+msgstr "Es hito"
+
+#. module: project_dependency
+#. odoo-python
+#: code:addons/project_dependency/models/project_task.py:0
+msgid "Its own duration or the calendar"
+msgstr "Su propia duración o el calendario"
+
+#. module: project_dependency
+#. odoo-python
+#: code:addons/project_dependency/models/project_task.py:0
+msgid "Its own start date"
+msgstr "Su propia fecha de inicio"
+
+#. module: project_dependency
+#: model:ir.model.fields,field_description:project_dependency.field_project_dependency__lag_days
+msgid "Lag (days)"
+msgstr "Desfase (días)"
+
+#. module: project_dependency
+#. odoo-python
+#: code:addons/project_dependency/wizards/schedule_health.py:0
+msgid "Lags: links with a positive lag"
+msgstr "Desfases: vínculos con desfase positivo"
+
+#. module: project_dependency
+#: model:ir.model.fields,field_description:project_dependency.field_project_dependency__write_uid
+#: model:ir.model.fields,field_description:project_dependency.field_project_schedule_health__write_uid
+#: model:ir.model.fields,field_description:project_dependency.field_project_schedule_health_line__write_uid
+#: model:ir.model.fields,field_description:project_dependency.field_project_schedule_report__write_uid
+#: model:ir.model.fields,field_description:project_dependency.field_project_schedule_report_line__write_uid
+#: model:ir.model.fields,field_description:project_dependency.field_project_schedule_simulation__write_uid
+#: model:ir.model.fields,field_description:project_dependency.field_project_schedule_simulation_line__write_uid
+msgid "Last Updated by"
+msgstr "Última actualización por"
+
+#. module: project_dependency
+#: model:ir.model.fields,field_description:project_dependency.field_project_dependency__write_date
+#: model:ir.model.fields,field_description:project_dependency.field_project_schedule_health__write_date
+#: model:ir.model.fields,field_description:project_dependency.field_project_schedule_health_line__write_date
+#: model:ir.model.fields,field_description:project_dependency.field_project_schedule_report__write_date
+#: model:ir.model.fields,field_description:project_dependency.field_project_schedule_report_line__write_date
+#: model:ir.model.fields,field_description:project_dependency.field_project_schedule_simulation__write_date
+#: model:ir.model.fields,field_description:project_dependency.field_project_schedule_simulation_line__write_date
+msgid "Last Updated on"
+msgstr "Última actualización el"
+
+#. module: project_dependency
+#: model:ir.model.fields,field_description:project_dependency.field_project_task__late_finish
+msgid "Latest Finish"
+msgstr "Fin más tardío"
+
+#. module: project_dependency
+#. odoo-python
+#: code:addons/project_dependency/wizards/schedule_health.py:0
+msgid "Leads: links with a negative lag"
+msgstr "Adelantos: vínculos con desfase negativo"
+
+#. module: project_dependency
+#: model:ir.model.fields,field_description:project_dependency.field_project_schedule_health__link_count
+msgid "Links Evaluated"
+msgstr "Vínculos evaluados"
+
+#. module: project_dependency
+#: model:ir.model.fields,help:project_dependency.field_project_schedule_health__link_count
+msgid "Links into the tasks evaluated."
+msgstr "Vínculos que llegan a las tareas evaluadas."
+
+#. module: project_dependency
+#. odoo-python
+#: code:addons/project_dependency/wizards/schedule_health.py:0
+msgid "Logic: tasks missing a predecessor or a successor"
+msgstr "Lógica: tareas sin predecesora o sin sucesora"
+
+#. module: project_dependency
+#: model:ir.model.fields,field_description:project_dependency.field_project_schedule_health__high_duration_days
+msgid "Long Duration Above (working days)"
+msgstr "Duración alta a partir de (días laborables)"
+
+#. module: project_dependency
+#: model:ir.model.fields.selection,name:project_dependency.selection__project_schedule_report__report_type__lookahead
+msgid "Look-ahead"
+msgstr "Pronóstico a corto plazo"
+
+#. module: project_dependency
+#: model:ir.actions.act_window,name:project_dependency.project_schedule_report_action
+msgid "Look-ahead and Critical Tasks"
+msgstr "Pronóstico a corto plazo y tareas críticas"
+
+#. module: project_dependency
+#: model:ir.model.fields,field_description:project_dependency.field_project_task__manually_scheduled
+msgid "Manually Scheduled"
+msgstr "Programada manualmente"
+
+#. module: project_dependency
+#. odoo-python
+#: code:addons/project_dependency/models/project_task.py:0
+msgid "Manually scheduled"
+msgstr "Programada manualmente"
+
+#. module: project_dependency
+#: model:ir.model.fields,field_description:project_dependency.field_project_project__minutes_per_day
+msgid "Minutes per Day"
+msgstr "Minutos por día"
+
+#. module: project_dependency
+#. odoo-python
+#: code:addons/project_dependency/wizards/schedule_health.py:0
+msgid "Missed tasks: due by the baseline but finished late or not finished"
+msgstr ""
+"Tareas incumplidas: debían terminar según la línea base y terminaron tarde o"
+" no han terminado"
+
+#. module: project_dependency
+#: model_terms:ir.ui.view,arch_db:project_dependency.project_schedule_simulation_view_form
+msgid ""
+"Move dates or durations to see the impact on the delivery date and the critical path.\n"
+"                    Nothing is saved: reschedule the project to apply it."
+msgstr ""
+"Mueva fechas o duraciones para ver el impacto en la fecha de entrega y en la ruta crítica.\n"
+"                    No se guarda nada: reprograme el proyecto para aplicarlo."
+
+#. module: project_dependency
+#: model:ir.model.fields.selection,name:project_dependency.selection__project_task__constraint_type__mfo
+msgid "Must Finish On"
+msgstr "Debe finalizar el (MFO)"
+
+#. module: project_dependency
+#: model:ir.model.fields.selection,name:project_dependency.selection__project_task__constraint_type__mso
+msgid "Must Start On"
+msgstr "Debe comenzar el (MSO)"
+
+#. module: project_dependency
+#: model:ir.model.fields,field_description:project_dependency.field_project_schedule_report__near_critical_count
+#: model:ir.model.fields,field_description:project_dependency.field_project_schedule_report_line__near_critical
+msgid "Near-critical"
+msgstr "Casi crítica"
+
+#. module: project_dependency
+#: model:ir.model.fields,field_description:project_dependency.field_project_schedule_report__near_critical_days
+msgid "Near-critical Up To (working days)"
+msgstr "Casi crítica hasta (días laborables)"
+
+#. module: project_dependency
+#. odoo-python
+#: code:addons/project_dependency/wizards/schedule_health.py:0
+msgid "Negative float"
+msgstr "Holgura negativa"
+
+#. module: project_dependency
+#. odoo-python
+#: code:addons/project_dependency/wizards/schedule_simulation.py:0
+msgid "New critical path:"
+msgstr "Nueva ruta crítica:"
+
+#. module: project_dependency
+#: model:ir.model.fields.selection,name:project_dependency.selection__project_schedule_report__period__next_12w
+msgid "Next 12 weeks"
+msgstr "Siguientes 12 semanas"
+
+#. module: project_dependency
+#: model:ir.model.fields.selection,name:project_dependency.selection__project_schedule_report__period__next_2w
+msgid "Next 2 weeks"
+msgstr "Siguientes 2 semanas"
+
+#. module: project_dependency
+#: model:ir.model.fields.selection,name:project_dependency.selection__project_schedule_report__period__next_4w
+msgid "Next 4 weeks"
+msgstr "Siguientes 4 semanas"
+
+#. module: project_dependency
+#: model:ir.model.fields.selection,name:project_dependency.selection__project_schedule_report__period__next_6w
+msgid "Next 6 weeks"
+msgstr "Siguientes 6 semanas"
+
+#. module: project_dependency
+#: model:ir.model.fields.selection,name:project_dependency.selection__project_schedule_report__period__next_8w
+msgid "Next 8 weeks"
+msgstr "Siguientes 8 semanas"
+
+#. module: project_dependency
+#: model:ir.model.fields.selection,name:project_dependency.selection__project_schedule_report__period__next_month
+msgid "Next month"
+msgstr "Siguiente mes"
+
+#. module: project_dependency
+#: model:ir.model.fields.selection,name:project_dependency.selection__project_schedule_report__period__next_1w
+msgid "Next week"
+msgstr "Siguiente semana"
+
+#. module: project_dependency
+#: model:ir.model.fields.selection,name:project_dependency.selection__project_schedule_health_line__result__na
+msgid "Not applicable"
+msgstr "No aplica"
+
+#. module: project_dependency
+#: model:ir.model.fields,field_description:project_dependency.field_project_task__is_critical
+msgid "On the Critical Path"
+msgstr "En la ruta crítica"
+
+#. module: project_dependency
+#: model:ir.model.fields,help:project_dependency.field_project_project__honor_constraints
+msgid ""
+"On, a 'no later than' constraint wins over a link; off, the link wins. Both "
+"report the conflict."
+msgstr ""
+"Activada, una restricción «no después de» gana sobre un vínculo; "
+"desactivada, gana el vínculo. En ambos casos se reporta el conflicto."
+
+#. module: project_dependency
+#: model_terms:ir.ui.view,arch_db:project_dependency.project_schedule_report_view_form
+msgid "Open as Task List"
+msgstr "Abrir como lista de tareas"
+
+#. module: project_dependency
+#: model:ir.model.fields,help:project_dependency.field_project_task__wbs_code
+msgid ""
+"Outline number of the task in its project (1, 1.2, 1.2.1...), as Microsoft "
+"Project numbers it."
+msgstr ""
+"Número de esquema de la tarea en su proyecto (1, 1.2, 1.2.1...), como lo "
+"numera Microsoft Project."
+
+#. module: project_dependency
+#: model:ir.model.fields,field_description:project_dependency.field_project_schedule_report__overdue_count
+#: model:ir.model.fields.selection,name:project_dependency.selection__project_schedule_report_line__status__overdue
+msgid "Overdue"
+msgstr "Vencida"
+
+#. module: project_dependency
+#: model:ir.model.fields.selection,name:project_dependency.selection__project_schedule_health_line__result__pass
+msgid "Pass"
+msgstr "Cumple"
+
+#. module: project_dependency
+#: model:ir.model.fields,field_description:project_dependency.field_project_schedule_report__period
+msgid "Period"
+msgstr "Periodo"
+
+#. module: project_dependency
+#: model_terms:ir.ui.view,arch_db:project_dependency.project_task_view_form_dependencies
+msgid "Plan"
+msgstr "Planeación"
+
+#. module: project_dependency
+#: model:ir.model.fields,field_description:project_dependency.field_project_dependency__predecessor_id
+msgid "Predecessor"
+msgstr "Predecesora"
+
+#. module: project_dependency
+#. odoo-python
+#: code:addons/project_dependency/models/project_task.py:0
+msgid "Predecessor: %s"
+msgstr "Predecesora: %s"
+
+#. module: project_dependency
+#: model:ir.model.fields,field_description:project_dependency.field_project_task__predecessor_link_ids
+#: model_terms:ir.ui.view,arch_db:project_dependency.project_task_view_form_dependencies
+msgid "Predecessors"
+msgstr "Predecesoras"
+
+#. module: project_dependency
+#. odoo-python
+#: code:addons/project_dependency/models/project_task.py:0
+msgid "Predecessors (%(count)s): %(names)s"
+msgstr "Predecesoras (%(count)s): %(names)s"
+
+#. module: project_dependency
+#: model_terms:ir.ui.view,arch_db:project_dependency.project_schedule_report_view_form
+msgid "Print"
+msgstr "Imprimir"
+
+#. module: project_dependency
+#: model_terms:ir.ui.view,arch_db:project_dependency.project_schedule_report_document
+msgid "Prog."
+msgstr "Av."
+
+#. module: project_dependency
+#: model:ir.model.fields,field_description:project_dependency.field_project_schedule_report_line__progress
+msgid "Progress (%)"
+msgstr "Avance (%)"
+
+#. module: project_dependency
+#. odoo-python
+#: code:addons/project_dependency/models/project_task.py:0
+msgid "Progress: it already started"
+msgstr "Avance: ya comenzó"
+
+#. module: project_dependency
+#: model:ir.model,name:project_dependency.model_project_project
+#: model:ir.model.fields,field_description:project_dependency.field_project_dependency__project_id
+msgid "Project"
+msgstr "Proyecto"
+
+#. module: project_dependency
+#: model:ir.model.fields,field_description:project_dependency.field_project_project__project_finish
+msgid "Project Finish"
+msgstr "Fin del proyecto"
+
+#. module: project_dependency
+#: model:ir.model.fields.selection,name:project_dependency.selection__project_project__schedule_from__finish
+msgid "Project finish date"
+msgstr "Fecha de fin del proyecto"
+
+#. module: project_dependency
+#: model:ir.model.fields.selection,name:project_dependency.selection__project_project__schedule_from__start
+msgid "Project start date"
+msgstr "Fecha de inicio del proyecto"
+
+#. module: project_dependency
+#. odoo-python
+#: code:addons/project_dependency/models/project_task.py:0
+msgid "Reason not established"
+msgstr "No se pudo establecer el motivo"
+
+#. module: project_dependency
+#: model:ir.model.fields,field_description:project_dependency.field_project_schedule_report__reference_date
+msgid "Reference Day"
+msgstr "Día de referencia"
+
+#. module: project_dependency
+#: model_terms:ir.ui.view,arch_db:project_dependency.project_schedule_report_document
+msgid "Reference day:"
+msgstr "Día de referencia:"
+
+#. module: project_dependency
+#. odoo-python
+#: code:addons/project_dependency/wizards/schedule_health.py:0
+msgid "Relationship types: share of finish-to-start links"
+msgstr "Tipos de vínculo: proporción de vínculos fin a inicio"
+
+#. module: project_dependency
+#: model_terms:ir.ui.view,arch_db:project_dependency.project_schedule_report_document
+msgid "Rem."
+msgstr "Rest."
+
+#. module: project_dependency
+#: model:ir.model.fields,field_description:project_dependency.field_project_schedule_report_line__remaining_days
+msgid "Remaining (working days)"
+msgstr "Restante (días laborables)"
+
+#. module: project_dependency
+#: model:ir.model.fields,field_description:project_dependency.field_project_schedule_report__report_type
+#: model:ir.model.fields,field_description:project_dependency.field_project_schedule_report_line__report_id
+msgid "Report"
+msgstr "Reporte"
+
+#. module: project_dependency
+#. odoo-python
+#: code:addons/project_dependency/wizards/schedule_health.py:0
+msgid "Resources: tasks without an assignee"
+msgstr "Recursos: tareas sin asignado"
+
+#. module: project_dependency
+#: model:ir.model.fields,field_description:project_dependency.field_project_schedule_health_line__result
+#: model:ir.model.fields,field_description:project_dependency.field_project_schedule_simulation__result_html
+msgid "Result"
+msgstr "Resultado"
+
+#. module: project_dependency
+#: model_terms:ir.ui.view,arch_db:project_dependency.project_schedule_report_view_form
+msgid "Run"
+msgstr "Generar"
+
+#. module: project_dependency
+#: model_terms:ir.ui.view,arch_db:project_dependency.project_dependency_view_form
+msgid "Save"
+msgstr "Guardar"
+
+#. module: project_dependency
+#: model:ir.model.fields,field_description:project_dependency.field_project_schedule_health__project_id
+#: model:ir.model.fields,field_description:project_dependency.field_project_schedule_report__project_id
+#: model:ir.model.fields,field_description:project_dependency.field_project_schedule_simulation__project_id
+#: model:ir.model.fields,field_description:project_dependency.field_project_schedule_simulation_line__project_id
+#: model_terms:ir.ui.view,arch_db:project_dependency.project_task_view_form_dependencies
+msgid "Schedule"
+msgstr "Programación"
+
+#. module: project_dependency
+#: model:ir.model.fields,field_description:project_dependency.field_project_project__schedule_from
+msgid "Schedule From"
+msgstr "Programar desde"
+
+#. module: project_dependency
+#. odoo-python
+#: code:addons/project_dependency/wizards/schedule_health.py:0
+#: model:ir.actions.act_window,name:project_dependency.project_schedule_health_action
+#: model:ir.model,name:project_dependency.model_project_schedule_health
+msgid "Schedule Health Check"
+msgstr "Salud del cronograma"
+
+#. module: project_dependency
+#: model:ir.model,name:project_dependency.model_project_schedule_health_line
+msgid "Schedule Health Check Result"
+msgstr "Resultado de la salud del cronograma"
+
+#. module: project_dependency
+#: model:ir.actions.report,name:project_dependency.project_schedule_report_pdf
+#: model:ir.model,name:project_dependency.model_project_schedule_report
+msgid "Schedule Report"
+msgstr "Reporte del cronograma"
+
+#. module: project_dependency
+#: model:ir.model,name:project_dependency.model_project_schedule_report_line
+msgid "Schedule Report Line"
+msgstr "Línea del reporte del cronograma"
+
+#. module: project_dependency
+#. odoo-python
+#: code:addons/project_dependency/wizards/schedule_simulation.py:0
+#: model:ir.actions.act_window,name:project_dependency.project_schedule_simulation_action
+#: model:ir.model,name:project_dependency.model_project_schedule_simulation
+msgid "Schedule Simulation"
+msgstr "Simulación del cronograma"
+
+#. module: project_dependency
+#: model:ir.model,name:project_dependency.model_project_schedule_simulation_line
+msgid "Schedule Simulation Change"
+msgstr "Cambio de la simulación del cronograma"
+
+#. module: project_dependency
+#. odoo-python
+#: code:addons/project_dependency/models/project_task.py:0
+msgid "Scheduled back from the project finish"
+msgstr "Programada hacia atrás desde el fin del proyecto"
+
+#. module: project_dependency
+#: model_terms:ir.ui.view,arch_db:project_dependency.project_project_view_form_schedule_calendar
+msgid "Scheduling"
+msgstr "Programación"
+
+#. module: project_dependency
+#: model:ir.model.fields,field_description:project_dependency.field_project_schedule_report__should_have_started_count
+msgid "Should Have Started"
+msgstr "Debió empezar"
+
+#. module: project_dependency
+#: model:ir.model.fields.selection,name:project_dependency.selection__project_schedule_report_line__status__should_have_started
+msgid "Should have started"
+msgstr "Debió empezar"
+
+#. module: project_dependency
+#: model_terms:ir.ui.view,arch_db:project_dependency.project_schedule_simulation_view_form
+msgid "Simulate"
+msgstr "Simular"
+
+#. module: project_dependency
+#: model:ir.model.fields,field_description:project_dependency.field_project_schedule_simulation_line__new_duration
+msgid "Simulated Duration (days)"
+msgstr "Duración simulada (días)"
+
+#. module: project_dependency
+#. odoo-python
+#: code:addons/project_dependency/wizards/schedule_simulation.py:0
+#: model:ir.model.fields,field_description:project_dependency.field_project_schedule_simulation__finish_after
+msgid "Simulated Finish"
+msgstr "Fin simulado"
+
+#. module: project_dependency
+#: model:ir.model.fields,field_description:project_dependency.field_project_schedule_simulation_line__new_start
+msgid "Simulated Start"
+msgstr "Inicio simulado"
+
+#. module: project_dependency
+#: model:ir.model.fields,field_description:project_dependency.field_project_schedule_simulation_line__simulation_id
+msgid "Simulation"
+msgstr "Simulación"
+
+#. module: project_dependency
+#: model:ir.model.fields,field_description:project_dependency.field_project_schedule_report_line__date_start
+#: model_terms:ir.ui.view,arch_db:project_dependency.project_schedule_report_document
+msgid "Start"
+msgstr "Inicio"
+
+#. module: project_dependency
+#: model:ir.model.fields.selection,name:project_dependency.selection__project_task__constraint_type__snet
+msgid "Start No Earlier Than"
+msgstr "No comenzar antes del (SNET)"
+
+#. module: project_dependency
+#: model:ir.model.fields.selection,name:project_dependency.selection__project_task__constraint_type__snlt
+msgid "Start No Later Than"
+msgstr "No comenzar después del (SNLT)"
+
+#. module: project_dependency
+#: model:ir.model.fields.selection,name:project_dependency.selection__project_dependency__link_type__sf
+msgid "Start to Finish (SF)"
+msgstr "Inicio a fin (SF)"
+
+#. module: project_dependency
+#: model:ir.model.fields.selection,name:project_dependency.selection__project_dependency__link_type__ss
+msgid "Start to Start (SS)"
+msgstr "Inicio a inicio (SS)"
+
+#. module: project_dependency
+#: model:ir.model.fields,field_description:project_dependency.field_project_schedule_report__starting_count
+#: model:ir.model.fields.selection,name:project_dependency.selection__project_schedule_report_line__status__starting
+msgid "Starting"
+msgstr "Por empezar"
+
+#. module: project_dependency
+#: model:ir.model.fields,field_description:project_dependency.field_project_schedule_report_line__status
+#: model_terms:ir.ui.view,arch_db:project_dependency.project_schedule_report_document
+msgid "Status"
+msgstr "Estado"
+
+#. module: project_dependency
+#: model:ir.model.fields,field_description:project_dependency.field_project_schedule_health__status_date
+msgid "Status Date"
+msgstr "Fecha de corte"
+
+#. module: project_dependency
+#: model:ir.model.fields,field_description:project_dependency.field_project_dependency__successor_id
+msgid "Successor"
+msgstr "Sucesora"
+
+#. module: project_dependency
+#: model:ir.model.fields,field_description:project_dependency.field_project_task__successor_link_ids
+#: model_terms:ir.ui.view,arch_db:project_dependency.project_task_view_form_dependencies
+msgid "Successors"
+msgstr "Sucesoras"
+
+#. module: project_dependency
+#. odoo-python
+#: code:addons/project_dependency/models/project_task.py:0
+msgid "Summary: follows its subtasks"
+msgstr "Resumen: sigue a sus subtareas"
+
+#. module: project_dependency
+#: model_terms:ir.ui.view,arch_db:project_dependency.project_schedule_report_document
+msgid "TF"
+msgstr "HT"
+
+#. module: project_dependency
+#. odoo-python
+#: code:addons/project_dependency/wizards/schedule_simulation.py:0
+#: model:ir.model,name:project_dependency.model_project_task
+#: model:ir.model.fields,field_description:project_dependency.field_project_schedule_report_line__name
+#: model:ir.model.fields,field_description:project_dependency.field_project_schedule_simulation_line__task_id
+#: model_terms:ir.ui.view,arch_db:project_dependency.project_schedule_report_document
+msgid "Task"
+msgstr "Tarea"
+
+#. module: project_dependency
+#: model:ir.model.fields,field_description:project_dependency.field_project_schedule_report_line__task_id
+msgid "Task Record"
+msgstr "Tarea"
+
+#. module: project_dependency
+#: model:ir.model.fields,field_description:project_dependency.field_project_schedule_health_line__task_ids
+#: model:ir.model.fields,field_description:project_dependency.field_project_schedule_report__line_ids
+#: model_terms:ir.ui.view,arch_db:project_dependency.project_schedule_health_view_form
+msgid "Tasks"
+msgstr "Tareas"
+
+#. module: project_dependency
+#: model:ir.model.fields,field_description:project_dependency.field_project_project__honor_constraints
+msgid "Tasks Always Honor Their Constraints"
+msgstr "Las tareas siempre respetan sus restricciones"
+
+#. module: project_dependency
+#: model:ir.model.fields,field_description:project_dependency.field_project_schedule_health__task_count
+msgid "Tasks Evaluated"
+msgstr "Tareas evaluadas"
+
+#. module: project_dependency
+#: model:ir.model.fields,field_description:project_dependency.field_project_schedule_health_line__task_count
+msgid "Tasks Found"
+msgstr "Tareas encontradas"
+
+#. module: project_dependency
+#. odoo-python
+#: code:addons/project_dependency/wizards/schedule_report.py:0
+msgid "Tasks of the Report"
+msgstr "Tareas del reporte"
+
+#. module: project_dependency
+#. odoo-python
+#: code:addons/project_dependency/models/project_dependency.py:0
+msgid ""
+"That link closes a loop: the tasks would wait for each other forever and the"
+" schedule could not be calculated."
+msgstr ""
+"Ese vínculo cierra un ciclo: las tareas se esperarían entre sí para siempre "
+"y el cronograma no se podría calcular."
+
+#. module: project_dependency
+#: model:ir.model.fields,help:project_dependency.field_project_task__manually_scheduled
+msgid ""
+"The calculation does not move this task; it still constrains its neighbours."
+msgstr "El cálculo no mueve esta tarea; sí condiciona a sus vecinas."
+
+#. module: project_dependency
+#: model:ir.model.fields,help:project_dependency.field_project_schedule_health__status_date
+msgid "The date up to which progress is measured."
+msgstr "La fecha hasta la que se mide el avance."
+
+#. module: project_dependency
+#: model:ir.model.fields,help:project_dependency.field_project_schedule_report__reference_date
+msgid ""
+"The day the status of each task is measured against, usually the status "
+"date."
+msgstr ""
+"El día contra el que se mide el estado de cada tarea; normalmente, la fecha "
+"de corte."
+
+#. module: project_dependency
+#. odoo-python
+#: code:addons/project_dependency/wizards/schedule_report.py:0
+msgid "The end date is before the start date."
+msgstr "La fecha final es anterior a la inicial."
+
+#. module: project_dependency
+#: model_terms:ir.ui.view,arch_db:project_dependency.project_schedule_health_view_form
+msgid ""
+"The fourteen checks of the DCMA schedule assessment (DCMA-EA PAM 200.1): is the\n"
+"                    schedule well built before it is approved as a baseline? Nothing is changed."
+msgstr ""
+"Los catorce chequeos de la evaluación de cronogramas de la DCMA (DCMA-EA PAM"
+" 200.1): ¿el cronograma está bien construido antes de aprobarlo como línea "
+"base? No se cambia nada."
+
+#. module: project_dependency
+#: model:ir.model.fields,help:project_dependency.field_project_dependency__lag_elapsed
+msgid ""
+"The lag counts calendar days instead of working days, as an elapsed lag in "
+"Microsoft Project."
+msgstr ""
+"El desfase cuenta días naturales en vez de laborables, como un desfase "
+"transcurrido en Microsoft Project."
+
+#. module: project_dependency
+#: model:ir.model.constraint,message:project_dependency.constraint_project_dependency_unique_pair
+msgid "These two tasks are already linked."
+msgstr "Estas dos tareas ya están vinculadas."
+
+#. module: project_dependency
+#: model:ir.model.fields,field_description:project_dependency.field_project_schedule_health_line__threshold
+msgid "Threshold"
+msgstr "Umbral"
+
+#. module: project_dependency
+#: model:ir.model.fields,field_description:project_dependency.field_project_schedule_report__date_to
+msgid "To"
+msgstr "Hasta"
+
+#. module: project_dependency
+#: model:ir.model.fields,field_description:project_dependency.field_project_task__total_float_days
+msgid "Total Float (days)"
+msgstr "Holgura total (días)"
+
+#. module: project_dependency
+#: model:ir.model.fields,field_description:project_dependency.field_project_schedule_report_line__total_float
+msgid "Total Float (working days)"
+msgstr "Holgura total (días laborables)"
+
+#. module: project_dependency
+#: model:ir.model.fields,field_description:project_dependency.field_project_dependency__link_type
+msgid "Type"
+msgstr "Tipo"
+
+#. module: project_dependency
+#: model:ir.model,name:project_dependency.model_project_dependency
+msgid "Typed Task Dependency"
+msgstr "Dependencia tipada entre tareas"
+
+#. module: project_dependency
+#: model:ir.model.fields,help:project_dependency.field_project_task__display_name
+msgid ""
+"Use these keywords in the title to set new tasks:\n"
+"\n"
+"            #tags Set tags on the task\n"
+"            @user Assign the task to a user\n"
+"            ! Set the task a medium priority\n"
+"            !! Set the task a high priority\n"
+"            !!! Set the task a urgent priority\n"
+"\n"
+"            Make sure to use the right format and order e.g. Improve the configuration screen #feature #v16 @Mitchell !"
+msgstr ""
+"Usa estas palabras clave en el título para configurar nuevas tareas:\n"
+"\n"
+"        30h Asigna 30 horas a la tarea\n"
+"        #etiquetas Agrega etiquetas a la tarea\n"
+"        @usuario Asígnale la tarea a un usuario\n"
+"        ! Define que la prioridad de la tarea es media\n"
+"        !! Define que la prioridad de la tarea es alta\n"
+"        !!! Define que la prioridad de la tarea es urgente\n"
+"\n"
+"        Asegúrate de utilizar el formato y el orden correcto, por ejemplo: Realizar mejoras a la pantalla de configuración 5h #función #v16 @Mitchell !"
+
+#. module: project_dependency
+#: model:ir.model.fields,field_description:project_dependency.field_project_schedule_health_line__value
+msgid "Value"
+msgstr "Valor"
+
+#. module: project_dependency
+#: model:ir.model.fields,field_description:project_dependency.field_project_schedule_report_line__wbs
+#: model_terms:ir.ui.view,arch_db:project_dependency.project_schedule_report_document
+msgid "WBS"
+msgstr "EDT"
+
+#. module: project_dependency
+#: model:ir.model.fields,field_description:project_dependency.field_project_task__wbs_code
+msgid "WBS Code"
+msgstr "Código EDT"
+
+#. module: project_dependency
+#. odoo-python
+#: code:addons/project_dependency/wizards/schedule_simulation.py:0
+msgid "Why it moves"
+msgstr "Por qué se mueve"
+
+#. module: project_dependency
+#: model:ir.model.fields,field_description:project_dependency.field_project_project__schedule_calendar_id
+msgid "Working Calendar"
+msgstr "Calendario laboral"
+
+#. module: project_dependency
+#: model:ir.model.fields,help:project_dependency.field_project_project__schedule_calendar_id
+msgid ""
+"Working days and holidays used to calculate this project's schedule and task"
+" durations. Empty means the company calendar."
+msgstr ""
+"Días laborables y feriados con los que se calculan el cronograma y la "
+"duración de las tareas de este proyecto. Vacío significa el calendario de la"
+" compañía."
+
+#. module: project_dependency
+#: model:ir.model.fields,help:project_dependency.field_project_schedule_simulation_line__current_duration
+#: model:ir.model.fields,help:project_dependency.field_project_task__duration_days
+msgid ""
+"Working days of the task in its project's calendar. Zero for a milestone."
+msgstr ""
+"Días laborables de la tarea en el calendario de su proyecto. Cero para un "
+"hito."
+
+#. module: project_dependency
+#: model:ir.model.fields,help:project_dependency.field_project_task__free_float_days
+msgid ""
+"Working days this task can slip without delaying any of its successors. The "
+"part of the total float it does not share with the tasks after it."
+msgstr ""
+"Días laborables que esta tarea puede retrasarse sin retrasar a ninguna de "
+"sus sucesoras. Es la parte de la holgura total que no comparte con las "
+"tareas que la siguen."
+
+#. module: project_dependency
+#: model:ir.model.fields,help:project_dependency.field_project_task__total_float_days
+msgid ""
+"Working days this task can slip without delaying the project or missing a "
+"deadline (negative: it is already late), as Microsoft Project's Total Slack."
+msgstr ""
+"Días laborables que esta tarea puede retrasarse sin retrasar el proyecto ni "
+"incumplir una fecha límite (negativa: ya va tarde), como la holgura total de"
+" Microsoft Project."
+
+#. module: project_dependency
+#: model:ir.model.fields,help:project_dependency.field_project_project__minutes_per_day
+msgid ""
+"Working minutes in one day of task duration, as Microsoft Project's 'Hours "
+"per day' (480 = 8 hours)."
+msgstr ""
+"Minutos de trabajo en un día de duración de tarea, como las «horas por día» "
+"de Microsoft Project (480 = 8 horas)."
+
+#. module: project_dependency
+#. odoo-python
+#: code:addons/project_dependency/wizards/schedule_report.py:0
+msgid "id"
+msgstr ""
+
+#. module: project_dependency
+#: model_terms:ir.ui.view,arch_db:project_dependency.project_schedule_report_document
+msgid "working days"
+msgstr "días laborables"
+
+#. module: project_dependency
+#: model_terms:ir.ui.view,arch_db:project_dependency.project_schedule_report_document
+msgid "· Critical:"
+msgstr "· Críticas:"
+
+#. module: project_dependency
+#: model_terms:ir.ui.view,arch_db:project_dependency.project_schedule_report_document
+msgid "· In progress:"
+msgstr "· En curso:"
+
+#. module: project_dependency
+#: model_terms:ir.ui.view,arch_db:project_dependency.project_schedule_report_document
+msgid "· Near-critical up to"
+msgstr "· Casi crítica hasta"
+
+#. module: project_dependency
+#: model_terms:ir.ui.view,arch_db:project_dependency.project_schedule_report_document
+msgid "· Near-critical:"
+msgstr "· Casi críticas:"
+
+#. module: project_dependency
+#: model_terms:ir.ui.view,arch_db:project_dependency.project_schedule_report_document
+msgid "· Overdue:"
+msgstr "· Vencidas:"
+
+#. module: project_dependency
+#: model_terms:ir.ui.view,arch_db:project_dependency.project_schedule_report_document
+msgid "· Period:"
+msgstr "· Periodo:"
+
+#. module: project_dependency
+#: model_terms:ir.ui.view,arch_db:project_dependency.project_schedule_report_document
+msgid "· Should have started:"
+msgstr "· Debieron empezar:"
+
+#. module: project_dependency
+#: model_terms:ir.ui.view,arch_db:project_dependency.project_schedule_report_document
+msgid "· Starting:"
+msgstr "· Por empezar:"
+
+#. module: project_dependency
+#: model_terms:ir.ui.view,arch_db:project_dependency.project_schedule_report_document
+msgid "● critical · ◐ near-critical. Rem., TF, FF: working days."
+msgstr "● crítica · ◐ casi crítica. Rest., HT, HL: días laborables."

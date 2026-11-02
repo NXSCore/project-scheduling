@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- El asistente guarda el dominio y las opciones de quien lo abrió; la URL
+         del PDF lleva su id. Sin esta regla, cualquier usuario de proyectos
+         podría pedir el informe de otro cambiando el número (el controller
+         no confía en el id de la URL). -->
+    <!-- Razón escrita del ACL para `base.group_user`: un perfil de
+         SOLO LECTURA debe poder imprimir el informe, y ese perfil no tiene
+         `project.group_project_user`. Abrirlo a usuarios internos no amplía
+         lo que nadie ve: el asistente no guarda datos de negocio (es
+         transitorio), cada quien ve solo los suyos (regla de abajo) y las
+         tareas del PDF se leen con `planner_data` y los permisos de quien
+         imprime, sin `sudo()`: quien no puede leer una tarea no la imprime. -->
+    <record id="project_planner_report_wizard_rule_own" model="ir.rule">
+        <field name="name">Planner report: own wizards only</field>
+        <field name="model_id" ref="model_project_planner_report_wizard"/>
+        <field name="domain_force">[('create_uid', '=', user.id)]</field>
+    </record>
+</odoo>

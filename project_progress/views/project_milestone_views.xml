@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Las fotos de avance a la vista desde el hito. -->
+    <record id="project_milestone_view_form_progress_photos" model="ir.ui.view">
+        <field name="name">project.milestone.form.progress.photos</field>
+        <field name="model">project.milestone</field>
+        <field name="inherit_id" ref="project.project_milestone_view_form"/>
+        <field name="arch" type="xml">
+            <div name="button_box" position="inside">
+                <button name="action_open_progress_photos" type="object" class="oe_stat_button" icon="fa-camera">
+                    <field name="progress_photo_count" widget="statinfo" string="Progress Photos"/>
+                </button>
+            </div>
+        </field>
+    </record>
+</odoo>
