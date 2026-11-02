@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Un vínculo es un hecho de la compañía de su
+         tarea sucesora (`company_id` related + store). Global, con AND. -->
+    <record id="project_dependency_rule_company" model="ir.rule">
+        <field name="name">project.dependency: company</field>
+        <field name="model_id" ref="model_project_dependency"/>
+        <field name="domain_force">['|', ('company_id', '=', False), ('company_id', 'in', company_ids)]</field>
+    </record>
+
+</odoo>

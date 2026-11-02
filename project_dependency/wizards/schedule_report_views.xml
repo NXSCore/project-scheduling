@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="project_schedule_report_view_form" model="ir.ui.view">
+        <field name="name">project.schedule.report.form</field>
+        <field name="model">project.schedule.report</field>
+        <field name="arch" type="xml">
+            <form>
+                <group>
+                    <group>
+                        <field name="project_id" readonly="1"/>
+                        <field name="report_type" widget="radio"/>
+                        <field name="reference_date"/>
+                    </group>
+                    <group>
+                        <field name="period" invisible="report_type != 'lookahead'"/>
+                        <field name="date_from" invisible="report_type != 'lookahead' or (period != 'custom' and not computed)"
+                               readonly="period != 'custom'"/>
+                        <field name="date_to" invisible="report_type != 'lookahead' or (period != 'custom' and not computed)"
+                               readonly="period != 'custom'"/>
+                        <field name="near_critical_days"/>
+                        <field name="computed" invisible="1"/>
+                    </group>
+                </group>
+                <group invisible="not computed">
+                    <group>
+                        <field name="activity_count"/>
+                        <field name="overdue_count" decoration-danger="overdue_count &gt; 0"/>
+                        <field name="should_have_started_count" decoration-warning="should_have_started_count &gt; 0"/>
+                    </group>
+                    <group>
+                        <field name="in_progress_count"/>
+                        <field name="starting_count"/>
+                        <field name="critical_count"/>
+                        <field name="near_critical_count"/>
+                    </group>
+                </group>
+                <field name="line_ids" invisible="not computed">
+                    <list decoration-danger="status == 'overdue'" decoration-warning="status == 'should_have_started'"
+                          create="0" delete="0">
+                        <field name="wbs"/>
+                        <field name="name"/>
+                        <field name="date_start" widget="date"/>
+                        <field name="date_end" widget="date"/>
+                        <field name="remaining_days"/>
+                        <field name="progress"/>
+                        <field name="total_float"/>
+                        <field name="free_float"/>
+                        <field name="critical" widget="boolean"/>
+                        <field name="near_critical" widget="boolean"/>
+                        <field name="assignees" optional="show"/>
+                        <field name="status" widget="badge" decoration-danger="status == 'overdue'"
+                               decoration-warning="status == 'should_have_started'" decoration-info="status == 'in_progress'"/>
+                    </list>
+                </field>
+                <footer>
+                    <button name="action_run" type="object" string="Run" class="btn-primary"/>
+                    <button name="action_print" type="object" string="Print" icon="fa-print"/>
+                    <button name="action_open_tasks" type="object" string="Open as Task List" icon="fa-list"
+                            invisible="not computed"/>
+                    <button special="cancel" string="Close"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="project_schedule_report_action" model="ir.actions.act_window">
+        <field name="name">Look-ahead and Critical Tasks</field>
+        <field name="res_model">project.schedule.report</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+        <field name="binding_model_id" ref="project.model_project_project"/>
+        <field name="binding_view_types">form</field>
+    </record>
+
+    <record id="project_schedule_report_pdf" model="ir.actions.report">
+        <field name="name">Schedule Report</field>
+        <field name="model">project.schedule.report</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">project_dependency.project_schedule_report_document</field>
+        <field name="report_file">project_dependency.project_schedule_report_document</field>
+        <field name="paperformat_id" ref="base.paperformat_euro"/>
+    </record>
+
+    <template id="project_schedule_report_document">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="doc">
+                <t t-call="web.external_layout">
+                    <div class="page">
+                        <h3><span t-field="doc.report_type"/> · <span t-field="doc.project_id"/></h3>
+                        <p>
+                            Reference day: <span t-field="doc.reference_date"/>
+                            <t t-if="doc.report_type == 'lookahead'"> · Period: <span t-field="doc.date_from"/> – <span t-field="doc.date_to"/></t>
+                            · Near-critical up to <span t-field="doc.near_critical_days"/> working days
+                        </p>
+                        <p>
+                            Activities: <span t-field="doc.activity_count"/> · Overdue: <span t-field="doc.overdue_count"/>
+                            · Should have started: <span t-field="doc.should_have_started_count"/>
+                            · In progress: <span t-field="doc.in_progress_count"/> · Starting: <span t-field="doc.starting_count"/>
+                            · Critical: <span t-field="doc.critical_count"/> · Near-critical: <span t-field="doc.near_critical_count"/>
+                        </p>
+                        <table class="table table-sm o_main_table">
+                            <thead>
+                                <tr>
+                                    <th>WBS</th><th>Task</th><th>Start</th><th>Finish</th><th class="text-end">Rem.</th>
+                                    <th class="text-end">Prog.</th><th class="text-end">TF</th><th class="text-end">FF</th><th>Crit.</th><th>Assignees</th><th>Status</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr t-foreach="doc.line_ids" t-as="l">
+                                    <td><span t-field="l.wbs"/></td>
+                                    <td><span t-field="l.name"/></td>
+                                    <td><span t-field="l.date_start" t-options="{'widget': 'date'}"/></td>
+                                    <td><span t-field="l.date_end" t-options="{'widget': 'date'}"/></td>
+                                    <td class="text-end"><span t-field="l.remaining_days"/></td>
+                                    <td class="text-end"><span t-field="l.progress"/></td>
+                                    <td class="text-end"><span t-field="l.total_float"/></td>
+                                    <td class="text-end"><span t-field="l.free_float"/></td>
+                                    <td><t t-if="l.critical">●</t><t t-elif="l.near_critical">◐</t></td>
+                                    <td><span t-field="l.assignees"/></td>
+                                    <td><span t-field="l.status"/></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <p class="text-muted small">● critical · ◐ near-critical. Rem., TF, FF: working days.</p>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+</odoo>

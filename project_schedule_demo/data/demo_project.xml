@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- noupdate: quien juegue con la demo no pierde sus cambios al actualizar el módulo. -->
+<odoo noupdate="1">
+        <record id="demo_project" model="project.project">
+            <field name="name">Demo · Edificio de oficinas</field>
+            <field name="allow_task_dependencies" eval="True"/>
+            <field name="allow_milestones" eval="True"/>
+        </record>
+        <record id="t_design" model="project.task">
+            <field name="name">Proyecto ejecutivo</field>
+            <field name="project_id" ref="demo_project"/>
+            <field name="planned_date_begin" eval="(DateTime.today() + relativedelta(days=0)).strftime('%Y-%m-%d 08:00:00')"/>
+            <field name="date_deadline" eval="(DateTime.today() + relativedelta(days=24)).strftime('%Y-%m-%d 17:00:00')"/>
+        </record>
+        <record id="t_arch" model="project.task">
+            <field name="name">Arquitectura</field>
+            <field name="project_id" ref="demo_project"/>
+            <field name="parent_id" ref="t_design"/>
+            <field name="planned_date_begin" eval="(DateTime.today() + relativedelta(days=0)).strftime('%Y-%m-%d 08:00:00')"/>
+            <field name="date_deadline" eval="(DateTime.today() + relativedelta(days=9)).strftime('%Y-%m-%d 17:00:00')"/>
+        </record>
+        <record id="t_struct" model="project.task">
+            <field name="name">Ingeniería estructural</field>
+            <field name="project_id" ref="demo_project"/>
+            <field name="parent_id" ref="t_design"/>
+            <field name="planned_date_begin" eval="(DateTime.today() + relativedelta(days=3)).strftime('%Y-%m-%d 08:00:00')"/>
+            <field name="date_deadline" eval="(DateTime.today() + relativedelta(days=14)).strftime('%Y-%m-%d 17:00:00')"/>
+        </record>
+        <record id="t_mep" model="project.task">
+            <field name="name">Instalaciones (MEP)</field>
+            <field name="project_id" ref="demo_project"/>
+            <field name="parent_id" ref="t_design"/>
+            <field name="planned_date_begin" eval="(DateTime.today() + relativedelta(days=5)).strftime('%Y-%m-%d 08:00:00')"/>
+            <field name="date_deadline" eval="(DateTime.today() + relativedelta(days=16)).strftime('%Y-%m-%d 17:00:00')"/>
+        </record>
+        <record id="t_permits" model="project.task">
+            <field name="name">Permisos</field>
+            <field name="project_id" ref="demo_project"/>
+            <field name="planned_date_begin" eval="(DateTime.today() + relativedelta(days=10)).strftime('%Y-%m-%d 08:00:00')"/>
+            <field name="date_deadline" eval="(DateTime.today() + relativedelta(days=25)).strftime('%Y-%m-%d 17:00:00')"/>
+        </record>
+        <record id="t_license" model="project.task">
+            <field name="name">Licencia de construcción</field>
+            <field name="project_id" ref="demo_project"/>
+            <field name="parent_id" ref="t_permits"/>
+            <field name="planned_date_begin" eval="(DateTime.today() + relativedelta(days=10)).strftime('%Y-%m-%d 08:00:00')"/>
+            <field name="date_deadline" eval="(DateTime.today() + relativedelta(days=24)).strftime('%Y-%m-%d 17:00:00')"/>
+        </record>
+        <record id="t_license_ok" model="project.task">
+            <field name="name">Licencia otorgada</field>
+            <field name="project_id" ref="demo_project"/>
+            <field name="parent_id" ref="t_permits"/>
+            <field name="planned_date_begin" eval="(DateTime.today() + relativedelta(days=25)).strftime('%Y-%m-%d 08:00:00')"/>
+            <field name="date_deadline" eval="(DateTime.today() + relativedelta(days=25)).strftime('%Y-%m-%d 08:00:00')"/>
+            <field name="is_milestone" eval="True"/>
+        </record>
+        <record id="t_works" model="project.task">
+            <field name="name">Obra</field>
+            <field name="project_id" ref="demo_project"/>
+            <field name="planned_date_begin" eval="(DateTime.today() + relativedelta(days=22)).strftime('%Y-%m-%d 08:00:00')"/>
+            <field name="date_deadline" eval="(DateTime.today() + relativedelta(days=81)).strftime('%Y-%m-%d 17:00:00')"/>
+        </record>
+        <record id="t_guard" model="project.task">
+            <field name="name">Vigilancia temporal del predio</field>
+            <field name="project_id" ref="demo_project"/>
+            <field name="parent_id" ref="t_works"/>
+            <field name="planned_date_begin" eval="(DateTime.today() + relativedelta(days=22)).strftime('%Y-%m-%d 08:00:00')"/>
+            <field name="date_deadline" eval="(DateTime.today() + relativedelta(days=27)).strftime('%Y-%m-%d 17:00:00')"/>
+        </record>
+        <record id="t_found" model="project.task">
+            <field name="name">Cimentación</field>
+            <field name="project_id" ref="demo_project"/>
+            <field name="parent_id" ref="t_works"/>
+            <field name="planned_date_begin" eval="(DateTime.today() + relativedelta(days=28)).strftime('%Y-%m-%d 08:00:00')"/>
+            <field name="date_deadline" eval="(DateTime.today() + relativedelta(days=42)).strftime('%Y-%m-%d 17:00:00')"/>
+        </record>
+        <record id="t_frame" model="project.task">
+            <field name="name">Estructura</field>
+            <field name="project_id" ref="demo_project"/>
+            <field name="parent_id" ref="t_works"/>
+            <field name="planned_date_begin" eval="(DateTime.today() + relativedelta(days=41)).strftime('%Y-%m-%d 08:00:00')"/>
+            <field name="date_deadline" eval="(DateTime.today() + relativedelta(days=60)).strftime('%Y-%m-%d 17:00:00')"/>
+        </record>
+        <record id="t_finish" model="project.task">
+            <field name="name">Acabados</field>
+            <field name="project_id" ref="demo_project"/>
+            <field name="parent_id" ref="t_works"/>
+            <field name="planned_date_begin" eval="(DateTime.today() + relativedelta(days=61)).strftime('%Y-%m-%d 08:00:00')"/>
+            <field name="date_deadline" eval="(DateTime.today() + relativedelta(days=78)).strftime('%Y-%m-%d 17:00:00')"/>
+        </record>
+        <record id="t_handover" model="project.task">
+            <field name="name">Entrega</field>
+            <field name="project_id" ref="demo_project"/>
+            <field name="parent_id" ref="t_works"/>
+            <field name="planned_date_begin" eval="(DateTime.today() + relativedelta(days=79)).strftime('%Y-%m-%d 08:00:00')"/>
+            <field name="date_deadline" eval="(DateTime.today() + relativedelta(days=79)).strftime('%Y-%m-%d 08:00:00')"/>
+            <field name="is_milestone" eval="True"/>
+        </record>
+        <record id="l_arch_struct" model="project.dependency">
+            <field name="predecessor_id" ref="t_arch"/>
+            <field name="successor_id" ref="t_struct"/>
+            <field name="link_type">ss</field>
+            <field name="lag_days" eval="3.0"/>
+        </record>
+        <record id="l_struct_mep" model="project.dependency">
+            <field name="predecessor_id" ref="t_struct"/>
+            <field name="successor_id" ref="t_mep"/>
+            <field name="link_type">ff</field>
+            <field name="lag_days" eval="2.0"/>
+        </record>
+        <record id="l_arch_license" model="project.dependency">
+            <field name="predecessor_id" ref="t_arch"/>
+            <field name="successor_id" ref="t_license"/>
+            <field name="link_type">fs</field>
+            <field name="lag_days" eval="0.0"/>
+        </record>
+        <record id="l_license_ok" model="project.dependency">
+            <field name="predecessor_id" ref="t_license"/>
+            <field name="successor_id" ref="t_license_ok"/>
+            <field name="link_type">fs</field>
+            <field name="lag_days" eval="0.0"/>
+        </record>
+        <record id="l_ok_found" model="project.dependency">
+            <field name="predecessor_id" ref="t_license_ok"/>
+            <field name="successor_id" ref="t_found"/>
+            <field name="link_type">fs</field>
+            <field name="lag_days" eval="3.0"/>
+            <field name="lag_elapsed" eval="True"/>
+        </record>
+        <record id="l_found_guard" model="project.dependency">
+            <field name="predecessor_id" ref="t_found"/>
+            <field name="successor_id" ref="t_guard"/>
+            <field name="link_type">sf</field>
+            <field name="lag_days" eval="0.0"/>
+        </record>
+        <record id="l_found_frame" model="project.dependency">
+            <field name="predecessor_id" ref="t_found"/>
+            <field name="successor_id" ref="t_frame"/>
+            <field name="link_type">fs</field>
+            <field name="lag_days" eval="-2.0"/>
+        </record>
+        <record id="l_frame_finish" model="project.dependency">
+            <field name="predecessor_id" ref="t_frame"/>
+            <field name="successor_id" ref="t_finish"/>
+            <field name="link_type">fs</field>
+            <field name="lag_days" eval="0.0"/>
+        </record>
+        <record id="l_finish_handover" model="project.dependency">
+            <field name="predecessor_id" ref="t_finish"/>
+            <field name="successor_id" ref="t_handover"/>
+            <field name="link_type">fs</field>
+            <field name="lag_days" eval="0.0"/>
+        </record>
+</odoo>

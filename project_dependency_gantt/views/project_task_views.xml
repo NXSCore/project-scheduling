@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- La ruta crítica se pinta en el Gantt, no solo en la lista.
+
+         `decoration-warning` y no `danger` porque el rojo ya lo usa Odoo para
+         el solapamiento de recursos (`planning_overlap`), y dos cosas
+         distintas del mismo color no distinguen nada. -->
+    <record id="project_task_view_gantt_critical" model="ir.ui.view">
+        <field name="name">project.task.gantt.critical.path</field>
+        <field name="model">project.task</field>
+        <field name="inherit_id" ref="project_enterprise.project_task_view_gantt"/>
+        <field name="arch" type="xml">
+            <xpath expr="//gantt" position="attributes">
+                <attribute name="decoration-warning">is_critical</attribute>
+            </xpath>
+            <xpath expr="//gantt" position="inside">
+                <field name="is_critical"/>
+                <field name="total_float_days"/>
+            </xpath>
+            <!-- La flecha del Gantt solo sabe decir fin-a-inicio. El tipo y el
+                 desfase se editan desde aquí, a dos clics de la barra. -->
+            <xpath expr="//templates//footer" position="inside">
+                <button name="action_open_dependencies" type="object"
+                        string="Dependencies" class="btn btn-sm btn-secondary"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

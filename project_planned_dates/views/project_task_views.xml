@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- La fecha límite se vuelve rango inicio → fin, con los mismos atributos que pone
+         project_enterprise (project_task_views.xml, vistas de formulario y lista). Si
+         Enterprise está instalado, sus herencias repiten estos atributos: el resultado
+         es el mismo y no aparece un campo dos veces a la vista. -->
+    <record id="project_task_view_form_planned_dates" model="ir.ui.view">
+        <field name="name">project.task.form.planned.dates</field>
+        <field name="model">project.task</field>
+        <field name="inherit_id" ref="project.view_task_form2"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='date_deadline']" position="attributes">
+                <attribute name="widget">daterange</attribute>
+                <attribute name="options">{'start_date_field': 'planned_date_begin'}</attribute>
+            </xpath>
+            <xpath expr="//field[@name='date_deadline']" position="after">
+                <field name="planned_date_begin" invisible="1"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="project_task_view_list_planned_dates" model="ir.ui.view">
+        <field name="name">project.task.list.planned.dates</field>
+        <field name="model">project.task</field>
+        <field name="inherit_id" ref="project.project_task_view_tree_base"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='date_deadline']" position="attributes">
+                <attribute name="widget">daterange</attribute>
+                <attribute name="options">{'start_date_field': 'planned_date_begin'}</attribute>
+            </xpath>
+            <xpath expr="//field[@name='date_deadline']" position="after">
+                <field name="planned_date_begin" column_invisible="True"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

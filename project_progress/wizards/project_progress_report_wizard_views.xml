@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="project_progress_report_wizard_view_form" model="ir.ui.view">
+        <field name="name">project.progress.report.wizard.form</field>
+        <field name="model">project.progress.report.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Report Progress">
+                <group>
+                    <field name="task_id" invisible="1"/>
+                    <field name="previous_progress" widget="percentage"/>
+                    <field name="progress"/>
+                    <field name="evidence" filename="evidence_filename"
+                           help="Site log or partial delivery that backs this progress"/>
+                    <field name="evidence_filename" invisible="1"/>
+                    <field name="note" placeholder="What was done this week"/>
+                </group>
+                <footer>
+                    <button name="action_report" type="object" string="Report Progress"
+                            class="btn-primary"/>
+                    <button string="Cancel" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+</odoo>

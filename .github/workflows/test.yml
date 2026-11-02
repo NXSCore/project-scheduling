@@ -1,0 +1,82 @@
+# Corre las pruebas de la suite en Odoo 18 (rama 18.0).
+# - community: siempre. Solo los módulos que no requieren Enterprise.
+# - enterprise: solo si el repo tiene acceso a los addons de Enterprise (secreto ENTERPRISE_REPO_TOKEN),
+#   porque su código no es público. Sin el secreto el job se salta: no se marca en verde por omisión.
+name: tests
+
+on:
+  push:
+    branches: ["18.0"]
+  pull_request:
+
+env:
+  CE_MODULES: project_planned_dates,project_dependency,project_planner,project_planner_report,project_msproject,project_progress,resource_mx_holidays,project_schedule_demo
+  EE_ONLY_MODULES: project_dependency_gantt,project_gantt,project_subschedule
+
+jobs:
+  community:
+    runs-on: ubuntu-latest
+    container: ghcr.io/oca/oca-ci/py3.10-odoo18.0:latest
+    services:
+      postgres:
+        image: postgres:16
+        env:
+          POSTGRES_USER: odoo
+          POSTGRES_PASSWORD: odoo
+          POSTGRES_DB: odoo
+    env:
+      PGHOST: postgres
+      PGUSER: odoo
+      PGPASSWORD: odoo
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install and test (Community)
+        run: |
+          TAGS=$(echo "$CE_MODULES" | sed 's/^/\//; s/,/,\//g')
+          odoo -d test_ce --addons-path=/opt/odoo/addons,$GITHUB_WORKSPACE --with-demo \
+            --load-language=es_MX -i "$CE_MODULES" --test-enable --test-tags "$TAGS" \
+            --stop-after-init --log-level=test 2>&1 | tee test.log
+          ! grep -E "(ERROR|CRITICAL) .*odoo\.|FAIL:|Skipped deprecated" test.log
+          grep -E "0 failed, 0 error\(s\) of [1-9][0-9]* tests" test.log
+
+  enterprise:
+    runs-on: ubuntu-latest
+    if: ${{ secrets.ENTERPRISE_REPO_TOKEN != '' }}
+    container: ghcr.io/oca/oca-ci/py3.10-odoo18.0:latest
+    services:
+      postgres:
+        image: postgres:16
+        env:
+          POSTGRES_USER: odoo
+          POSTGRES_PASSWORD: odoo
+          POSTGRES_DB: odoo
+    env:
+      PGHOST: postgres
+      PGUSER: odoo
+      PGPASSWORD: odoo
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/checkout@v4
+        with:
+          repository: odoo/enterprise
+          ref: "18.0"
+          token: ${{ secrets.ENTERPRISE_REPO_TOKEN }}
+          path: enterprise
+      - name: Install and test (Enterprise)
+        run: |
+          ALL="$CE_MODULES,$EE_ONLY_MODULES"
+          TAGS=$(echo "$ALL" | sed 's/^/\//; s/,/,\//g')
+          odoo -d test_ee --addons-path=$GITHUB_WORKSPACE/enterprise,/opt/odoo/addons,$GITHUB_WORKSPACE --with-demo \
+            --load-language=es_MX -i "$ALL" --test-enable --test-tags "$TAGS" \
+            --stop-after-init --log-level=test 2>&1 | tee test.log
+          ! grep -E "(ERROR|CRITICAL) .*odoo\.|FAIL:|Skipped deprecated" test.log
+          grep -E "0 failed, 0 error\(s\) of [1-9][0-9]* tests" test.log
+
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install pre-commit && pre-commit run --all-files --show-diff-on-failure

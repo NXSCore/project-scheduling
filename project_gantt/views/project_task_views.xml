@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- El Gantt del cronograma por EDT, para CUALQUIER proyecto. Hereda del de
+         dependencias —el único preparado para vínculos— y le cambia tres cosas:
+         1. Agrupa por PAQUETE y nivel, no por responsable: un cronograma
+            se lee como cadena de actividades.
+         2. Colorea por RUTA CRÍTICA (`project_dependency`), no por etapa.
+         3. Arranca en escala SEMANA: a escala mes las manijas para arrastrar
+            dependencias no se pueden agarrar. -->
+    <record id="project_task_view_gantt_wbs" model="ir.ui.view">
+        <field name="name">project.task.gantt.wbs</field>
+        <field name="model">project.task</field>
+        <field name="inherit_id" ref="project_enterprise.project_task_dependency_view_gantt"/>
+        <field name="mode">primary</field>
+        <field name="priority">31</field>
+        <field name="arch" type="xml">
+            <xpath expr="//gantt" position="attributes">
+                <attribute name="default_group_by">wbs_root_id,wbs_level2_id</attribute>
+                <attribute name="progress_bar"/>
+                <attribute name="color">critical_color</attribute>
+                <attribute name="default_scale">week</attribute>
+                <attribute name="string">Schedule</attribute>
+            </xpath>
+            <xpath expr="//gantt" position="inside">
+                <!-- El renderer ordena las filas por él (getPills). -->
+                <field name="wbs_code"/>
+            </xpath>
+        </field>
+    </record>
+
+    <!-- Los niveles en «Agrupar por», para plegar a la profundidad que se necesite. -->
+    <record id="project_task_view_search_wbs_levels" model="ir.ui.view">
+        <field name="name">project.task.search.wbs.levels</field>
+        <field name="model">project.task</field>
+        <field name="inherit_id" ref="project.view_task_search_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//search" position="inside">
+                <filter name="group_wbs_root" string="Package" context="{'group_by': 'wbs_root_id'}"/>
+                <filter name="group_wbs_level2" string="Group (Level 2)" context="{'group_by': 'wbs_level2_id'}"/>
+                <filter name="group_wbs_level3" string="Group (Level 3)" context="{'group_by': 'wbs_level3_id'}"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="project_project_view_form_wbs_gantt" model="ir.ui.view">
+        <field name="name">project.project.form.wbs.gantt</field>
+        <field name="model">project.project</field>
+        <field name="inherit_id" ref="project.edit_project"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[@name='button_box']" position="inside">
+                <button name="action_open_wbs_gantt" type="object" class="oe_stat_button" icon="fa-tasks"
+                        string="WBS Gantt" groups="project.group_project_user"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

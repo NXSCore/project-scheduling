@@ -1,0 +1,86 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* project_subschedule
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 18.0+e-20261015\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-02 04:57+0000\n"
+"PO-Revision-Date: 2026-11-02 04:57+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: project_subschedule
+#. odoo-python
+#: code:addons/project_subschedule/models/project_task.py:0
+msgid "%(stage)s Schedule"
+msgstr "Subcronograma de %(stage)s"
+
+#. module: project_subschedule
+#. odoo-python
+#: code:addons/project_subschedule/models/project_task.py:0
+msgid ""
+"%(task)s is inside the %(stage)s subschedule: it cannot belong to another "
+"stage."
+msgstr ""
+"%(task)s está dentro del subcronograma de %(stage)s: no puede pertenecer a "
+"otra etapa."
+
+#. module: project_subschedule
+#. odoo-python
+#: code:addons/project_subschedule/models/project_task.py:0
+msgid "%s is not part of a stage subschedule."
+msgstr "%s no forma parte de un subcronograma de etapa."
+
+#. module: project_subschedule
+#: model:ir.model.fields,help:project_subschedule.field_project_task__phase_id
+msgid ""
+"Marks this task as the grouping task of a stage subschedule: its subtasks "
+"belong to that stage."
+msgstr ""
+"Marca esta tarea como la agrupadora del subcronograma de una etapa: sus "
+"subtareas pertenecen a esa etapa."
+
+#. module: project_subschedule
+#: model:ir.model.fields,field_description:project_subschedule.field_project_task__phase_id
+msgid "Project Stage"
+msgstr "Etapa del proyecto"
+
+#. module: project_subschedule
+#: model_terms:ir.ui.view,arch_db:project_subschedule.project_task_view_form_stage_subschedule
+msgid "Stage Schedule"
+msgstr "Subcronograma de la etapa"
+
+#. module: project_subschedule
+#: model:ir.model.fields,field_description:project_subschedule.field_project_task__effective_phase_id
+#: model_terms:ir.ui.view,arch_db:project_subschedule.project_task_view_search_stage_subschedule
+msgid "Stage Subschedule"
+msgstr "Subcronograma de etapa"
+
+#. module: project_subschedule
+#: model:ir.model,name:project_subschedule.model_project_task
+msgid "Task"
+msgstr "Tarea"
+
+#. module: project_subschedule
+#. odoo-python
+#: code:addons/project_subschedule/models/project_task.py:0
+msgid ""
+"The %(stage)s subschedule is closed: %(tasks)s can only change through an "
+"authorized change."
+msgstr ""
+"El subcronograma de %(stage)s está cerrado: %(tasks)s solo cambia con un "
+"cambio autorizado."
+
+#. module: project_subschedule
+#: model:ir.model.fields,help:project_subschedule.field_project_task__effective_phase_id
+msgid ""
+"The stage of this task: its own or the one of its nearest marked grouping "
+"task."
+msgstr ""
+"La etapa de esta tarea: la propia o la de su agrupadora marcada más cercana."

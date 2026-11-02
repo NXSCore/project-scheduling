@@ -1,0 +1,9 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_project_dependency_user,project.dependency user,model_project_dependency,project.group_project_user,1,1,1,1
+access_project_dependency_manager,project.dependency manager,model_project_dependency,project.group_project_manager,1,1,1,1
+access_project_schedule_simulation_user,project.schedule.simulation user,model_project_schedule_simulation,project.group_project_user,1,1,1,1
+access_project_schedule_simulation_line_user,project.schedule.simulation.line user,model_project_schedule_simulation_line,project.group_project_user,1,1,1,1
+access_project_schedule_health_user,project.schedule.health user,model_project_schedule_health,project.group_project_user,1,1,1,1
+access_project_schedule_health_line_user,project.schedule.health.line user,model_project_schedule_health_line,project.group_project_user,1,1,1,1
+access_project_schedule_report_user,project.schedule.report user,model_project_schedule_report,project.group_project_user,1,1,1,1
+access_project_schedule_report_line_user,project.schedule.report.line user,model_project_schedule_report_line,project.group_project_user,1,1,1,1

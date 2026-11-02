@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- El avance de la tarea, en cualquier proyecto. El porcentaje se muestra
+         pero no se teclea: el único camino que trae la evidencia es el asistente.
+         Escala 0-100 con `progressbar` (`percentage` espera una fracción). -->
+    <record id="project_task_view_form_physical_progress" model="ir.ui.view">
+        <field name="name">project.task.form.physical.progress</field>
+        <field name="model">project.task</field>
+        <field name="inherit_id" ref="project.view_task_form2"/>
+        <field name="arch" type="xml">
+            <xpath expr="//header" position="inside">
+                <button name="action_open_progress_report" type="object" string="Report Progress" class="oe_highlight"
+                        invisible="state in ('1_done', '1_canceled')"/>
+            </xpath>
+            <xpath expr="//div[@id='date_deadline_and_recurring_task']" position="after">
+                <field name="physical_progress" widget="progressbar" readonly="1"/>
+                <field name="expected_progress" widget="progressbar" readonly="1" invisible="not date_deadline"/>
+                <!-- La diferencia puede ser negativa: número simple, en puntos. -->
+                <field name="progress_gap" readonly="1" invisible="not date_deadline"
+                       decoration-danger="progress_gap &lt; -5" decoration-success="progress_gap &gt;= 0"/>
+                <field name="progress_reported_on" readonly="1" invisible="not progress_reported_on"/>
+                <field name="progress_is_stale" readonly="1" invisible="not progress_is_stale"/>
+                <field name="progress_without_evidence" readonly="1" invisible="not progress_without_evidence"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="project_task_view_list_physical_progress" model="ir.ui.view">
+        <field name="name">project.task.list.physical.progress</field>
+        <field name="model">project.task</field>
+        <field name="inherit_id" ref="project.view_task_tree2"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='date_deadline']" position="after">
+                <field name="physical_progress" widget="progressbar" optional="show"/>
+                <field name="progress_gap" optional="show" decoration-danger="progress_gap &lt; -5"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

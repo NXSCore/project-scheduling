@@ -1,0 +1,359 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-name="project_planner.Planner">
+        <div class="o_sched_planner h-100 d-flex flex-column" tabindex="0" t-on-keydown="onKeyDown">
+            <div class="o_sched_planner_toolbar d-flex flex-wrap align-items-center gap-2 px-3 py-2 border-bottom">
+                <strong class="me-3 text-truncate" t-esc="state.project"/>
+                <button t-if="state.calendar" class="btn btn-sm btn-link text-nowrap px-1 me-2" t-on-click="openCalendar"
+                        title="Working calendar used to calculate this schedule. Non-working days are shaded.">
+                    <i class="fa fa-calendar"/> <t t-esc="state.calendar.name"/>
+                </button>
+                <div class="btn-group btn-group-sm">
+                    <button class="btn btn-secondary" t-att-class="{ active: state.zoom === 'day' }" t-on-click="() => this.setZoom('day')">Day</button>
+                    <button class="btn btn-secondary" t-att-class="{ active: state.zoom === 'week' }" t-on-click="() => this.setZoom('week')">Week</button>
+                    <button class="btn btn-secondary" t-att-class="{ active: state.zoom === 'month' }" t-on-click="() => this.setZoom('month')">Month</button>
+                    <button class="btn btn-secondary" t-att-class="{ active: state.zoom === 'quarter' }" t-on-click="() => this.setZoom('quarter')">Quarter</button>
+                    <div class="btn-group btn-group-sm">
+                        <button class="btn btn-secondary dropdown-toggle" t-att-class="{ active: ['semester', 'year'].includes(state.zoom) }"
+                                title="More scales" t-on-click="() => this.state.moreScales = !this.state.moreScales">
+                            <t t-if="state.zoom === 'semester'">Semester</t><t t-elif="state.zoom === 'year'">Year</t><t t-else="">⋯</t>
+                        </button>
+                        <div t-if="state.moreScales" class="dropdown-menu show">
+                            <button class="dropdown-item" t-on-click="() => this.chooseScale('semester')">Semester</button>
+                            <button class="dropdown-item" t-on-click="() => this.chooseScale('year')">Year</button>
+                        </div>
+                    </div>
+                </div>
+                <button class="btn btn-sm btn-secondary" t-on-click="fitProject" title="Fit the whole project in the window"><i class="fa fa-arrows-h"/> Fit</button>
+                <button class="btn btn-sm btn-secondary" t-on-click="scrollToToday">Today</button>
+                <button t-if="state.projectId" class="btn btn-sm btn-secondary" t-on-click="openHealth" title="Check the schedule with the DCMA 14-point assessment"><i class="fa fa-heartbeat"/> Health</button>
+                <button t-if="state.projectId" class="btn btn-sm btn-secondary" t-on-click="openLookahead" title="What runs or starts in the coming weeks, and the critical and near-critical tasks"><i class="fa fa-list-ol"/> Look-ahead</button>
+                <span class="text-muted small ms-2">Ctrl + wheel: zoom</span>
+                <div t-if="state.editable" class="btn-group btn-group-sm ms-2">
+                    <button class="btn btn-secondary" title="Undo (Ctrl+Z)" t-att-disabled="!state.canUndo or state.saving" t-on-click="undo"><i class="fa fa-undo"/></button>
+                    <button class="btn btn-secondary" title="Redo (Ctrl+Y)" t-att-disabled="!state.canRedo or state.saving" t-on-click="redo"><i class="fa fa-repeat"/></button>
+                    <button class="btn btn-primary" title="Calculate the schedule: working calendar, links and date constraints. Shows the changes before applying them." t-on-click="calculate"><i class="fa fa-calculator"/> Calculate</button>
+                    <button class="btn btn-secondary" title="Insert a task above (Insert)" t-on-click="() => this.structure('insert')"><i class="fa fa-plus"/></button>
+                    <button class="btn btn-secondary" title="Delete (Del)" t-on-click="() => this.structure('delete')"><i class="fa fa-trash"/></button>
+                    <button class="btn btn-secondary" title="Outdent (Alt+Shift+←)" t-on-click="() => this.structure('outdent')"><i class="fa fa-outdent"/></button>
+                    <button class="btn btn-secondary" title="Indent (Alt+Shift+→)" t-on-click="() => this.structure('indent')"><i class="fa fa-indent"/></button>
+                    <button class="btn btn-secondary" title="Move up (Alt+Shift+↑)" t-on-click="() => this.structure('up')"><i class="fa fa-arrow-up"/></button>
+                    <button class="btn btn-secondary" title="Move down (Alt+Shift+↓)" t-on-click="() => this.structure('down')"><i class="fa fa-arrow-down"/></button>
+                </div>
+                <!-- Buscar y filtrar. Se ven las que cumplen, con sus resúmenes. -->
+                <input type="search" class="form-control form-control-sm o_sched_search" placeholder="Search task or WBS…"
+                       t-att-value="state.filters.text" t-on-input="(ev) => this.setFilter('text', ev.target.value)"/>
+                <div class="position-relative">
+                    <button class="btn btn-sm" t-att-class="activeFilterCount ? 'btn-primary' : 'btn-secondary'" title="Filter the tasks"
+                            t-on-click="() => this.state.filtersMenu = !this.state.filtersMenu">
+                        <i class="fa fa-filter"/> Filters<t t-if="activeFilterCount"> (<t t-esc="activeFilterCount"/>)</t>
+                    </button>
+                    <div t-if="state.filtersMenu" class="dropdown-menu show p-2 o_sched_filters_menu">
+                        <label class="form-label small mb-1">Assignee</label>
+                        <select class="form-select form-select-sm mb-2" t-on-change="(ev) => this.setFilter('user', ev.target.value)">
+                            <option value="" t-att-selected="!state.filters.user">All</option>
+                            <t t-foreach="assigneeNames" t-as="n" t-key="n">
+                                <option t-att-value="n" t-att-selected="state.filters.user === n" t-esc="n"/>
+                            </t>
+                        </select>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="sched_f_critical" t-att-checked="state.filters.critical"
+                                   t-on-change="(ev) => this.setFilter('critical', ev.target.checked)"/>
+                            <label class="form-check-label" for="sched_f_critical">Critical path only</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="sched_f_late" t-att-checked="state.filters.late"
+                                   t-on-change="(ev) => this.setFilter('late', ev.target.checked)"/>
+                            <label class="form-check-label" for="sched_f_late" title="Should have finished and has no actual finish">Late tasks only</label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="checkbox" id="sched_f_ms" t-att-checked="state.filters.milestones"
+                                   t-on-change="(ev) => this.setFilter('milestones', ev.target.checked)"/>
+                            <label class="form-check-label" for="sched_f_ms">Milestones only</label>
+                        </div>
+                        <label class="form-label small mb-1">Tasks between</label>
+                        <div class="d-flex gap-1 mb-2">
+                            <input type="date" class="form-control form-control-sm" t-att-value="state.filters.from"
+                                   t-on-change="(ev) => this.setFilter('from', ev.target.value)"/>
+                            <input type="date" class="form-control form-control-sm" t-att-value="state.filters.to"
+                                   t-on-change="(ev) => this.setFilter('to', ev.target.value)"/>
+                        </div>
+                        <button class="btn btn-link btn-sm p-0" t-on-click="clearFilters">Clear filters</button>
+                    </div>
+                </div>
+                <button class="btn btn-sm btn-secondary ms-2" t-att-class="{ active: state.showFloat }"
+                        title="Show or hide the float band: how far each task can slip without delaying the project"
+                        t-on-click="toggleFloatBand"><i class="fa fa-long-arrow-right"/> Float</button>
+                <div t-if="comparable.length" class="position-relative ms-2">
+                    <button class="btn btn-sm btn-secondary" t-att-class="{ active: state.compare.length }"
+                            title="Compare the current baseline with up to two earlier versions"
+                            t-on-click="() => this.state.baselinesMenu = !this.state.baselinesMenu"><i class="fa fa-clone"/> Baselines</button>
+                    <div t-if="state.baselinesMenu" class="dropdown-menu show p-2 o_sched_columns_menu">
+                        <div t-if="currentBaseline" class="d-flex align-items-center gap-2 py-1 text-muted">
+                            <span class="o_sched_swatch" t-attf-style="background: {{ baselineColor }}"/>
+                            <span class="text-nowrap">Current: <t t-esc="currentBaseline.name"/></span>
+                        </div>
+                        <div class="small text-muted py-1">Compare with (up to two):</div>
+                        <t t-foreach="comparable" t-as="b" t-key="b.id">
+                            <label class="d-flex align-items-center gap-2 py-1">
+                                <input type="checkbox" class="form-check-input mt-0" t-att-checked="state.compare.includes(b.id)"
+                                       t-att-disabled="!state.compare.includes(b.id) and state.compare.length &gt;= 2"
+                                       t-on-change="() => this.toggleCompare(b.id)"/>
+                                <span t-if="state.compare.includes(b.id)" class="o_sched_swatch" t-attf-style="background: {{ compareColor(b.id) }}"/>
+                                <span class="text-nowrap" t-esc="b.name"/>
+                            </label>
+                        </t>
+                    </div>
+                </div>
+                <div class="position-relative ms-2">
+                    <button class="btn btn-sm btn-secondary" title="Choose and order the table columns"
+                            t-on-click="() => this.state.columnsMenu = !this.state.columnsMenu"><i class="fa fa-columns"/> Columns</button>
+                    <div t-if="state.columnsMenu" class="dropdown-menu show p-2 o_sched_columns_menu">
+                        <t t-foreach="columnDefs" t-as="col" t-key="col.key">
+                            <div class="d-flex align-items-center gap-1 py-1">
+                                <input type="checkbox" class="form-check-input mt-0" t-att-checked="state.columns.includes(col.key)"
+                                       t-att-disabled="col.fixed" t-on-change="() => this.toggleColumn(col.key)"/>
+                                <span class="flex-grow-1 text-nowrap" t-esc="col.label"/>
+                                <t t-if="state.columns.includes(col.key)">
+                                    <button class="btn btn-link btn-sm p-0" title="Move left" t-on-click="() => this.moveColumn(col.key, -1)"><i class="fa fa-arrow-up"/></button>
+                                    <button class="btn btn-link btn-sm p-0" title="Move right" t-on-click="() => this.moveColumn(col.key, 1)"><i class="fa fa-arrow-down"/></button>
+                                </t>
+                            </div>
+                        </t>
+                        <div class="border-top mt-1 pt-1">
+                            <button class="btn btn-link btn-sm p-0" t-on-click="resetColumns">Reset columns</button>
+                        </div>
+                    </div>
+                </div>
+                <select class="form-select form-select-sm w-auto ms-2" t-on-change="(ev) => this.showLevel(ev.target.value)" title="Show outline level">
+                    <option value="0" t-att-selected="state.level === 0">All levels</option>
+                    <t t-foreach="levels.slice(0, -1)" t-as="lvl" t-key="lvl">
+                        <option t-att-value="lvl" t-att-selected="state.level === lvl">Level <t t-esc="lvl"/></option>
+                    </t>
+                </select>
+            </div>
+            <div t-if="state.loading" class="p-4 text-muted">Loading…</div>
+            <div t-else="" class="o_sched_planner_body d-flex flex-grow-1">
+                <div class="o_sched_planner_table" t-att-style="'flex-basis:' + state.tableW + 'px;width:' + state.tableW + 'px'" t-on-wheel="onTableWheel">
+                    <!-- Encabezado y filas se desplazan JUNTOS en horizontal
+                         cuando las columnas no caben en el panel. -->
+                    <div class="o_sched_planner_table_inner" t-att-style="'min-width:' + tableContentWidth + 'px'">
+                    <!-- Las columnas que el usuario eligió, en su orden. -->
+                    <div class="o_sched_planner_thead d-flex">
+                        <t t-foreach="visibleColumns" t-as="col" t-key="col.key">
+                            <!-- El borde derecho se arrastra para cambiar el ancho;
+                                 doble clic lo devuelve al de fábrica. -->
+                            <div class="o_sched_th" t-att-class="(col.key === 'name' ? 'o_sched_c_name' : 'o_sched_c') + (col.align ? ' justify-content-' + col.align : '')"
+                                 t-att-style="colStyle(col)" t-att-title="col.label">
+                                <span class="text-truncate" t-esc="col.label"/>
+                                <span class="o_sched_col_resize" title="Drag to resize · double-click to reset"
+                                      t-on-pointerdown="(ev) => this.onColResizeDown(ev, col)"
+                                      t-on-dblclick.stop="() => this.resetColumnWidth(col.key)"/>
+                            </div>
+                        </t>
+                    </div>
+                    <div class="o_sched_planner_tbody">
+                        <div t-ref="rows" class="o_sched_planner_rows">
+                            <t t-foreach="visibleSlice" t-as="row" t-key="row.t.id">
+                                <div class="o_sched_planner_row d-flex"
+                                     t-att-class="{ o_sched_selected: row.t.id === state.selected, o_sched_summary: row.t.summary, o_sched_critical: row.t.critical and !row.t.summary, o_sched_dim: !inTrace(row.t) }"
+                                     t-on-click="() => this.select(row.t)" t-on-contextmenu="(ev) => this.openMenu(row.t, ev)">
+                                    <t t-foreach="visibleColumns" t-as="col" t-key="col.key">
+                                        <t t-if="col.key === 'code'">
+                                    <div t-att-style="colStyle(col)" class="o_sched_c_code d-flex align-items-center justify-content-between">
+                                        <span t-esc="row.t.code"/>
+                                        <i class="fa fa-external-link o_sched_open" title="Open the task" t-on-click.stop="() => this.openTask(row.t)"/>
+                                    </div>
+                                        </t>
+                                        <t t-elif="col.key === 'name'">
+                                    <div class="o_sched_c_name d-flex align-items-center" t-att-style="colStyle(col) + ';padding-left:' + (6 + row.t.depth * 16) + 'px'">
+                                        <span class="o_sched_caret" t-on-click="(ev) => this.toggle(row.t, ev)">
+                                            <i t-if="row.t.summary" t-attf-class="fa fa-caret-{{ collapsed.has(row.t.id) ? 'right' : 'down' }}"/>
+                                        </span>
+                                        <i t-if="row.t.milestone" class="fa fa-diamond o_sched_ms me-1"/>
+                                        <i t-if="row.t.manual" class="fa fa-hand-paper-o o_sched_pin me-1" title="Manually scheduled: Calculate does not move it"/>
+                                        <i t-if="row.t.constraint and row.t.constraint !== 'asap'" class="fa fa-thumb-tack o_sched_pin me-1"
+                                           t-att-title="row.t.constraint_label + (row.t.constraint_date ? ': ' + fmtIso(row.t.constraint_date) : '')"/>
+                                        <t t-if="isEditing(row.t, 'name')"><t t-call="project_planner.CellInput"/></t>
+                                        <span t-else="" class="text-truncate o_sched_editable" t-esc="row.t.name" t-att-title="row.t.name"
+                                              t-on-dblclick="() => this.startEdit(row.t, 'name')"/>
+                                    </div>
+                                        </t>
+                                        <div t-else="" class="o_sched_c text-truncate"
+                                             t-att-class="(col.edit ? 'o_sched_editable ' : '') + (col.muted ? 'text-muted ' : '') + (col.align ? 'text-' + col.align : '')"
+                                             t-att-style="colStyle(col)"
+                                             t-on-dblclick="() => this.onCellDblClick(row.t, col)">
+                                            <t t-if="col.edit and isEditing(row.t, col.edit)"><t t-call="project_planner.CellInput"/></t>
+                                            <t t-else="" t-esc="cellText(row.t, col.key)"/>
+                                        </div>
+                                    </t>
+                                </div>
+                            </t>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+                <div class="o_sched_planner_splitter" t-on-pointerdown="onSplitterDown" title="Drag to resize"/>
+                <div class="o_sched_planner_timeline d-flex flex-column flex-grow-1">
+                    <canvas t-ref="header" class="o_sched_planner_header"/>
+                    <div t-ref="scroller" class="o_sched_planner_scroller flex-grow-1" t-on-scroll="onScroll" t-on-wheel="onTimelineWheel">
+                        <div class="o_sched_planner_spacer" t-att-style="'width:' + totalWidth + 'px;height:' + totalHeight + 'px'"/>
+                        <canvas t-ref="canvas" class="o_sched_planner_canvas" t-on-dblclick="onCanvasDblClick"
+                                t-on-contextmenu="onCanvasContextMenu" t-on-pointerdown="onCanvasPointerDown" t-on-pointermove="onCanvasPointerMove" t-on-pointerup="onCanvasPointerUp"/>
+                    </div>
+                </div>
+            </div>
+            <div t-if="state.menu" t-ref="menu" class="o_sched_menu dropdown-menu show shadow" t-att-style="'left:' + state.menu.x + 'px;top:' + state.menu.y + 'px'">
+                <button class="dropdown-item" t-on-click="() => this.menuAction('open')">Edit…</button>
+                <t t-if="state.editable">
+                    <div class="dropdown-divider"/>
+                    <button class="dropdown-item" t-on-click="() => this.menuAction('insert')">Insert above</button>
+                    <button class="dropdown-item" t-on-click="() => this.menuAction('insert_below')">Insert below</button>
+                    <div class="dropdown-divider"/>
+                    <button class="dropdown-item" t-on-click="() => this.menuAction('add_child')">Add subtask</button>
+                    <button class="dropdown-item" t-on-click="() => this.menuAction('add_milestone')">Add milestone</button>
+                    <button class="dropdown-item" t-on-click="() => this.menuAction('link')">Add link</button>
+                    <div class="dropdown-divider"/>
+                    <button class="dropdown-item" t-on-click="() => this.menuAction('indent')">Indent</button>
+                    <button class="dropdown-item" t-on-click="() => this.menuAction('outdent')">Outdent</button>
+                    <button class="dropdown-item" t-on-click="() => this.menuAction('up')">Move up</button>
+                    <button class="dropdown-item" t-on-click="() => this.menuAction('down')">Move down</button>
+                    <button class="dropdown-item" t-on-click="() => this.menuAction('constraint')">Date constraint…</button>
+                    <button class="dropdown-item" t-on-click="() => this.menuAction('deadline')">Deadline…</button>
+                    <button class="dropdown-item" t-on-click="() => this.menuAction('manual')">
+                        <t t-if="state.menu.manual">Schedule automatically</t><t t-else="">Schedule manually</t>
+                    </button>
+                    <button class="dropdown-item" t-on-click="() => this.menuAction('toggle_milestone')">
+                        <t t-if="state.menu.milestone">Convert to task</t><t t-else="">Convert to milestone</t>
+                    </button>
+                </t>
+                <div class="dropdown-divider"/>
+                <button class="dropdown-item" t-on-click="() => this.menuAction('trace')">Trace path</button>
+                <t t-if="state.editable">
+                    <div class="dropdown-divider"/>
+                    <button class="dropdown-item text-danger" t-on-click="() => this.menuAction('delete')">Delete</button>
+                </t>
+            </div>
+            <div t-if="state.columnsMenu" class="o_sched_menu_backdrop" t-on-click="() => this.state.columnsMenu = false"/>
+            <div t-if="state.filtersMenu" class="o_sched_menu_backdrop" t-on-click="() => this.state.filtersMenu = false"/>
+            <div t-if="state.menu" class="o_sched_menu_backdrop" t-on-click="() => this.state.menu = null" t-on-contextmenu.prevent="() => this.state.menu = null"/>
+            <div t-if="state.constraintEdit" t-ref="constraintEditor" class="o_sched_link_editor card shadow p-2" style="left:40%;top:30%;width:300px">
+                <div class="fw-bold mb-1">Date constraint · <t t-esc="state.constraintEdit.label"/></div>
+                <select class="form-select form-select-sm mb-1" t-model="state.constraintEdit.type">
+                    <t t-foreach="constraintTypes" t-as="ct" t-key="ct[0]"><option t-att-value="ct[0]" t-esc="ct[1]"/></t>
+                </select>
+                <input t-if="needsConstraintDate(state.constraintEdit.type)" class="form-control form-control-sm mb-2"
+                       placeholder="Date" t-model="state.constraintEdit.date"/>
+                <div class="d-flex gap-1">
+                    <button class="btn btn-sm btn-primary" t-on-click="saveConstraint">Save</button>
+                    <button class="btn btn-sm btn-secondary" t-on-click="() => this.state.constraintEdit = null">Cancel</button>
+                </div>
+            </div>
+            <div t-if="state.deadlineEdit" t-ref="deadlineEditor" class="o_sched_link_editor card shadow p-2" style="left:40%;top:30%;width:300px">
+                <div class="fw-bold mb-1">Deadline · <t t-esc="state.deadlineEdit.label"/></div>
+                <div class="text-muted small mb-1">It does not move the task. If the task cannot finish by then, it turns critical.</div>
+                <input class="form-control form-control-sm mb-2" placeholder="Date" t-model="state.deadlineEdit.date"/>
+                <div class="d-flex gap-1">
+                    <button class="btn btn-sm btn-primary" t-on-click="() => this.saveDeadline()">Save</button>
+                    <button class="btn btn-sm btn-outline-danger" t-on-click="() => this.saveDeadline(true)">Remove</button>
+                    <button class="btn btn-sm btn-secondary" t-on-click="() => this.state.deadlineEdit = null">Cancel</button>
+                </div>
+            </div>
+            <div t-if="state.preview" class="o_sched_preview_backdrop">
+                <div class="o_sched_preview card shadow">
+                    <div class="card-header fw-bold">Calculated schedule</div>
+                    <div class="card-body p-2">
+                        <p class="mb-2"><t t-esc="state.preview.changes.length"/> task(s) would move.
+                            <span t-if="state.preview.skipped_links" class="text-muted"> <t t-esc="state.preview.skipped_links"/> link(s) touching summary tasks were not calculated.</span></p>
+                        <div t-if="state.preview.conflicts.length" class="alert alert-warning py-1 px-2 mb-2">
+                            <div class="fw-bold">Constraints that cannot be met:</div>
+                            <div t-foreach="state.preview.conflicts" t-as="c" t-key="c.id + c.constraint">
+                                <t t-esc="c.code"/> <t t-esc="c.name"/> — <t t-esc="c.constraint"/> <t t-esc="c.date"/>
+                            </div>
+                        </div>
+                        <div class="o_sched_preview_list">
+                            <table class="table table-sm mb-0">
+                                <thead><tr><th>WBS</th><th>Task</th><th>Start</th><th/><th>Finish</th><th/><th>Why it moves</th></tr></thead>
+                                <tbody>
+                                    <tr t-foreach="state.preview.changes" t-as="c" t-key="c.id" t-att-class="{ 'fw-bold': c.summary }">
+                                        <td t-esc="c.code"/>
+                                        <td class="text-truncate" style="max-width:260px" t-esc="c.name"/>
+                                        <td class="text-muted" t-esc="fmtIso(c.old_start)"/>
+                                        <td t-esc="fmtIso(c.new_start)"/>
+                                        <td class="text-muted" t-esc="fmtIso(c.old_end)"/>
+                                        <td t-esc="fmtIso(c.new_end)"/>
+                                        <td class="text-muted small" t-esc="c.reason"/>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="card-footer d-flex gap-2 justify-content-end">
+                        <button class="btn btn-primary" t-att-disabled="!state.preview.changes.length" t-on-click="applyPreview">Apply</button>
+                        <button class="btn btn-secondary" t-on-click="() => this.state.preview = null">Cancel</button>
+                    </div>
+                </div>
+            </div>
+            <div t-if="state.linkEdit" t-ref="linkEditor" class="o_sched_link_editor card shadow p-2" t-att-style="'left:' + state.linkEdit.x + 'px;top:' + (state.linkEdit.y + 8) + 'px'">
+                <div class="fw-bold mb-1">Link <t t-esc="state.linkEdit.label"/></div>
+                <div t-if="state.linkEdit.milestone" class="small text-muted mb-1">A milestone lasts zero days: its start and finish are the same point.</div>
+                <select class="form-select form-select-sm mb-1" t-model="state.linkEdit.type">
+                    <t t-foreach="linkTypes" t-as="linkType" t-key="linkType[0]">
+                        <option t-if="state.linkEdit.allowed.includes(linkType[0])" t-att-value="linkType[0]" t-esc="linkType[1]"/>
+                    </t>
+                </select>
+                <div class="d-flex align-items-center gap-1 mb-2">
+                    <span>Lag</span>
+                    <input class="form-control form-control-sm" style="width:70px" t-model="state.linkEdit.lag"/>
+                    <label class="d-flex align-items-center gap-1 small"><input type="checkbox" t-model="state.linkEdit.elapsed"/> calendar days</label>
+                </div>
+                <div class="d-flex gap-1">
+                    <button class="btn btn-sm btn-primary" t-on-click="() => this.saveLinkEdit()">Save</button>
+                    <button class="btn btn-sm btn-danger" t-on-click="() => this.saveLinkEdit(true)">Delete</button>
+                    <button class="btn btn-sm btn-secondary" t-on-click="() => this.state.linkEdit = null">Cancel</button>
+                </div>
+            </div>
+            <div t-if="state.dragTip" class="o_sched_planner_tip" t-att-style="'left:' + (state.dragTipPos.x + 14) + 'px;top:' + (state.dragTipPos.y + 14) + 'px'" t-esc="state.dragTip"/>
+            <div class="o_sched_planner_status d-flex gap-4 px-3 py-1 border-top small text-muted">
+                <span t-if="state.pickLink" class="text-primary fw-bold">Click the task that follows (Esc to cancel)</span>
+                <span t-if="state.trace" class="text-warning fw-bold">Path traced (Esc to clear)<t t-if="state.trace.driving"> · thick: driving links · dotted: links with float</t></span>
+                <span t-if="state.compare.length" class="d-flex align-items-center gap-2">
+                    <t t-if="currentBaseline"><span class="o_sched_swatch" t-attf-style="background: {{ baselineColor }}"/><t t-esc="currentBaseline.name"/></t>
+                    <t t-foreach="state.compare" t-as="cid" t-key="cid">
+                        <span class="o_sched_swatch" t-attf-style="background: {{ compareColor(cid) }}"/><t t-esc="baselineName(cid)"/>
+                    </t>
+                </span>
+                <span t-if="state.saving"><i class="fa fa-circle-o-notch fa-spin"/> Saving…</span>
+                <span t-elif="!state.editable">Read only</span>
+                <t t-set="st" t-value="stats"/>
+                <span t-if="st.shown !== null" class="text-primary fw-bold">Showing <t t-esc="st.shown"/> of <t t-esc="st.tasks"/></span>
+                <span>Tasks: <t t-esc="st.tasks"/></span>
+                <span>Milestones: <t t-esc="st.milestones"/></span>
+                <span>Links: <t t-esc="st.links"/></span>
+                <span t-if="st.critical" class="text-danger">Critical path: <t t-esc="st.critical"/> tasks</span>
+                <span>Finish: <t t-esc="st.finish"/></span>
+            </div>
+        </div>
+    </t>
+    <t t-name="project_planner.CellInput">
+        <input class="o_sched_cell_input form-control form-control-sm" t-model="state.editing.value"
+               t-on-keydown="onEditKey" t-on-blur="commitEdit" t-on-click.stop="" t-ref="cellInput"/>
+    </t>
+
+    <t t-name="project_planner.PlannerView">
+        <div t-att-class="props.className" class="o_sched_planner_view">
+            <Layout display="props.display">
+                <t t-set-slot="control-panel-additional-actions">
+                    <CogMenu/>
+                </t>
+                <t t-set-slot="layout-actions">
+                    <SearchBar toggler="searchBarToggler"/>
+                </t>
+                <t t-set-slot="control-panel-navigation-additional">
+                    <t t-component="searchBarToggler.component" t-props="searchBarToggler.props"/>
+                </t>
+                <PlannerCore t-key="searchKey" fetch="fetch" domain="props.domain"/>
+            </Layout>
+        </div>
+    </t>
+</templates>

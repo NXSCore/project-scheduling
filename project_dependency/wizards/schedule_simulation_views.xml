@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="project_schedule_simulation_view_form" model="ir.ui.view">
+        <field name="name">project.schedule.simulation.form</field>
+        <field name="model">project.schedule.simulation</field>
+        <field name="arch" type="xml">
+            <form>
+                <p class="text-muted">Move dates or durations to see the impact on the delivery date and the critical path.
+                    Nothing is saved: reschedule the project to apply it.</p>
+                <group>
+                    <field name="project_id" readonly="1"/>
+                </group>
+                <field name="line_ids">
+                    <list editable="bottom">
+                        <field name="project_id" column_invisible="1"/>
+                        <field name="task_id" options="{'no_create': True}"/>
+                        <field name="current_start"/>
+                        <field name="new_start"/>
+                        <field name="current_duration"/>
+                        <field name="new_duration"/>
+                    </list>
+                </field>
+                <group invisible="not finish_before">
+                    <group>
+                        <field name="finish_before"/>
+                        <field name="finish_after"/>
+                        <field name="delay_days" decoration-danger="delay_days &gt; 0" decoration-success="delay_days &lt; 0"/>
+                    </group>
+                </group>
+                <field name="result_html" invisible="not finish_before"/>
+                <footer>
+                    <button name="action_simulate" type="object" string="Simulate" class="btn-primary"/>
+                    <button special="cancel" string="Close"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="project_schedule_simulation_action" model="ir.actions.act_window">
+        <field name="name">Schedule Simulation</field>
+        <field name="res_model">project.schedule.simulation</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+        <field name="binding_model_id" ref="project.model_project_project"/>
+        <field name="binding_view_types">form</field>
+    </record>
+</odoo>

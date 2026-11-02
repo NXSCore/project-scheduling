@@ -1,0 +1,263 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* project_progress
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 18.0+e-20261015\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-02 04:57+0000\n"
+"PO-Revision-Date: 2026-11-02 04:57+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: project_progress
+#: model_terms:ir.ui.view,arch_db:project_progress.project_progress_report_wizard_view_form
+msgid "Cancel"
+msgstr "Cancelar"
+
+#. module: project_progress
+#: model:ir.model.fields,field_description:project_progress.field_project_progress_report_wizard__create_uid
+msgid "Created by"
+msgstr "Creado por"
+
+#. module: project_progress
+#: model:ir.model.fields,field_description:project_progress.field_project_progress_report_wizard__create_date
+msgid "Created on"
+msgstr "Creado el"
+
+#. module: project_progress
+#: model:ir.model.fields,field_description:project_progress.field_project_progress_report_wizard__display_name
+msgid "Display Name"
+msgstr "Nombre en pantalla"
+
+#. module: project_progress
+#: model:ir.model.fields,field_description:project_progress.field_project_progress_report_wizard__evidence
+msgid "Evidence"
+msgstr "Evidencia"
+
+#. module: project_progress
+#: model:ir.model.fields,field_description:project_progress.field_project_task__expected_progress
+msgid "Expected Progress"
+msgstr "Avance esperado"
+
+#. module: project_progress
+#: model:ir.model.fields,field_description:project_progress.field_project_progress_report_wizard__evidence_filename
+msgid "File Name"
+msgstr "Nombre del archivo"
+
+#. module: project_progress
+#: model:ir.model.fields,field_description:project_progress.field_project_progress_report_wizard__id
+msgid "ID"
+msgstr ""
+
+#. module: project_progress
+#: model:ir.model.fields,help:project_progress.field_project_milestone__progress_photo_ids
+msgid "Images attached as progress evidence to the tasks of this milestone."
+msgstr "Imágenes adjuntas como evidencia de avance a las tareas de este hito."
+
+#. module: project_progress
+#: model:ir.model.fields,field_description:project_progress.field_project_task__progress_without_evidence
+msgid "Last Report Without Evidence"
+msgstr "Último reporte sin evidencia"
+
+#. module: project_progress
+#: model:ir.model.fields,field_description:project_progress.field_project_progress_report_wizard__write_uid
+msgid "Last Updated by"
+msgstr "Última actualización por"
+
+#. module: project_progress
+#: model:ir.model.fields,field_description:project_progress.field_project_progress_report_wizard__write_date
+msgid "Last Updated on"
+msgstr "Última actualización el"
+
+#. module: project_progress
+#: model:ir.model.fields,field_description:project_progress.field_project_progress_report_wizard__note
+msgid "Note"
+msgstr "Nota"
+
+#. module: project_progress
+#: model:ir.model.fields,field_description:project_progress.field_project_milestone__progress_photo_count
+msgid "Photos"
+msgstr "Fotos"
+
+#. module: project_progress
+#: model:ir.model.fields,field_description:project_progress.field_project_task__physical_progress
+msgid "Physical Progress"
+msgstr "Avance físico"
+
+#. module: project_progress
+#. odoo-python
+#: code:addons/project_progress/models/project_task.py:0
+msgid ""
+"Physical progress is reported with the document that backs it. Use the "
+"Report Progress button."
+msgstr ""
+"El avance físico se reporta con el documento que lo respalda. Usa el botón "
+"Reportar avance."
+
+#. module: project_progress
+#. odoo-python
+#: code:addons/project_progress/models/project_task.py:0
+msgid "Physical progress of %(task)s must be between 0 and 100."
+msgstr "El avance físico de %(task)s debe estar entre 0 y 100."
+
+#. module: project_progress
+#. odoo-python
+#: code:addons/project_progress/wizards/project_progress_report_wizard.py:0
+msgid "Physical progress reported: %(before)s%% → %(after)s%%."
+msgstr "Avance físico reportado: %(before)s%% → %(after)s%%."
+
+#. module: project_progress
+#: model:ir.model.fields,field_description:project_progress.field_project_progress_report_wizard__progress
+msgid "Progress (%)"
+msgstr "Avance (%)"
+
+#. module: project_progress
+#: model:ir.model.fields,field_description:project_progress.field_project_task__progress_gap
+msgid "Progress Gap"
+msgstr "Diferencia de avance"
+
+#. module: project_progress
+#: model:ir.model.fields,field_description:project_progress.field_project_task__progress_is_stale
+msgid "Progress Out of Date"
+msgstr "Avance desactualizado"
+
+#. module: project_progress
+#: model:ir.model.fields,field_description:project_progress.field_project_milestone__progress_photo_ids
+#: model_terms:ir.ui.view,arch_db:project_progress.project_milestone_view_form_progress_photos
+msgid "Progress Photos"
+msgstr "Fotos de avance"
+
+#. module: project_progress
+#. odoo-python
+#: code:addons/project_progress/models/project_milestone.py:0
+msgid "Progress Photos · %s"
+msgstr "Fotos de avance · %s"
+
+#. module: project_progress
+#: model:ir.model.fields,field_description:project_progress.field_project_task__progress_reported_on
+msgid "Progress Reported On"
+msgstr "Avance reportado el"
+
+#. module: project_progress
+#. odoo-python
+#: code:addons/project_progress/wizards/project_progress_report_wizard.py:0
+msgid "Progress evidence"
+msgstr "Evidencia del avance"
+
+#. module: project_progress
+#. odoo-python
+#: code:addons/project_progress/wizards/project_progress_report_wizard.py:0
+msgid "Progress must be between 0 and 100."
+msgstr "El avance debe estar entre 0 y 100."
+
+#. module: project_progress
+#: model:ir.model.fields,help:project_progress.field_project_task__expected_progress
+msgid "Progress this task should have today according to its planned dates."
+msgstr "Avance que esta tarea debería tener hoy según sus fechas planeadas."
+
+#. module: project_progress
+#: model:ir.model,name:project_progress.model_project_milestone
+msgid "Project Milestone"
+msgstr "Objetivo del proyecto"
+
+#. module: project_progress
+#: model:ir.actions.server,name:project_progress.ir_cron_weekly_progress_reminder_ir_actions_server
+msgid "Projects: weekly physical progress reminder"
+msgstr "Proyectos: recordatorio semanal de avance físico"
+
+#. module: project_progress
+#: model_terms:ir.ui.view,arch_db:project_progress.project_progress_report_wizard_view_form
+#: model_terms:ir.ui.view,arch_db:project_progress.project_task_view_form_physical_progress
+msgid "Report Progress"
+msgstr "Reportar avance"
+
+#. module: project_progress
+#. odoo-python
+#: code:addons/project_progress/models/project_task.py:0
+msgid "Report Progress — %(task)s"
+msgstr "Reportar avance — %(task)s"
+
+#. module: project_progress
+#: model:ir.model,name:project_progress.model_project_progress_report_wizard
+msgid "Report physical progress with its evidence"
+msgstr "Reportar el avance físico con su evidencia"
+
+#. module: project_progress
+#: model:ir.model.fields,field_description:project_progress.field_project_progress_report_wizard__previous_progress
+msgid "Reported So Far"
+msgstr "Reportado hasta ahora"
+
+#. module: project_progress
+#. odoo-python
+#: code:addons/project_progress/wizards/project_progress_report_wizard.py:0
+msgid "Reported WITHOUT supporting evidence."
+msgstr "Reportado SIN evidencia de respaldo."
+
+#. module: project_progress
+#: model:ir.model.fields,help:project_progress.field_project_progress_report_wizard__previous_progress
+#: model:ir.model.fields,help:project_progress.field_project_task__physical_progress
+msgid "Reported physical progress of this task, in percent."
+msgstr "Avance físico reportado de esta tarea, en porcentaje."
+
+#. module: project_progress
+#: model:ir.model.fields,help:project_progress.field_project_task__progress_gap
+msgid "Reported progress minus expected progress. Negative means behind."
+msgstr "Avance reportado menos avance esperado. Negativo significa atraso."
+
+#. module: project_progress
+#: model_terms:ir.ui.view,arch_db:project_progress.project_progress_report_wizard_view_form
+msgid "Site log or partial delivery that backs this progress"
+msgstr "Bitácora de obra o entrega parcial que respalda este avance"
+
+#. module: project_progress
+#: model:ir.model,name:project_progress.model_project_task
+#: model:ir.model.fields,field_description:project_progress.field_project_progress_report_wizard__task_id
+msgid "Task"
+msgstr "Tarea"
+
+#. module: project_progress
+#: model:ir.model.fields,help:project_progress.field_project_task__progress_without_evidence
+msgid ""
+"The last physical progress report of this task was made without a supporting"
+" document."
+msgstr ""
+"El último reporte de avance físico de esta tarea se hizo sin un documento "
+"que lo respalde."
+
+#. module: project_progress
+#. odoo-python
+#: code:addons/project_progress/models/project_task.py:0
+msgid ""
+"The physical progress of %(task)s has not been reported for a week. Report "
+"it with its evidence."
+msgstr ""
+"El avance físico de %(task)s no se ha reportado en una semana. Repórtalo con"
+" su evidencia."
+
+#. module: project_progress
+#. odoo-python
+#: code:addons/project_progress/wizards/project_progress_report_wizard.py:0
+msgid "This report LOWERS the progress previously recorded."
+msgstr "Este reporte REDUCE el avance registrado anteriormente."
+
+#. module: project_progress
+#. odoo-python
+#: code:addons/project_progress/models/project_task.py:0
+msgid "Weekly progress due: %(task)s"
+msgstr "Avance semanal pendiente: %(task)s"
+
+#. module: project_progress
+#: model_terms:ir.ui.view,arch_db:project_progress.project_progress_report_wizard_view_form
+msgid "What was done this week"
+msgstr "Qué se hizo esta semana"
+
+#. module: project_progress
+#: model:ir.model.fields,help:project_progress.field_project_task__progress_reported_on
+msgid "When the physical progress of this task was last reported."
+msgstr "Cuándo se reportó por última vez el avance físico de esta tarea."
