@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 {
     "name": "Project Planner",
-    "version": "19.0.1.14.0",
+    "version": "19.0.1.15.0",
     "category": "Services/Project",
     "license": "LGPL-3",
     "summary": "A Microsoft Project style planner view for Odoo project tasks.",
@@ -29,6 +29,7 @@ Depende solo de `project`, `project_planned_dates` (fecha de inicio planeada) y
     "depends": ["project", "project_planned_dates", "project_dependency"],
     "data": [
         "views/project_task_views.xml",
+        "views/project_project_views.xml",
     ],
     "assets": {
         "web.assets_backend": [
