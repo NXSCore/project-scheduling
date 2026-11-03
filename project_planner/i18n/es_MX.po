@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 19.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-02 23:01+0000\n"
-"PO-Revision-Date: 2026-11-02 23:01+0000\n"
+"POT-Creation-Date: 2026-11-03 14:59+0000\n"
+"PO-Revision-Date: 2026-11-03 14:59+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -269,6 +269,12 @@ msgstr "Ctrl + rueda: zoom"
 #: code:addons/project_planner/static/src/planner/planner.xml:0
 msgid "Current:"
 msgstr "Vigente:"
+
+#. module: project_planner
+#. odoo-javascript
+#: code:addons/project_planner/static/src/planner/planner.xml:0
+msgid "Custom"
+msgstr "Personalizada"
 
 #. module: project_planner
 #. odoo-javascript
@@ -841,6 +847,12 @@ msgstr ""
 #. module: project_planner
 #. odoo-javascript
 #: code:addons/project_planner/static/src/planner/planner.xml:0
+msgid "Show or hide the other tools"
+msgstr "Mostrar u ocultar las demás herramientas"
+
+#. module: project_planner
+#. odoo-javascript
+#: code:addons/project_planner/static/src/planner/planner.xml:0
 msgid "Show outline level"
 msgstr "Mostrar nivel de esquema"
 
@@ -953,8 +965,20 @@ msgstr "Esta restricción necesita una fecha."
 #. module: project_planner
 #. odoo-javascript
 #: code:addons/project_planner/static/src/planner/planner.xml:0
+msgid "Timescale"
+msgstr "Escala de tiempo"
+
+#. module: project_planner
+#. odoo-javascript
+#: code:addons/project_planner/static/src/planner/planner.xml:0
 msgid "Today"
 msgstr "Hoy"
+
+#. module: project_planner
+#. odoo-javascript
+#: code:addons/project_planner/static/src/planner/planner.xml:0
+msgid "Tools"
+msgstr "Herramientas"
 
 #. module: project_planner
 #. odoo-javascript
