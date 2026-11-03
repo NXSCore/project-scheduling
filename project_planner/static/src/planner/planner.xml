@@ -101,7 +101,7 @@
                 </div>
                 <button class="btn btn-sm btn-secondary ms-2 o_sched_tb_extra" t-att-class="{ active: state.showFloat }"
                         title="Show or hide the float band: how far each task can slip without delaying the project"
-                        t-on-click="toggleFloatBand"><i class="fa fa-long-arrow-right"/> Float</button>
+                        t-on-click="toggleFloatBand"><i class="fa fa-long-arrow-right"/> Float band</button>
                 <div t-if="comparable.length" class="position-relative ms-2 o_sched_tb_extra">
                     <button class="btn btn-sm btn-secondary" t-att-class="{ active: state.compare.length }"
                             title="Compare the current baseline with up to two earlier versions"

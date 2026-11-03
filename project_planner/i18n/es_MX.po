@@ -455,7 +455,7 @@ msgstr "Ajustar todo el proyecto a la ventana"
 #. module: project_planner
 #. odoo-javascript
 #: code:addons/project_planner/static/src/planner/planner.xml:0
-msgid "Float"
+msgid "Float band"
 msgstr "Holgura"
 
 #. module: project_planner
