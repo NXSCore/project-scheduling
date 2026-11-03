@@ -2,13 +2,31 @@
 <templates xml:space="preserve">
     <t t-name="project_planner.Planner">
         <div class="o_sched_planner h-100 d-flex flex-column" tabindex="0" t-on-keydown="onKeyDown">
-            <div class="o_sched_planner_toolbar d-flex flex-wrap align-items-center gap-2 px-3 py-2 border-bottom">
-                <strong class="me-3 text-truncate" t-esc="state.project"/>
-                <button t-if="state.calendar" class="btn btn-sm btn-link text-nowrap px-1 me-2" t-on-click="openCalendar"
+            <!-- En celular y tableta (`compact`) la barra muestra solo escala, Ajustar y
+                 Hoy; el resto se despliega con el botón de herramientas (o_sched_tb_extra). -->
+            <div class="o_sched_planner_toolbar d-flex flex-wrap align-items-center gap-2 px-3 py-2 border-bottom"
+                 t-att-class="{ o_sched_compact: compact, o_sched_tools_open: state.toolsOpen }">
+                <strong class="me-3 text-truncate o_sched_project_name" t-esc="state.project"/>
+                <button t-if="compact" class="btn btn-sm o_sched_tools_toggle" t-att-class="state.toolsOpen ? 'btn-primary' : 'btn-secondary'"
+                        title="Show or hide the other tools" t-on-click="() => this.state.toolsOpen = !this.state.toolsOpen">
+                    <i class="fa fa-bars"/> Tools <i t-attf-class="fa fa-caret-{{ state.toolsOpen ? 'up' : 'down' }}"/>
+                </button>
+                <button t-if="state.calendar" class="btn btn-sm btn-link text-nowrap px-1 me-2 o_sched_tb_extra" t-on-click="openCalendar"
                         title="Working calendar used to calculate this schedule. Non-working days are shaded.">
                     <i class="fa fa-calendar"/> <t t-esc="state.calendar.name"/>
                 </button>
-                <div class="btn-group btn-group-sm">
+                <!-- En pantalla chica la escala es un selector: los seis botones no caben. -->
+                <select t-if="compact" class="form-select form-select-sm w-auto o_sched_zoom_select" title="Timescale"
+                        t-on-change="(ev) => this.setZoom(ev.target.value)">
+                    <option t-if="!['day', 'week', 'month', 'quarter', 'semester', 'year'].includes(state.zoom)" value="" selected="">Custom</option>
+                    <option value="day" t-att-selected="state.zoom === 'day'">Day</option>
+                    <option value="week" t-att-selected="state.zoom === 'week'">Week</option>
+                    <option value="month" t-att-selected="state.zoom === 'month'">Month</option>
+                    <option value="quarter" t-att-selected="state.zoom === 'quarter'">Quarter</option>
+                    <option value="semester" t-att-selected="state.zoom === 'semester'">Semester</option>
+                    <option value="year" t-att-selected="state.zoom === 'year'">Year</option>
+                </select>
+                <div t-else="" class="btn-group btn-group-sm">
                     <button class="btn btn-secondary" t-att-class="{ active: state.zoom === 'day' }" t-on-click="() => this.setZoom('day')">Day</button>
                     <button class="btn btn-secondary" t-att-class="{ active: state.zoom === 'week' }" t-on-click="() => this.setZoom('week')">Week</button>
                     <button class="btn btn-secondary" t-att-class="{ active: state.zoom === 'month' }" t-on-click="() => this.setZoom('month')">Month</button>
@@ -24,12 +42,12 @@
                         </div>
                     </div>
                 </div>
-                <button class="btn btn-sm btn-secondary" t-on-click="fitProject" title="Fit the whole project in the window"><i class="fa fa-arrows-h"/> Fit</button>
-                <button class="btn btn-sm btn-secondary" t-on-click="scrollToToday">Today</button>
-                <button t-if="state.projectId" class="btn btn-sm btn-secondary" t-on-click="openHealth" title="Check the schedule with the DCMA 14-point assessment"><i class="fa fa-heartbeat"/> Health</button>
-                <button t-if="state.projectId" class="btn btn-sm btn-secondary" t-on-click="openLookahead" title="What runs or starts in the coming weeks, and the critical and near-critical tasks"><i class="fa fa-list-ol"/> Look-ahead</button>
-                <span class="text-muted small ms-2">Ctrl + wheel: zoom</span>
-                <div t-if="state.editable" class="btn-group btn-group-sm ms-2">
+                <button class="btn btn-sm btn-secondary o_sched_tb_extra" t-on-click="fitProject" title="Fit the whole project in the window"><i class="fa fa-arrows-h"/> Fit</button>
+                <button class="btn btn-sm btn-secondary o_sched_today" t-on-click="scrollToToday">Today</button>
+                <button t-if="state.projectId" class="btn btn-sm btn-secondary o_sched_tb_extra" t-on-click="openHealth" title="Check the schedule with the DCMA 14-point assessment"><i class="fa fa-heartbeat"/> Health</button>
+                <button t-if="state.projectId" class="btn btn-sm btn-secondary o_sched_tb_extra" t-on-click="openLookahead" title="What runs or starts in the coming weeks, and the critical and near-critical tasks"><i class="fa fa-list-ol"/> Look-ahead</button>
+                <span class="text-muted small ms-2 o_sched_wheel_hint">Ctrl + wheel: zoom</span>
+                <div t-if="state.editable" class="btn-group btn-group-sm ms-2 o_sched_tb_extra">
                     <button class="btn btn-secondary" title="Undo (Ctrl+Z)" t-att-disabled="!state.canUndo or state.saving" t-on-click="undo"><i class="fa fa-undo"/></button>
                     <button class="btn btn-secondary" title="Redo (Ctrl+Y)" t-att-disabled="!state.canRedo or state.saving" t-on-click="redo"><i class="fa fa-repeat"/></button>
                     <button class="btn btn-primary" title="Calculate the schedule: working calendar, links and date constraints. Shows the changes before applying them." t-on-click="calculate"><i class="fa fa-calculator"/> Calculate</button>
@@ -41,9 +59,9 @@
                     <button class="btn btn-secondary" title="Move down (Alt+Shift+↓)" t-on-click="() => this.structure('down')"><i class="fa fa-arrow-down"/></button>
                 </div>
                 <!-- Buscar y filtrar. Se ven las que cumplen, con sus resúmenes. -->
-                <input type="search" class="form-control form-control-sm o_sched_search" placeholder="Search task or WBS…"
+                <input type="search" class="form-control form-control-sm o_sched_search o_sched_tb_extra" placeholder="Search task or WBS…"
                        t-att-value="state.filters.text" t-on-input="(ev) => this.setFilter('text', ev.target.value)"/>
-                <div class="position-relative">
+                <div class="position-relative o_sched_tb_extra">
                     <button class="btn btn-sm" t-att-class="activeFilterCount ? 'btn-primary' : 'btn-secondary'" title="Filter the tasks"
                             t-on-click="() => this.state.filtersMenu = !this.state.filtersMenu">
                         <i class="fa fa-filter"/> Filters<t t-if="activeFilterCount"> (<t t-esc="activeFilterCount"/>)</t>
@@ -81,10 +99,10 @@
                         <button class="btn btn-link btn-sm p-0" t-on-click="clearFilters">Clear filters</button>
                     </div>
                 </div>
-                <button class="btn btn-sm btn-secondary ms-2" t-att-class="{ active: state.showFloat }"
+                <button class="btn btn-sm btn-secondary ms-2 o_sched_tb_extra" t-att-class="{ active: state.showFloat }"
                         title="Show or hide the float band: how far each task can slip without delaying the project"
                         t-on-click="toggleFloatBand"><i class="fa fa-long-arrow-right"/> Float</button>
-                <div t-if="comparable.length" class="position-relative ms-2">
+                <div t-if="comparable.length" class="position-relative ms-2 o_sched_tb_extra">
                     <button class="btn btn-sm btn-secondary" t-att-class="{ active: state.compare.length }"
                             title="Compare the current baseline with up to two earlier versions"
                             t-on-click="() => this.state.baselinesMenu = !this.state.baselinesMenu"><i class="fa fa-clone"/> Baselines</button>
@@ -105,7 +123,7 @@
                         </t>
                     </div>
                 </div>
-                <div class="position-relative ms-2">
+                <div class="position-relative ms-2 o_sched_tb_extra">
                     <button class="btn btn-sm btn-secondary" title="Choose and order the table columns"
                             t-on-click="() => this.state.columnsMenu = !this.state.columnsMenu"><i class="fa fa-columns"/> Columns</button>
                     <div t-if="state.columnsMenu" class="dropdown-menu show p-2 o_sched_columns_menu">
@@ -125,7 +143,7 @@
                         </div>
                     </div>
                 </div>
-                <select class="form-select form-select-sm w-auto ms-2" t-on-change="(ev) => this.showLevel(ev.target.value)" title="Show outline level">
+                <select class="form-select form-select-sm w-auto ms-2 o_sched_tb_extra" t-on-change="(ev) => this.showLevel(ev.target.value)" title="Show outline level">
                     <option value="0" t-att-selected="state.level === 0">All levels</option>
                     <t t-foreach="levels.slice(0, -1)" t-as="lvl" t-key="lvl">
                         <option t-att-value="lvl" t-att-selected="state.level === lvl">Level <t t-esc="lvl"/></option>
@@ -133,8 +151,9 @@
                 </select>
             </div>
             <div t-if="state.loading" class="p-4 text-muted">Loading…</div>
-            <div t-else="" class="o_sched_planner_body d-flex flex-grow-1">
-                <div class="o_sched_planner_table" t-att-style="'flex-basis:' + state.tableW + 'px;width:' + state.tableW + 'px'" t-on-wheel="onTableWheel">
+            <div t-else="" t-ref="body" class="o_sched_planner_body d-flex flex-grow-1">
+                <div class="o_sched_planner_table" t-att-style="'flex-basis:' + tableWidth + 'px;width:' + tableWidth + 'px'" t-on-wheel="onTableWheel"
+                     t-on-touchstart="onTableTouchStart" t-on-touchmove="onTableTouchMove">
                     <!-- Encabezado y filas se desplazan JUNTOS en horizontal
                          cuando las columnas no caben en el panel. -->
                     <div class="o_sched_planner_table_inner" t-att-style="'min-width:' + tableContentWidth + 'px'">
@@ -199,7 +218,8 @@
                     <div t-ref="scroller" class="o_sched_planner_scroller flex-grow-1" t-on-scroll="onScroll" t-on-wheel="onTimelineWheel">
                         <div class="o_sched_planner_spacer" t-att-style="'width:' + totalWidth + 'px;height:' + totalHeight + 'px'"/>
                         <canvas t-ref="canvas" class="o_sched_planner_canvas" t-on-dblclick="onCanvasDblClick"
-                                t-on-contextmenu="onCanvasContextMenu" t-on-pointerdown="onCanvasPointerDown" t-on-pointermove="onCanvasPointerMove" t-on-pointerup="onCanvasPointerUp"/>
+                                t-on-contextmenu="onCanvasContextMenu" t-on-pointerdown="onCanvasPointerDown" t-on-pointermove="onCanvasPointerMove" t-on-pointerup="onCanvasPointerUp"
+                                t-on-pointercancel="onCanvasPointerCancel"/>
                     </div>
                 </div>
             </div>
@@ -314,7 +334,7 @@
                 </div>
             </div>
             <div t-if="state.dragTip" class="o_sched_planner_tip" t-att-style="'left:' + (state.dragTipPos.x + 14) + 'px;top:' + (state.dragTipPos.y + 14) + 'px'" t-esc="state.dragTip"/>
-            <div class="o_sched_planner_status d-flex gap-4 px-3 py-1 border-top small text-muted">
+            <div class="o_sched_planner_status d-flex flex-wrap column-gap-4 row-gap-1 px-3 py-1 border-top small text-muted">
                 <span t-if="state.pickLink" class="text-primary fw-bold">Click the task that follows (Esc to cancel)</span>
                 <span t-if="state.trace" class="text-warning fw-bold">Path traced (Esc to clear)<t t-if="state.trace.driving"> · thick: driving links · dotted: links with float</t></span>
                 <span t-if="state.compare.length" class="d-flex align-items-center gap-2">

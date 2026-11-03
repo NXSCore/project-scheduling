@@ -2,7 +2,7 @@
 <templates xml:space="preserve">
     <t t-inherit="project_planner.Planner" t-inherit-mode="extension">
         <xpath expr="//button[@t-on-click='scrollToToday']" position="after">
-            <button class="btn btn-sm btn-secondary" t-on-click="openReport" title="Export the schedule to PDF"><i class="fa fa-file-pdf-o"/> Report</button>
+            <button class="btn btn-sm btn-secondary o_sched_tb_extra" t-on-click="openReport" title="Export the schedule to PDF"><i class="fa fa-file-pdf-o"/> Report</button>
         </xpath>
     </t>
 </templates>

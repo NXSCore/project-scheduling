@@ -130,3 +130,42 @@ $sched-row-h: 28px;
     border-radius: 1px;
     flex: none;
 }
+
+// Celular y tableta. La barra plegada deja solo escala, Ajustar y Hoy; el
+// resto (o_sched_tb_extra) se despliega con «Herramientas». Sin esto, la barra
+// ocupaba toda la pantalla y el cuerpo del gantt quedaba con 0 px de alto.
+.o_sched_planner {
+    .o_sched_planner_toolbar.o_sched_compact {
+        row-gap: 0.375rem !important;
+        padding-left: 0.5rem !important;
+        padding-right: 0.5rem !important;
+        .o_sched_project_name { flex: 1 0 100%; margin-right: 0 !important; }
+        // «Herramientas» va a la derecha de Hoy; lo desplegado ocupa las filas
+        // de abajo, separado por una línea.
+        .o_sched_project_name { order: -3; }
+        .o_sched_zoom_select, .o_sched_today { order: -2; }
+        .o_sched_tools_toggle { margin-left: auto; order: -1; }
+        &.o_sched_tools_open .o_sched_tb_extra { order: 1; }
+        &.o_sched_tools_open::after { content: ""; order: 0; flex: 1 0 100%; border-top: 1px solid $border-color; }
+        .o_sched_wheel_hint { display: none; }
+        &:not(.o_sched_tools_open) .o_sched_tb_extra { display: none !important; }
+        .o_sched_search { flex: 1 1 140px; width: auto; min-width: 0; }
+        .ms-2 { margin-left: 0 !important; }
+    }
+    .o_sched_planner_status > span { white-space: nowrap; }
+}
+
+@include media-breakpoint-down(lg) {
+    .o_sched_planner {
+        // La tabla no tiene barra vertical propia: el gesto vertical lo
+        // desplaza el código (onTableTouchMove); el horizontal es del navegador.
+        .o_sched_planner_table { touch-action: pan-x; }
+        // El nombre ya no exige 220 px: en un celular no cabría nada más.
+        .o_sched_c_name { min-width: 120px; }
+        // Asa del divisor más ancha para el dedo.
+        .o_sched_planner_splitter { flex-basis: 12px; }
+        // Si el contenedor no da altura (la vista en celular crece con su
+        // contenido), el gantt conserva un alto útil en vez de colapsar a 0.
+        .o_sched_planner_body { min-height: 60vh; }
+    }
+}

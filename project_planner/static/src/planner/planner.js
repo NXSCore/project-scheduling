@@ -16,6 +16,7 @@
  */
 import { Component, onMounted, onWillStart, onWillUnmount, useEffect, useRef, useState } from "@odoo/owl";
 import { useService } from "@web/core/utils/hooks";
+import { SIZES } from "@web/core/ui/ui_service";
 import { _t } from "@web/core/l10n/translation";
 import { formatDate, parseDate } from "@web/core/l10n/dates";
 import { ConfirmationDialog } from "@web/core/confirmation_dialog/confirmation_dialog";
@@ -143,6 +144,9 @@ export class PlannerCore extends Component {
         this.action = useService("action");
         this.notification = useService("notification");
         this.dialog = useService("dialog");
+        // Celular y tableta: barra compacta y tabla acotada al ancho disponible.
+        this.ui = useState(useService("ui"));
+        this.bodyRef = useRef("body");
         this.scrollerRef = useRef("scroller");
         this.canvasRef = useRef("canvas");
         this.headerRef = useRef("header");
@@ -194,6 +198,7 @@ export class PlannerCore extends Component {
             columns: this.savedColumns(), columnsMenu: false, colWidths: this.savedColumnWidths(),
             filters: { ...EMPTY_FILTERS }, filtersMenu: false,
             showFloat: this.savedFloatBand(), baselines: [], compare: [], baselinesMenu: false,
+            bodyW: 0, toolsOpen: false,
         });
         this.drag = null;
         this.frame = null;
@@ -201,6 +206,10 @@ export class PlannerCore extends Component {
         onMounted(() => {
             this.resizeObserver = new ResizeObserver(() => this.resize());
             this.resizeObserver.observe(this.scrollerRef.el);
+            // El ancho del cuerpo acota el de la tabla (ver `tableWidth`).
+            if (this.bodyRef.el) {
+                this.resizeObserver.observe(this.bodyRef.el);
+            }
             this.resize();
             this.scrollToDate(this.firstStart ?? Date.now());
         });
@@ -1312,6 +1321,19 @@ export class PlannerCore extends Component {
         this.state.dragTipPos = { x: ev.clientX, y: ev.clientY };
         this.schedule();
     }
+    /** Con el dedo, el navegador se queda el gesto para desplazar y manda
+     *  `pointercancel`: la barra vuelve a su lugar y no queda «agarrada». */
+    onCanvasPointerCancel() {
+        const d = this.drag;
+        if (!d) {
+            return;
+        }
+        this.drag = null;
+        this.state.dragTip = null;
+        d.t.s = d.s;
+        d.t.e = d.e;
+        this.schedule();
+    }
     async onCanvasPointerUp(ev) {
         const d = this.drag;
         if (!d) {
@@ -1436,10 +1458,37 @@ export class PlannerCore extends Component {
             return 640;
         }
     }
+    /** Pantalla de celular o tableta vertical (menos de 992 px). */
+    get compact() {
+        return this.ui.size <= SIZES.MD;
+    }
+    /** El ancho que de verdad ocupa la tabla: el guardado, pero sin comerse
+     *  la línea de tiempo. Con 640 px fijos, en un celular el gantt medía 0. */
+    get tableWidth() {
+        const cuerpo = this.state.bodyW;
+        if (!cuerpo) {
+            return this.state.tableW;
+        }
+        const max = Math.max(140, Math.round(cuerpo * (this.compact ? 0.45 : 0.75)));
+        return Math.min(this.state.tableW, max);
+    }
+    // En pantallas táctiles la tabla no tiene barra vertical propia: el dedo
+    // la desplaza moviendo el área de la línea de tiempo, como la rueda.
+    onTableTouchStart(ev) {
+        this.touchY = ev.touches.length === 1 ? ev.touches[0].clientY : null;
+    }
+    onTableTouchMove(ev) {
+        if (this.touchY === null || this.touchY === undefined || ev.touches.length !== 1) {
+            return;
+        }
+        const y = ev.touches[0].clientY;
+        this.scrollerRef.el.scrollTop += this.touchY - y;
+        this.touchY = y;
+    }
     onSplitterDown(ev) {
         ev.preventDefault();
         const x0 = ev.clientX;
-        const w0 = this.state.tableW;
+        const w0 = this.tableWidth;
         const max = this.scrollerRef.el.parentElement.parentElement.clientWidth * 0.75;
         const move = (e) => {
             this.state.tableW = Math.round(Math.min(max, Math.max(260, w0 + e.clientX - x0)));
@@ -1550,6 +1599,7 @@ export class PlannerCore extends Component {
             return;
         }
         this.state.count = Math.ceil(el.clientHeight / ROW_H) + 2;
+        this.state.bodyW = this.bodyRef.el?.clientWidth || 0;
         const dpr = window.devicePixelRatio || 1;
         for (const [canvas, h] of [[this.canvasRef.el, el.clientHeight], [this.headerRef.el, HEADER_H]]) {
             canvas.width = Math.floor(el.clientWidth * dpr);
